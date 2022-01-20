@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+}
+.navbar li {
+  padding: 20px;
+  display: inline;
+}
+
+.top {
+  height: 1050px;
+  width: 1400px;
+  background-image: url("images/image3.png");
+  background-repeat: no-repeat;
+}
