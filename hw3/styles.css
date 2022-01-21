@@ -54,6 +54,32 @@ body {
   text-align: center;
 }
 
-.test {
-  height: 400px;
+.services {
+  border: 2px solid black;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  /* margin-left: auto; to align one set of flex elements to the right */
+}
+.discover {
+  border: 2px solid black;
+  margin: 30px;
+  height: 580px;
+  /* width: 370px; */
+  /* background-image: url('images/flower.png'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.discover img{
+
+}
+.middle {
+  border: 2px solid black;
+  margin: 30px;
+  height: 580px;
+  width: 720px;
+  margin-left: auto;
+  background-image: url("images/image1.png");
+  background-repeat: no-repeat;
+  background-size:cover;
 }
