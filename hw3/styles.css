@@ -43,15 +43,16 @@ body {
   position: relative;
   text-align: center;
   color: white;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-/* .centered {
-    width: 565px;
-    height: 300px;
-    position: absolute;
-    top: 50%;
-    left:50%;
-} */
+.centered {
+    width:30px;
+    font-size: 50px;
+}
 
 .test {
   height: 400px;
