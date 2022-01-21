@@ -5,24 +5,29 @@ body {
 }
 
 .navbar {
-  background-color: teal;
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
   width: 1239px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .navbar a {
-  font-size: 20px;
+  font-size: 15px;
+  padding: 40px;
 }
 .navbar ul {
   list-style-type: none;
   margin-left: auto; /* separates the left and the right children */
+  text-align: center;
 }
 .navbar li {
-  padding: 20px;
+  padding: 5px;
   display: inline;
 }
 
@@ -33,4 +38,8 @@ body {
   width: 1239px;
   background-image: url("images/image3.png");
   background-repeat: no-repeat;
+}
+
+.test {
+  height: 400px;
 }
