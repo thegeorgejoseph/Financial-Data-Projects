@@ -19,6 +19,7 @@ body {
 }
 .navbar ul {
   list-style-type: none;
+  margin-left: auto; /* separates the left and the right children */
 }
 .navbar li {
   padding: 20px;
