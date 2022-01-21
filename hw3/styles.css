@@ -4,9 +4,21 @@ body {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
+.navbar {
+  background-color: teal;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 1239px;
+}
+
+.navbar a {
+  font-size: 20px;
+}
 .navbar ul {
   list-style-type: none;
-  display: flex;
 }
 .navbar li {
   padding: 20px;
@@ -14,8 +26,10 @@ body {
 }
 
 .top {
+  margin: 0;
+  padding: 0;
   height: 1050px;
-  width: 1400px;
+  width: 1239px;
   background-image: url("images/image3.png");
   background-repeat: no-repeat;
 }
