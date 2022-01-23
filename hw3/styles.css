@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -26,6 +26,8 @@ body {
 }
 
 .navbar .links {
+  /* border: 2px solid black; */
+  margin-right: 20px;
   margin-left: auto;
   display: flex;
   justify-content: center;
@@ -113,7 +115,7 @@ body {
   position: relative;
 }
 .text2wrapper .text2 {
- /* border: 2px solid black; */
+  /* border: 2px solid black; */
   position: absolute;
   text-align: center;
   top: 0;
@@ -204,46 +206,46 @@ body {
   padding: 30px;
 }
 
-.gallery-cover{
-    /* border: 2px solid green; */
-    height: 605px;
-    width: 1239px;
+.gallery-cover {
+  /* border: 2px solid green; */
+  height: 605px;
+  width: 1239px;
 }
 .gallery {
-    /* border: 2px solid black; */
-    height: 690px;
-    background-image: url('images/image2.png');
-    width: 1126px;
-    display: flex;
-    padding: 0px;
-    align-items: center;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    margin-left: 55px;
-    background-repeat: no-repeat;
-    background-size:cover;
-    /* margin-left: auto; to align one set of flex elements to the right */
-  }
+  /* border: 2px solid black; */
+  height: 690px;
+  background-image: url("images/image2.png");
+  width: 1126px;
+  display: flex;
+  padding: 0px;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  margin-left: 55px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* margin-left: auto; to align one set of flex elements to the right */
+}
 
-  .second{
-      /* border: 2px solid black; */
-      margin-right:50px;
-  }
-  
-  .footer-wrapper{
-      margin-top: 100px;
-      /* border: 2px solid black; */
-      height: 300px;
-      width: 1236px;
-      display:flex;
-      justify-content: center;
-      text-align: center;
-      align-items: center;
-  }
-  
-  .footer{
-      width: 1126px;
-      height: 200px;
-      background-color: rgb(170,149,92);
-      /* border: 2px solid green; */
-  }
+.second {
+  /* border: 2px solid black; */
+  margin-right: 50px;
+}
+
+.footer-wrapper {
+  margin-top: 100px;
+  /* border: 2px solid black; */
+  height: 300px;
+  width: 1236px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.footer {
+  width: 1126px;
+  height: 200px;
+  background-color: rgb(170, 149, 92);
+  /* border: 2px solid green; */
+}
