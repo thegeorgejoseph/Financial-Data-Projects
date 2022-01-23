@@ -68,6 +68,7 @@ body {
 .services {
   /* border: 2px solid black; */
   height: 700px;
+  width: 1239px;
   display: flex;
   padding: 30px;
   align-items: center;
@@ -145,10 +146,10 @@ body {
   margin: 30px;
   height: 580px;
   width: 720px;
-  margin-left: auto;
+  /* margin-left: auto; */
   background-image: url("images/image1.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 .testimonial {
@@ -173,7 +174,6 @@ body {
   display: flex;
   flex-flow: column nowrap;
   padding: 40px;
-  ;
 }
 
 .testimonial .textbox .quotes {
@@ -184,7 +184,7 @@ body {
 }
 .testimonial .textbox .text {
   font-size: 50px;
-  margin:2px;
+  margin: 2px;
   /* border: 2px solid black; */
   text-align: center;
 }
@@ -192,7 +192,7 @@ body {
   font-size: 15px;
   text-align: center;
   /* border: 2px solid black; */
-  padding-top:50px;
+  padding-top: 50px;
   /* align-self:flex-end */
 }
 .testimonial .rightArrow {
