@@ -230,4 +230,20 @@ body {
       margin-right:50px;
   }
   
+  .footer-wrapper{
+      margin-top: 100px;
+      /* border: 2px solid black; */
+      height: 300px;
+      width: 1236px;
+      display:flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+  }
   
+  .footer{
+      width: 1126px;
+      height: 200px;
+      background-color: rgb(170,149,92);
+      /* border: 2px solid green; */
+  }
