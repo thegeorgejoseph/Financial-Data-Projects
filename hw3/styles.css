@@ -19,16 +19,16 @@ body {
   height: 100px;
 }
 
-.navbar .main-events{
-    padding: 10px;
-    padding-left:100px;
+.navbar .main-events {
+  padding: 10px;
+  padding-left: 100px;
 }
 
-.navbar .links{
-    margin-left: auto;
-    display: flex;
-    justify-content: center;
-    flex-flow: row nowrap;
+.navbar .links {
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
 }
 .navbar a {
   font-size: 15px;
@@ -149,4 +149,55 @@ body {
   background-image: url("images/image1.png");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.testimonial {
+  /* border: 2px solid black; */
+  width: 1238px;
+  height: 500px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.testimonial .leftArrow {
+  /* border: 2px solid black; */
+  margin-right: auto;
+  font-size: 50px;
+  padding: 30px;
+}
+
+.testimonial .textbox {
+  /* border: 2px solid green; */
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 40px;
+  ;
+}
+
+.testimonial .textbox .quotes {
+  font-size: 100px;
+  text-align: center;
+  /* border: 2px solid black; */
+  /* align-self: flex-start; */
+}
+.testimonial .textbox .text {
+  font-size: 50px;
+  margin:2px;
+  /* border: 2px solid black; */
+  text-align: center;
+}
+.testimonial .textbox .byLine {
+  font-size: 15px;
+  text-align: center;
+  /* border: 2px solid black; */
+  padding-top:50px;
+  /* align-self:flex-end */
+}
+.testimonial .rightArrow {
+  /* border: 2px solid black; */
+  margin-left: auto;
+  font-size: 50px;
+  padding: 30px;
 }
