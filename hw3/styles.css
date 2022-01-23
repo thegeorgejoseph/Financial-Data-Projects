@@ -78,8 +78,8 @@ body {
 .discover {
   /* border: 2px solid black; */
   margin: 30px;
-  height: 580px;
-  width: 408px;
+  height: 500px;
+  width: 320px;
   background-image: url("images/flower.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -91,12 +91,12 @@ body {
   align-content: flex-end;
 }
 .discover .text1wrapper {
-  height: 136px;
-  width: 408px;
+  height: 125px;
+  width: 320px;
   position: relative;
 }
 .text1wrapper .text1 {
-  width: 408px;
+  width: 320px;
   position: absolute;
   text-align: center;
   bottom: 0;
@@ -104,33 +104,34 @@ body {
   font-size: 30px;
 }
 .discover .dummywrapper {
-  height: 136px;
-  width: 408px;
+  height: 125px;
+  width: 320px;
 }
 .discover .text2wrapper {
-  height: 136px;
-  width: 408px;
+  height: 125px;
+  width: 320px;
   position: relative;
 }
 .text2wrapper .text2 {
+ /* border: 2px solid black; */
   position: absolute;
   text-align: center;
   top: 0;
   color: white;
-  font-size: 30px;
-  width: 408px;
+  font-size: 20px;
+  width: 320px;
 }
 .discover .text3wrapper {
-  height: 136px;
-  width: 408px;
+  height: 125px;
+  width: 320px;
   position: relative;
   text-align: center;
 }
 .text3wrapper .text3 {
   position: absolute;
   text-align: center;
-  width: 408px;
-  height: 100px;
+  width: 320px;
+  height: 80px;
   color: white;
   display: flex;
   justify-content: center;
@@ -144,13 +145,13 @@ body {
 }
 
 .middle {
-  margin: 30px;
-  height: 580px;
-  width: 720px;
-  /* margin-left: auto; */
+  /* border: 2px solid black; */
+  margin: 80px;
+  height: 500px;
+  width: 700px;
   background-image: url("images/image1.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .testimonial {
@@ -202,3 +203,31 @@ body {
   font-size: 50px;
   padding: 30px;
 }
+
+.gallery-cover{
+    /* border: 2px solid green; */
+    height: 605px;
+    width: 1239px;
+}
+.gallery {
+    /* border: 2px solid black; */
+    height: 690px;
+    background-image: url('images/image2.png');
+    width: 1126px;
+    display: flex;
+    padding: 0px;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    margin-left: 55px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    /* margin-left: auto; to align one set of flex elements to the right */
+  }
+
+  .second{
+      /* border: 2px solid black; */
+      margin-right:50px;
+  }
+  
+  
