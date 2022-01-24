@@ -241,6 +241,7 @@ body {
   justify-content: center;
   text-align: center;
   align-items: center;
+  color: white;
 }
 
 .footer {
@@ -248,4 +249,37 @@ body {
   height: 200px;
   background-color: rgb(170, 149, 92);
   /* border: 2px solid green; */
+  display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.leftfooter{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+}
+.address{
+    /* border: 2px solid black; */
+    padding-right: 16px;
+    text-align: left;
+}
+
+.contact{
+    padding-left: 16px;
+    padding-right: 16px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    text-align: left;
+}
+.copyright {
+    padding-left: 16px;
+    /* border : 2px solid black; */
+    text-align: left;
+}
+.consult {
+    border: 1px solid white;
+    padding: 12px;
+    width: 180px;
+    height: 20px;
 }
