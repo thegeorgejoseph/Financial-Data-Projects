@@ -23,6 +23,7 @@ body {
 .navbar .main-events {
   padding: 10px;
   padding-left: 100px;
+  color: rgb(170, 149, 92);
 }
 
 .navbar .links {
@@ -36,17 +37,24 @@ body {
 .navbar a {
   font-size: 15px;
   padding: 25px;
+  text-decoration: none;
+  color: black;
+
 }
 .navbar ul {
   list-style-type: none;
   /* margin-left: auto; separates the left and the right children */
   text-align: center;
 }
+
 .navbar li {
   padding: 5px;
   display: inline;
 }
 
+#current-link{
+    color: rgb(170, 149, 92);
+}
 .top {
   margin-top: 100px;
   padding: 0;
