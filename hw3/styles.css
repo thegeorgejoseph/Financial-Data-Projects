@@ -219,6 +219,7 @@ body {
 .testimonial .textbox .quotes {
   font-size: 100px;
   text-align: center;
+  font-family: Garamond, serif;
   /* border: 2px solid black; */
   /* align-self: flex-start; */
 }
