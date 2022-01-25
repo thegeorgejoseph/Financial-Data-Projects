@@ -210,13 +210,14 @@ body {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  margin-top: -120px;
 }
 
 .testimonial .leftArrow {
   /* border: 2px solid black; */
   margin-right: auto;
   font-size: 50px;
-  padding: 30px;
+  padding: 55px;
   color: rgb(170, 149, 92);
 }
 
@@ -228,7 +229,7 @@ body {
 }
 
 .testimonial .textbox .quotes {
-  font-size: 100px;
+  font-size: 50px;
   text-align: center;
   font-family: "EB Garamond", serif;
   /* border: 2px solid black; */
@@ -258,7 +259,7 @@ body {
   /* border: 2px solid black; */
   margin-left: auto;
   font-size: 50px;
-  padding: 30px;
+  padding: 50px;
   color: rgb(170, 149, 92);
 }
 
@@ -266,7 +267,7 @@ body {
   /* border: 2px solid green; */
   height: 605px;
   width: 1239px;
-  margin-top: 150px;
+  margin-top: 10px;
 }
 .gallery {
   /* border: 2px solid black; */
