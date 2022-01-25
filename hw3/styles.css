@@ -137,21 +137,20 @@ body {
   color: white;
   font-size: 20px;
   width: 320px;
-  font-family: Garamond,serif;
+  font-family: Garamond, serif;
   letter-spacing: 5px;
   line-height: 30px;
-
 }
-#text2{
-    font-size:18px;
-    letter-spacing: 2px;
-    line-height: 30px;
-    font-weight:500;
+#text2 {
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 30px;
+  font-weight: 500;
 }
 
-#text3{
-    width: 220px;
-    font-size: 14px;
+#text3 {
+  width: 220px;
+  font-size: 14px;
 }
 
 .discover .text3wrapper {
@@ -271,7 +270,7 @@ body {
 }
 
 .footer-wrapper {
-  margin-top: 100px;
+  margin-top: 150px;
   /* border: 2px solid black; */
   height: 300px;
   width: 1236px;
