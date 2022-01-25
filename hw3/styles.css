@@ -25,7 +25,7 @@ body {
   color: rgb(170, 149, 92);
   font-family: Roboto, sans-serif;
   font-weight: 700;
-  font-size:12px;
+  font-size: 12px;
 }
 
 .navbar .links {
@@ -42,7 +42,7 @@ body {
   padding: 25px;
   text-decoration: none;
   color: black;
-  font-size:12px
+  font-size: 12px;
 }
 .navbar ul {
   list-style-type: none;
@@ -75,11 +75,13 @@ body {
 }
 
 .centered {
-  width: 400px;
-  font-size: 60px;
+  width: 600px;
+  font-size: 50px;
   text-align: center;
   font-family: "EB Garamond", serif;
-  letter-spacing: normal;
+  letter-spacing: 15px;
+  line-height: 100px;
+  /* border: 2px solid black; */
 }
 
 .services {
@@ -140,7 +142,7 @@ body {
   color: white;
   font-size: 20px;
   width: 320px;
-  font-family: Garamond, serif;
+  font-family: "EB Garamond", serif;
   letter-spacing: 5px;
   line-height: 30px;
 }
@@ -223,7 +225,7 @@ body {
 .testimonial .textbox .quotes {
   font-size: 100px;
   text-align: center;
-  font-family: Garamond, serif;
+  font-family: "EB Garamond", serif;
   /* border: 2px solid black; */
   /* align-self: flex-start; */
 }
@@ -232,7 +234,7 @@ body {
   margin: 2px;
   /* border: 2px solid black; */
   text-align: center;
-  font-family: Garamond,serif;
+  font-family: "EB Garamond", serif;
   letter-spacing: 5px;
 }
 .testimonial .textbox .byLine {
@@ -241,7 +243,7 @@ body {
   /* border: 2px solid black; */
   padding-top: 50px;
   /* align-self:flex-end */
-  font-family: Roboto,sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: 700;
   color: rgb(170, 149, 92);
   letter-spacing: 0.5px;
