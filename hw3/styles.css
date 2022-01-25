@@ -111,6 +111,7 @@ body {
   justify-content: center;
   align-items: center;
   align-content: flex-end;
+  background-position: center;
 }
 .discover .text1wrapper {
   height: 125px;
