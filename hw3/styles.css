@@ -362,7 +362,7 @@ body {
 .page2 {
   font-size: 50px;
   font-weight: 700;
-  font-family: serif;
+  font-family: "EB Garamond", serif;
   display: flex;
   flex-flow: row nowrap;
   padding: 0px;
