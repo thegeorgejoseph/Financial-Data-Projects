@@ -75,7 +75,7 @@ body {
   width: 400px;
   font-size: 60px;
   text-align: center;
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   letter-spacing: normal;
 }
 
@@ -114,7 +114,11 @@ body {
   text-align: center;
   bottom: 0;
   color: white;
-  font-size: 30px;
+  font-size: 25px;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 .discover .dummywrapper {
   height: 125px;
@@ -133,7 +137,23 @@ body {
   color: white;
   font-size: 20px;
   width: 320px;
+  font-family: Garamond,serif;
+  letter-spacing: 5px;
+  line-height: 30px;
+
 }
+#text2{
+    font-size:18px;
+    letter-spacing: 2px;
+    line-height: 30px;
+    font-weight:500;
+}
+
+#text3{
+    width: 220px;
+    font-size: 14px;
+}
+
 .discover .text3wrapper {
   height: 125px;
   width: 320px;
@@ -148,13 +168,19 @@ body {
   color: white;
   display: flex;
   justify-content: center;
+  /* padding: 30px; */
+  /* border: 2px solid black; */
 }
 .text3 .box {
   border: 1px solid white;
-  width: 200px;
+  width: 150px;
   height: 20px;
   text-align: center;
   padding: 10px;
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.25px;
 }
 
 .middle {
@@ -275,6 +301,11 @@ body {
   /* border: 2px solid black; */
   padding-right: 16px;
   text-align: left;
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .contact {
@@ -283,15 +314,28 @@ body {
   border-left: 1px solid white;
   border-right: 1px solid white;
   text-align: left;
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 16px;
 }
 .copyright {
   padding-left: 16px;
   /* border : 2px solid black; */
   text-align: left;
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 16px;
 }
 .consult {
   border: 1px solid white;
   padding: 12px;
-  width: 180px;
+  width: 160px;
   height: 20px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
 }
