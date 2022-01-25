@@ -16,7 +16,7 @@ body {
   top: 0;
   left: 0;
   z-index: 2;
-  height: 100px;
+  height: 80px;
 }
 
 .navbar .main-events {
@@ -56,7 +56,7 @@ body {
   color: rgb(170, 149, 92);
 }
 .top {
-  margin-top: 100px;
+  margin-top: 80px;
   padding: 0;
   height: 1050px;
   width: 1239px;
