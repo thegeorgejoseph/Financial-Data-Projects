@@ -264,7 +264,7 @@ body {
   margin-top: 150px;
 }
 .gallery {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   height: 620px;
   background-image: url("images/image2.png");
   width: 1126px;
@@ -286,7 +286,7 @@ body {
 }
 
 .footer-wrapper {
-  margin-top: 150px;
+  margin-top: 65px;
   /* border: 2px solid black; */
   height: 300px;
   width: 1236px;
