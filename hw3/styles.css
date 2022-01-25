@@ -359,4 +359,13 @@ body {
 font-size: 50px;
 font-weight: 700;
 font-family: Roboto,sans-serif;
+display: flex;
+flex-flow: row nowrap;
+padding: 0px;
+justify-content: space-between;
+align-items: flex-start;
+}
+
+.page2 .ptags p{
+margin-bottom: 1000px;
 }
