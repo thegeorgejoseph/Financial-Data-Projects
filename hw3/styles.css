@@ -207,6 +207,7 @@ body {
   margin-right: auto;
   font-size: 50px;
   padding: 30px;
+  color: rgb(170, 149, 92);
 }
 
 .testimonial .textbox {
@@ -224,10 +225,12 @@ body {
   /* align-self: flex-start; */
 }
 .testimonial .textbox .text {
-  font-size: 50px;
+  font-size: 40px;
   margin: 2px;
   /* border: 2px solid black; */
   text-align: center;
+  font-family: Garamond,serif;
+  letter-spacing: 5px;
 }
 .testimonial .textbox .byLine {
   font-size: 15px;
@@ -235,12 +238,18 @@ body {
   /* border: 2px solid black; */
   padding-top: 50px;
   /* align-self:flex-end */
+  font-family: Roboto,sans-serif;
+  font-weight: 700;
+  color: rgb(170, 149, 92);
+  letter-spacing: 0.5px;
+  font-size: 15px;
 }
 .testimonial .rightArrow {
   /* border: 2px solid black; */
   margin-left: auto;
   font-size: 50px;
   padding: 30px;
+  color: rgb(170, 149, 92);
 }
 
 .gallery-cover {
