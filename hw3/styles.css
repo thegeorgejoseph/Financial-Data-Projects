@@ -89,7 +89,7 @@ body {
 }
 
 .services {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   height: 700px;
   width: 1239px;
   display: flex;
@@ -204,7 +204,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   box-sizing: border-box;
-  margin-right: 32px;
+  margin-right: 30px;
 }
 
 .testimonial {
@@ -215,7 +215,6 @@ body {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  margin-top: -120px;
   box-sizing:border-box;
 }
 
@@ -223,7 +222,7 @@ body {
   /* border: 2px solid black; */
   margin-right: auto;
   font-size: 50px;
-  padding: 55px;
+  padding: 60px;
   color: rgb(170, 149, 92);
 }
 
@@ -265,7 +264,7 @@ body {
   /* border: 2px solid black; */
   margin-left: auto;
   font-size: 50px;
-  padding: 50px;
+  padding: 60px;
   color: rgb(170, 149, 92);
 }
 
@@ -279,7 +278,7 @@ body {
   /* border: 2px solid black; */
   height: 620px;
   background-image: url("images/image2.png");
-  width: 1126px;
+  width: 1115px;
   display: flex;
   padding-left: 7px;
   align-items: center;
@@ -311,7 +310,7 @@ body {
 }
 
 .footer {
-  width: 1126px;
+  width: 1115px;
   height: 200px;
   background-color: rgb(170, 149, 92);
   /* border: 2px solid green; */
