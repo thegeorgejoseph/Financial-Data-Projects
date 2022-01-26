@@ -89,12 +89,13 @@ body {
 }
 
 .services {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   height: 700px;
   width: 1239px;
   display: flex;
   padding: 30px;
   align-items: center;
+  box-sizing: border-box;
   /* margin-left: auto; to align one set of flex elements to the right */
 }
 .discover {
@@ -112,6 +113,8 @@ body {
   align-items: center;
   align-content: flex-end;
   background-position: center;
+  margin-left:30px;
+  box-sizing: border-box;
 }
 .discover .text1wrapper {
   height: 125px;
@@ -196,10 +199,12 @@ body {
   /* border: 2px solid black; */
   margin: 80px;
   height: 500px;
-  width: 700px;
+  width: 800px;
   background-image: url("images/image1.png");
   background-repeat: no-repeat;
   background-size: cover;
+  box-sizing: border-box;
+  margin-right: 32px;
 }
 
 .testimonial {
@@ -211,6 +216,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: -120px;
+  box-sizing:border-box;
 }
 
 .testimonial .leftArrow {
@@ -275,7 +281,7 @@ body {
   background-image: url("images/image2.png");
   width: 1126px;
   display: flex;
-  padding: 0px;
+  padding-left: 7px;
   align-items: center;
   flex-direction: row-reverse;
   justify-content: flex-start;
@@ -283,6 +289,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  box-sizing: border-box;
   /* margin-left: auto; to align one set of flex elements to the right */
 }
 
@@ -312,6 +319,7 @@ body {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-around;
+  box-sizing: border-box;
 }
 .leftfooter {
   display: flex;
