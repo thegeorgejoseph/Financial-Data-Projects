@@ -113,7 +113,7 @@ body {
   align-items: center;
   align-content: flex-end;
   background-position: center;
-  margin-left:30px;
+  margin-left: 30px;
   box-sizing: border-box;
 }
 .discover .text1wrapper {
@@ -215,7 +215,7 @@ body {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 .testimonial .leftArrow {
@@ -311,19 +311,23 @@ body {
 
 .footer {
   width: 1115px;
-  height: 200px;
+  height: 180px;
   background-color: rgb(170, 149, 92);
   /* border: 2px solid green; */
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   box-sizing: border-box;
 }
 .leftfooter {
+  /* border: 2px solid black; */
+  width:744px;
+  height:180px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  align-items: center;
 }
 .address {
   /* border: 2px solid black; */
@@ -334,6 +338,7 @@ body {
   line-height: 16px;
   font-weight: 700;
   letter-spacing: 0.5px;
+  height: 56px;
 }
 
 .contact {
@@ -347,6 +352,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.5px;
   line-height: 16px;
+  /* border : 2px solid black; */
 }
 .copyright {
   padding-left: 16px;
@@ -357,6 +363,15 @@ body {
   font-weight: 700;
   letter-spacing: 0.5px;
   line-height: 16px;
+  height: 50px;
+}
+.rightfooter{
+    /* border: 2px solid green; */
+    width: 371px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .consult {
   border: 1px solid white;
@@ -366,6 +381,7 @@ body {
   font-family: Roboto, sans-serif;
   font-size: 12px;
   font-weight: 700;
+  margin-right: 75px;
 }
 
 .page2 {
