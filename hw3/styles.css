@@ -376,12 +376,12 @@ body {
 .consult {
   border: 1px solid white;
   padding: 12px;
-  width: 160px;
+  width: 180px;
   height: 20px;
   font-family: Roboto, sans-serif;
   font-size: 12px;
   font-weight: 700;
-  margin-right: 75px;
+  margin-right: 95px;
 }
 
 .page2 {
