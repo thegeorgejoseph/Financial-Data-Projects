@@ -193,6 +193,8 @@ body {
   font-family: Roboto, sans-serif;
   font-weight: 700;
   letter-spacing: 0.25px;
+  user-select: none;
+  cursor: default;
 }
 
 .middle {
@@ -216,7 +218,7 @@ body {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  margin-top:-100px;
+  margin-top: -100px;
 }
 
 .testimonial .leftArrow {
@@ -354,7 +356,7 @@ body {
   font-size: 12px;
   font-family: Roboto, sans-serif;
   line-height: 16px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.5px;
   height: 56px;
 }
@@ -367,7 +369,7 @@ body {
   text-align: left;
   font-size: 12px;
   font-family: Roboto, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.5px;
   line-height: 16px;
   /* border : 2px solid black; */
@@ -378,7 +380,7 @@ body {
   text-align: left;
   font-size: 12px;
   font-family: Roboto, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.5px;
   line-height: 16px;
   height: 50px;
@@ -400,6 +402,8 @@ body {
   font-size: 12px;
   font-weight: 700;
   margin-right: 95px;
+  user-select: none;
+  cursor: default;
 }
 
 .page2 {
