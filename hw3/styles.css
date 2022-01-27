@@ -195,22 +195,29 @@ body {
   padding: 10px;
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.25px;
   user-select: none;
   cursor: default;
 }
 
 .middle {
-  /* border: 2px solid black; */
+
+    /* border: 2px solid black; */
+    width: 700px;
+    height: 500px;
+    margin-left:60px;
+    background-image: url("images/image1.png");
+    background-size:cover;
+  /* border: 2px solid black;
   margin: 80px;
   height: 500px;
-  width: 800px;
+  width: 1000px;
   background-image: url("images/image1.png");
   background-repeat: no-repeat;
-  background-size: cover;
-  box-sizing: border-box;
-  margin-right: 30px;
+  /* background-size: cover; */
+  /* box-sizing: border-box;
+  margin-right: 30px; */ 
 }
 
 .testimonial {
@@ -404,7 +411,7 @@ body {
   height: 20px;
   font-family: Roboto, sans-serif;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   margin-right: 95px;
   user-select: none;
   cursor: default;
