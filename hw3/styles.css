@@ -89,7 +89,7 @@ body {
 }
 
 .services {
-  /* border: 2px solid black; */
+  /* border: 2px solid blue; */
   height: 700px;
   width: 1239px;
   display: flex;
@@ -216,6 +216,7 @@ body {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  margin-top:-100px;
 }
 
 .testimonial .leftArrow {
@@ -309,7 +310,7 @@ body {
 }
 
 .second {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   margin-right: 60px;
   box-sizing: border-box;
 }
