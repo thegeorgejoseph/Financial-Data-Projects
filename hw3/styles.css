@@ -270,14 +270,16 @@ body {
 
 .gallery-cover {
   /* border: 2px solid green; */
-  height: 605px;
+  height: 620px;
   width: 1239px;
   margin-top: 10px;
+  box-sizing: border-box;
 }
 .gallery {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   height: 620px;
   background-image: url("images/image2.png");
+  background-size: 1115px;
   width: 1115px;
   display: flex;
   padding-left: 7px;
@@ -286,9 +288,10 @@ body {
   justify-content: flex-start;
   margin-left: 55px;
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
   background-attachment: fixed;
   box-sizing: border-box;
+  background-position: fixed;
   /* margin-left: auto; to align one set of flex elements to the right */
 }
 
