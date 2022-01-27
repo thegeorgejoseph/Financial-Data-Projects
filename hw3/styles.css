@@ -59,6 +59,10 @@ body {
   display: inline;
 }
 
+.navbar a:hover {
+  color: rgb(170, 149, 92);
+}
+
 #current-link {
   color: rgb(170, 149, 92);
 }
