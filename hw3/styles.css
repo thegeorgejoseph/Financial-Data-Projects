@@ -270,14 +270,29 @@ body {
 
 .gallery-cover {
   /* border: 2px solid green; */
-  height: 620px;
+  /* height: 620px;
   width: 1239px;
   margin-top: 10px;
-  box-sizing: border-box;
+  display:flex;
+  justify-content: center; */
+  /* border: 2px solid black; */
+  height: 620px;
+  width: 1115px;
+  margin-left: 60px;
 }
 .gallery {
-  border: 2px solid black;
-  height: 620px;
+  box-sizing: border-box;
+  background-image: url("images/image2.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  background-size: 1239px;
+  display: flex;
+  justify-content: flex-end;
+
+  /* border: 2px solid black; */
+  /* height: 620px;
   background-image: url("images/image2.png");
   background-size: 1115px;
   width: 1115px;
@@ -286,25 +301,24 @@ body {
   align-items: center;
   flex-direction: row-reverse;
   justify-content: flex-start;
-  margin-left: 55px;
+  margin-left: 60px;
   background-repeat: no-repeat;
-  /* background-size: cover; */
   background-attachment: fixed;
-  box-sizing: border-box;
-  background-position: fixed;
+  box-sizing: border-box; */
   /* margin-left: auto; to align one set of flex elements to the right */
 }
 
 .second {
-  /* border: 2px solid black; */
-  margin-right: 50px;
+  border: 2px solid black;
+  margin-right: 60px;
+  box-sizing: border-box;
 }
 
 .footer-wrapper {
   margin-top: 65px;
   /* border: 2px solid black; */
   height: 300px;
-  width: 1236px;
+  width: 1239px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -325,8 +339,8 @@ body {
 }
 .leftfooter {
   /* border: 2px solid black; */
-  width:744px;
-  height:180px;
+  width: 744px;
+  height: 180px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -368,13 +382,13 @@ body {
   line-height: 16px;
   height: 50px;
 }
-.rightfooter{
-    /* border: 2px solid green; */
-    width: 371px;
-    height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.rightfooter {
+  /* border: 2px solid green; */
+  width: 371px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .consult {
   border: 1px solid white;
