@@ -109,3 +109,7 @@ body {
   background-color: rgb(192, 191, 191);
   cursor: pointer;
 }
+
+.hidden {
+  display: none;
+}
