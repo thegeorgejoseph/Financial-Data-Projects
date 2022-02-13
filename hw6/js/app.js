@@ -5,8 +5,17 @@ function callBackend(e) {
     mode: "cors",
   })
     .then((res) => res.json())
-    .then((data) => console.log("Success", data))
+    .then((data) => createCompanyHTML(data))
     .catch((err) => console.log("Error", err));
+}
+
+function createCompanyHTML(data) {
+  profile = data["Profile"];
+  logo = profile["logo"];
+  let companyProfile = document.getElementsByClassName("company-profile")[0];
+  let stocksSummary = document.getElementsByClassName("stocks-summary")[0];
+  companyProfile.classList.toggle("hidden");
+  stocksSummary.classList.toggle("hidden");
 }
 
 function search() {

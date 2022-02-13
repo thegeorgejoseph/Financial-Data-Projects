@@ -113,3 +113,13 @@ body {
 .hidden {
   display: none;
 }
+
+.company-profile{
+  height: 400px;
+  border: 2px solid black;
+}
+
+.stocks-summary{
+  height: 400px;
+  border: 2px solid blue;
+}
