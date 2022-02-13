@@ -31,14 +31,14 @@ body {
   cursor: pointer;
   outline: none;
   height: 40px;
-  width: 40px;
+  width: 35px;
   box-sizing: border-box;
   background-image: url("img/search-solid.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-color: white;
   border: 0.5px solid rgb(205, 205, 206);
-  background-size: 50%;
+  background-size: 30%;
   border-right: none;
   border-radius: 6px 0px 0px 6px;
   box-shadow: -1px 1px 2px 1px rgb(205, 205, 206);
@@ -52,7 +52,7 @@ body {
   border: 0.5px solid rgb(205, 205, 206);
   border-left: none;
   border-right: none;
-  font-size: 70%;
+  font-size: 95%;
   color: rgba(152, 152, 153, 0.651);
   box-shadow: 0px 1px 2px 1px rgb(205, 205, 206);
   outline: none;
@@ -61,13 +61,13 @@ body {
 .background #clear {
   box-sizing: border-box;
   height: 40px;
-  width: 40px;
+  width: 35px;
   cursor: pointer;
   background-image: url("img/times-solid.svg");
   background-position: center;
   background-repeat: no-repeat;
   border: 0.5px solid rgb(205, 205, 206);
-  background-size: 25%;
+  background-size: 30%;
   background-color: white;
   border-radius: 0px 6px 6px 0px;
   box-shadow: 1px 1px 2px 1px rgb(205, 205, 206);
@@ -78,6 +78,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* display: none; */ 
 }
 .navbar {
   height: 50px;
@@ -106,4 +107,5 @@ body {
 
 .navbar li:hover {
   background-color: rgb(192, 191, 191);
+  cursor: pointer;
 }
