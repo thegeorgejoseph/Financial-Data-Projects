@@ -44,9 +44,9 @@ def companyURL2API(TICKER):
     companyInfo["logo"] = res["logo"]
     companyInfo["Company Name"] = res["name"]
     companyInfo["Stock Ticker Symbol"] = res["ticker"]
-    companyInfo["Company IPO Date"] = res["exchange"]
+    companyInfo["IPO"] = res["ipo"]
+    companyInfo["Stock Exchange Code"] = res["exchange"]
     companyInfo["Category"] = res["finnhubIndustry"]
-    
       
     return companyInfo
 

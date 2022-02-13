@@ -1,6 +1,8 @@
+dataStore = {};
+
 function callBackend(e) {
   let text = e.value;
-  fetch(`http://10.25.102.196:81/search?text=${text}`, {
+  fetch(`http://192.168.1.170:81/search?text=${text}`, {
     method: "GET",
     mode: "cors",
   })
@@ -10,20 +12,67 @@ function callBackend(e) {
 }
 
 function createCompanyHTML(data) {
+  dataStore = data;
   profile = data["Profile"];
   logo = profile["logo"];
   let companyProfile = document.getElementsByClassName("company-profile")[0];
-  html = `<img src=${logo}>`;
-  tableEntries = ``;
-  console.log(profile);
-  for (let [key, value] in profile) {
-    console.log(key);
-    tableEntries += `<tr><th>${key}</th><th>${value}</th></tr>`;
-  }
-  html += `<table>` + tableEntries + `</table>`;
+  let stocksSummary = document.getElementById("stocks-summary");
+  companyProfile.style.display = "flex";
+  stocksSummary.style.display = "none";
+  html = `<img src=${logo} id='logo'>
+  <table><tr>
+  <th align='right'>Company Name</th><th align='left'>${profile["Company Name"]}</th></tr>
+  <tr><th align='right'>Stock Ticker Symbol</th><th align='left'>${profile["Stock Ticker Symbol"]}</th></tr>
+  <tr><th align='right'>Stock Exchange Code</th><th align='left'>${profile["Stock Exchange Code"]}</th></tr>
+  <tr><th align='right'>Company Start Date</th><th align='left'>${profile["IPO"]}</th></tr>
+  <tr><th align='right'>Category</th><th align='left'>${profile["Category"]}</th></tr></table>`;
   companyProfile.innerHTML = html;
 }
 
+function companyProfile() {
+  let wrapper = document.getElementById("dynamic-wrapper");
+  let profileElement = document.getElementById("company-profile");
+  let stocksElement = document.getElementById("stocks-summary");
+  stocksElement.style.display = "none";
+  profileElement.style.display = "flex";
+}
+function stockSummary() {
+  let wrapper = document.getElementById("dynamic-wrapper");
+  let profileElement = document.getElementById("company-profile");
+  let stocksElement = document.getElementById("stocks-summary");
+  profileElement.style.display = "none";
+  stocksElement.style.display = "flex";
+  wrapper.insertBefore(stocksElement, wrapper.firstChild);
+  summary = dataStore["Quote"];
+  redArrow = `<img src='img/RedArrowDown.png' width='10' height='10'></img>`;
+  greenArrow = `<img src='img/GreenArrowUp.png' width='10' height='10'>`;
+  html = `<table><tr><th align='right'>Stock Ticker Symbol</th><th align='left'>${
+    summary["Stock Ticker Symbol"]
+  }</th></tr>
+  <tr><th align='right'>Trading Day</th><th align='left'>${
+    summary["Trading Day"]
+  }</th></tr>
+  <tr><th align='right'>Previous Closing Price</th><th align='left'>${
+    summary["Previous Closing Price"]
+  }</th></tr>
+  <tr><th align='right'>Opening Price</th><th align='left'>${
+    summary["Opening Price"]
+  }</th></tr>
+  <tr><th align='right'>High Price</th><th align='left'>${
+    summary["High Price"]
+  }</th></tr>
+  <tr><th align='right'>Low Price</th><th align='left'>${
+    summary["Low Price"]
+  }</th></tr>
+  <tr><th align='right'>Change</th><th align='left'>${summary["Change"]}${
+    summary["Change"] < 0 ? redArrow : greenArrow
+  }</th></tr>
+  <tr><th align='right'>Change Percent</th><th align='left'>${
+    summary["Change Percent"]
+  }</th></tr>
+  </table>`;
+  stocksElement.innerHTML = html;
+}
 function search() {
   console.log("Sup");
   let obj = document.getElementById("searchBar");

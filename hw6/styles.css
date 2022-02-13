@@ -78,7 +78,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: none; */ 
+  /* display: none; */
 }
 .navbar {
   height: 50px;
@@ -114,20 +114,77 @@ body {
   display: none;
 }
 
-.dynamic-wrapper{
-  display:flex;
+.dynamic-wrapper {
+  display: flex;
   justify-content: center;
-  align-items:flex-start;
+  align-items: flex-start;
 }
-.company-profile{
+.company-profile {
   box-sizing: border-box;
   height: 600px;
   width: 1200px;
-  border: 2px solid black;
-
+  /* border: 2px solid black; */
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.stocks-summary{
-  height: 400px;
+.company-profile #logo {
+  align-self: center;
+  box-sizing: border-box;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.company-profile table {
+  align-self: center;
+  border-collapse: collapse;
+}
+
+.company-profile table th {
+  box-sizing: border-box;
+  border: 0.5px solid black;
+  width: 290px;
+  border-left: none;
+  border-right: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.stocks-summary {
+  /* display: none  in the beginning this is set to none */
   border: 2px solid blue;
+  width: 1200px;
+  height: 600px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display:none;
+}
+
+.stocks-summary table {
+  box-sizing: border-box;
+  align-self: center;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.stocks-summary table th {
+  box-sizing: border-box;
+  border: 0.5px solid black;
+  width: 290px;
+  border-left: none;
+  border-right: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.redArrowDown {
+  background: url("img/RedArrowDown.png");
+  
+  max-width: 10%;
+  max-height: 10%;
+  display: inline-block;
+  height: 10px;
 }
