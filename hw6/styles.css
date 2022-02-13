@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+}
+.background {
+  height: 300px;
+  /* width: 1400px; */
+  box-sizing: border-box;
+  /* border: 2px solid black; */
+  background-image: url("img/back.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+.background #search{
+    cursor: pointer;
+    outline: none;
+    height: 25px;
+    width: 20px;
+    box-sizing:border-box;
+    background-image: url("img/search-solid.svg");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-color: white;
+    border:0.5px solid rgb(205,205,206);
+    background-size: 50%;
+    border-right: none;
+    border-radius: 6px 0px 0px 6px;
+    box-shadow: -1px 1px 2px 1px rgb(205,205,206);
+}
+
+.background .searchBar {
+    box-sizing: border-box;
+    width: 400px;
+    height: 25px;
+    background-color: white;
+    border: 0.5px solid rgb(205,205,206);
+    border-left: none;
+    border-right: none;
+    font-size: 70%;
+    color: rgba(152, 152, 153, 0.651);
+    box-shadow: 0px 1px 2px 1px rgb(205,205,206);
+}
+
+.background #clear{
+    box-sizing: border-box;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    background-image: url("img/times-solid.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0.5px solid rgb(205,205,206);
+    background-size: 25%;
+    background-color: white;
+    border-radius: 0px 6px 6px 0px;
+    box-shadow: 1px 1px 2px 1px rgb(205,205,206);
+}
