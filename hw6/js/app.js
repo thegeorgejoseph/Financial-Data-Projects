@@ -44,9 +44,10 @@ function stockSummary() {
   stocksElement.style.display = "flex";
   wrapper.insertBefore(stocksElement, wrapper.firstChild);
   summary = dataStore["Quote"];
+  recommendation = dataStore["Recommendation"];
   redArrow = `<img src='img/RedArrowDown.png' width='10' height='10'></img>`;
   greenArrow = `<img src='img/GreenArrowUp.png' width='10' height='10'>`;
-  html = `<table><tr><th align='right'>Stock Ticker Symbol</th><th align='left'>${
+  html = `<table id="stats" ><tr><th align='right'>Stock Ticker Symbol</th><th align='left'>${
     summary["Stock Ticker Symbol"]
   }</th></tr>
   <tr><th align='right'>Trading Day</th><th align='left'>${
@@ -64,13 +65,21 @@ function stockSummary() {
   <tr><th align='right'>Low Price</th><th align='left'>${
     summary["Low Price"]
   }</th></tr>
-  <tr><th align='right'>Change</th><th align='left'>${summary["Change"]}${
+  <tr><th align='right'>Change</th><th align='left'>${summary["Change"]} ${
     summary["Change"] < 0 ? redArrow : greenArrow
   }</th></tr>
   <tr><th align='right'>Change Percent</th><th align='left'>${
     summary["Change Percent"]
-  }</th></tr>
-  </table>`;
+  } ${summary["Change Percent"] < 0 ? redArrow : greenArrow}</th></tr>
+  </table>
+  <table id="trend"><tr><th id="ss-text">Strong Sell</th><th id="ss">${
+    recommendation["strongSell"]
+  }</th><th id="s">${recommendation["sell"]}</th><th id="h">${
+    recommendation["hold"]
+  }</th><th id="b">${recommendation["buy"]}</th><th id="sb">${
+    recommendation["strongBuy"]
+  }</th><th id="sb-text">Strong Buy</th></tr></table>
+  <h3>Recommendation Trends</h3>`;
   stocksElement.innerHTML = html;
 }
 function search() {

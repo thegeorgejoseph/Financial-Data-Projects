@@ -163,14 +163,14 @@ body {
   display:none;
 }
 
-.stocks-summary table {
+.stocks-summary #stats {
   box-sizing: border-box;
   align-self: center;
   border-collapse: collapse;
   margin-top: 30px;
 }
 
-.stocks-summary table th {
+.stocks-summary #stats th {
   box-sizing: border-box;
   border: 0.5px solid black;
   width: 290px;
@@ -180,11 +180,39 @@ body {
   padding-right: 10px;
 }
 
-.redArrowDown {
-  background: url("img/RedArrowDown.png");
-  
-  max-width: 10%;
-  max-height: 10%;
-  display: inline-block;
-  height: 10px;
+.stocks-summary #trend{
+  margin-top: 20px;
+  box-sizing: border-box;
+  align-self: center;
+  border-collapse: collapse;
+}
+.stocks-summary #trend th{
+  box-sizing: border-box;
+  width:35px;
+  height:35px;
+}
+.stocks-summary #ss-text{
+  color: rgb(229,14,43); 
+}
+.stocks-summary #sb-text{
+  color: rgb(35,255,108); 
+}
+.stocks-summary #ss{
+  background-color: rgb(229,14,43);
+}
+.stocks-summary #s{
+  background-color: rgb(161,74,58);
+}
+.stocks-summary #h{
+  background-color: rgb(102,132,74);
+}
+.stocks-summary #b{
+  background-color: rgb(55,195,89);
+}
+.stocks-summary #sb{
+  background-color: rgb(35,255,108);
+}
+.stocks-summary h3 {
+  box-sizing: border-box;
+  align-self:center;
 }
