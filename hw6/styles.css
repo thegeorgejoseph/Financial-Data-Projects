@@ -114,9 +114,17 @@ body {
   display: none;
 }
 
+.dynamic-wrapper{
+  display:flex;
+  justify-content: center;
+  align-items:flex-start;
+}
 .company-profile{
-  height: 400px;
+  box-sizing: border-box;
+  height: 600px;
+  width: 1200px;
   border: 2px solid black;
+
 }
 
 .stocks-summary{

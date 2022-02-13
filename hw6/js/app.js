@@ -13,9 +13,15 @@ function createCompanyHTML(data) {
   profile = data["Profile"];
   logo = profile["logo"];
   let companyProfile = document.getElementsByClassName("company-profile")[0];
-  let stocksSummary = document.getElementsByClassName("stocks-summary")[0];
-  companyProfile.classList.toggle("hidden");
-  stocksSummary.classList.toggle("hidden");
+  html = `<img src=${logo}>`;
+  tableEntries = ``;
+  console.log(profile);
+  for (let [key, value] in profile) {
+    console.log(key);
+    tableEntries += `<tr><th>${key}</th><th>${value}</th></tr>`;
+  }
+  html += `<table>` + tableEntries + `</table>`;
+  companyProfile.innerHTML = html;
 }
 
 function search() {
