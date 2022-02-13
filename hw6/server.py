@@ -1,5 +1,6 @@
 from curses import start_color
-from flask import Flask, Request, jsonify
+from flask import Flask, Request, jsonify,request
+from flask_cors import CORS, cross_origin
 from dotenv import load_dotenv
 import os
 import json
@@ -7,7 +8,9 @@ import requests
 from dateutil.relativedelta import relativedelta
 from datetime import *
 import time
+
 app = Flask(__name__)
+CORS(app)
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
@@ -17,18 +20,21 @@ mock_ticker = "AAPL"
 response = {}
 
 @app.route("/search",methods = ['GET'])
+@cross_origin(supports_credentials=True)
 def finnhubRouter():
-    companyInfo = companyURL2API(mock_ticker)
+    ticker = request.args.get("text")
+    companyInfo = companyURL2API(ticker)
     response["Profile"] = companyInfo
-    quoteInfo = quoteAPI(mock_ticker)
+    quoteInfo = quoteAPI(ticker)
     quoteInfo["Stock Ticker Symbol"] = companyInfo["Stock Ticker Symbol"]
     response["Quote"] = quoteInfo
-    recommendationInfo = recommendationAPI(mock_ticker)
+    recommendationInfo = recommendationAPI(ticker)
     response["Recommendation"] = recommendationInfo
-    response["Charts"] = highchartsAPI(mock_ticker)
-    newsList = latestNewsAPI(mock_ticker)
+    response["Charts"] = highchartsAPI(ticker)
+    newsList = latestNewsAPI(ticker)
     response["News"] = newsList
-    return jsonify(response)
+    res = jsonify(response)
+    return res
 
 def companyURL2API(TICKER):
     addonString = f"stock/profile2?symbol={TICKER}&token={API_KEY}"
@@ -104,4 +110,4 @@ def latestNewsAPI(TICKER):
         news.append({"Image":obj["image"],"Title":obj["headline"],"Date":obj["datetime"],"Link to Original Post": obj["url"]})
     return news
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=81)
+    app.run(host="0.0.0.0", port=81,debug=True)
