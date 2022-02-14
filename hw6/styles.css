@@ -152,7 +152,7 @@ body {
 }
 .stocks-summary {
   /* display: none  in the beginning this is set to none */
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   width: 1200px;
   height: 600px;
   box-sizing: border-box;
@@ -160,7 +160,7 @@ body {
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
-  display:none;
+  display: none;
 }
 
 .stocks-summary #stats {
@@ -180,39 +180,92 @@ body {
   padding-right: 10px;
 }
 
-.stocks-summary #trend{
+.stocks-summary #trend {
   margin-top: 20px;
   box-sizing: border-box;
   align-self: center;
   border-collapse: collapse;
 }
-.stocks-summary #trend th{
+.stocks-summary #trend th {
   box-sizing: border-box;
-  width:35px;
-  height:35px;
+  width: 35px;
+  height: 35px;
 }
-.stocks-summary #ss-text{
-  color: rgb(229,14,43); 
+.stocks-summary #ss-text {
+  color: rgb(229, 14, 43);
 }
-.stocks-summary #sb-text{
-  color: rgb(35,255,108); 
+.stocks-summary #sb-text {
+  color: rgb(35, 255, 108);
 }
-.stocks-summary #ss{
-  background-color: rgb(229,14,43);
+.stocks-summary #ss {
+  background-color: rgb(229, 14, 43);
 }
-.stocks-summary #s{
-  background-color: rgb(161,74,58);
+.stocks-summary #s {
+  background-color: rgb(161, 74, 58);
 }
-.stocks-summary #h{
-  background-color: rgb(102,132,74);
+.stocks-summary #h {
+  background-color: rgb(102, 132, 74);
 }
-.stocks-summary #b{
-  background-color: rgb(55,195,89);
+.stocks-summary #b {
+  background-color: rgb(55, 195, 89);
 }
-.stocks-summary #sb{
-  background-color: rgb(35,255,108);
+.stocks-summary #sb {
+  background-color: rgb(35, 255, 108);
 }
 .stocks-summary h3 {
   box-sizing: border-box;
-  align-self:center;
+  align-self: center;
+}
+
+.latest-news {
+  border: 2px solid green;
+  box-sizing: border-box;
+  width: 1200px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: none;
+}
+
+.latest-news .card {
+  box-sizing: border-box;
+  border: 2px solid black;
+  width: 1200px;
+  height: 100px;
+  background-color: grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.latest-news .card img {
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+.latest-news .card .content {
+  box-sizing: border-box;
+  margin-left: 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.content h4 {
+  box-sizing: border-box;
+  margin: 0;
+  align-self: flex-start;
+}
+.content p {
+  box-sizing: border-box;
+  margin: 0;
+  align-self: flex-start;
+}
+.content a {
+  box-sizing: border-box;
+  margin: 0;
+  align-self: flex-start;
 }

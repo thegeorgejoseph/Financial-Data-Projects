@@ -33,14 +33,18 @@ function companyProfile() {
   let wrapper = document.getElementById("dynamic-wrapper");
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
+  let newsElement = document.getElementById("latest-news");
   stocksElement.style.display = "none";
+  newsElement.style.display = "none";
   profileElement.style.display = "flex";
 }
 function stockSummary() {
   let wrapper = document.getElementById("dynamic-wrapper");
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
+  let newsElement = document.getElementById("latest-news");
   profileElement.style.display = "none";
+  newsElement.style.display = "none";
   stocksElement.style.display = "flex";
   wrapper.insertBefore(stocksElement, wrapper.firstChild);
   summary = dataStore["Quote"];
@@ -97,4 +101,24 @@ function searchButton() {
   console.log("Search Button Clicked");
   textObj = document.getElementById("searchBar");
   callBackend(textObj);
+}
+
+function getNews() {
+  let companyElement = document.getElementById("company-profile");
+  let stocksElement = document.getElementById("stocks-summary");
+  let newsElement = document.getElementById("latest-news");
+  companyElement.style.display = "none";
+  stocksElement.style.display = "none";
+  newsElement.style.display = "flex";
+  newsList = dataStore["News"];
+  html = ``;
+  newsList.forEach((item) => {
+    date = item["Date"];
+    image = item["Image"];
+    link = item["Link to Original Post"];
+    title = item["Title"];
+    currentHtml = `<div class="card"><img src=${image} width="80" height="80"/><div class="content"><h4>${title}</h4><p>${date}</p><a href=${link}>See Original Post</a></div></div>`;
+    html += currentHtml;
+  });
+  newsElement.innerHTML = html;
 }
