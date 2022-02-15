@@ -113,15 +113,17 @@ function search() {
 
 function searchButton() {
   console.log("Search Button Clicked");
-  textObj = document.getElementById("searchBar");
+  searchObj = document.getElementById("searchBar");
+  let navbarElement = document.getElementsByClassName("nav-container")[0];
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
   let chartsElement = document.getElementById("charts");
+  navbarElement.style.display = "flex";
   stocksElement.style.display = "none";
   newsElement.style.display = "none";
   chartsElement.style.display = "none";
-  callBackend(textObj);
+  callBackend(searchObj);
 }
 
 function getNews() {
@@ -144,4 +146,19 @@ function getNews() {
     html += currentHtml;
   });
   newsElement.innerHTML = html;
+}
+
+function clearAll() {
+  let companyElement = document.getElementById("company-profile");
+  let stocksElement = document.getElementById("stocks-summary");
+  let newsElement = document.getElementById("latest-news");
+  let chartsElement = document.getElementById("charts");
+  let searchBar = document.getElementById("searchBar");
+  let navElement = document.getElementsByClassName("nav-container")[0];
+  searchBar.value = "";
+  companyElement.style.display = "none";
+  stocksElement.style.display = "none";
+  newsElement.style.display = "none";
+  chartsElement.style.display = "none";
+  navElement.style.display = "none";
 }
