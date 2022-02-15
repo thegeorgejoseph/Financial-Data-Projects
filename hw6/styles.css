@@ -218,7 +218,7 @@ body {
 }
 
 .latest-news {
-  border: 2px solid green;
+  /* border: 2px solid green; */
   box-sizing: border-box;
   width: 1200px;
   flex-direction: column;
@@ -229,10 +229,10 @@ body {
 
 .latest-news .card {
   box-sizing: border-box;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 1200px;
   height: 100px;
-  background-color: grey;
+  background-color: rgb(246, 245, 248);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -253,19 +253,24 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
 }
-
+.latest-news .card .content {
+  height: 80px;
+}
 .content h4 {
   box-sizing: border-box;
   margin: 0;
   align-self: flex-start;
+  padding: 0;
 }
 .content p {
   box-sizing: border-box;
   margin: 0;
   align-self: flex-start;
+  padding: 0;
 }
 .content a {
   box-sizing: border-box;
   margin: 0;
   align-self: flex-start;
+  padding: 0;
 }

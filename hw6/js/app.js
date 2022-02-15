@@ -2,7 +2,7 @@ dataStore = {};
 
 function callBackend(e) {
   let text = e.value;
-  fetch(`http://192.168.1.170:81/search?text=${text}`, {
+  fetch(`http://10.25.102.196:81/search?text=${text}`, {
     method: "GET",
     mode: "cors",
   })
