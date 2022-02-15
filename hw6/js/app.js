@@ -2,7 +2,7 @@ dataStore = {};
 
 function callBackend(e) {
   let text = e.value;
-  fetch(`http://10.25.102.196:81/search?text=${text}`, {
+  fetch(`http://192.168.1.170:81/search?text=${text}`, {
     method: "GET",
     mode: "cors",
   })
@@ -138,11 +138,33 @@ function getNews() {
   newsList = dataStore["News"];
   html = ``;
   newsList.forEach((item) => {
-    date = item["Date"];
-    image = item["Image"];
-    link = item["Link to Original Post"];
-    title = item["Title"];
-    currentHtml = `<div class="card"><img src=${image} width="80" height="80"/><div class="content"><h4>${title}</h4><p>${date}</p><a href=${link}>See Original Post</a></div></div>`;
+    let monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let temp_date = item["Date"];
+    let temp = new Date(parseInt(temp_date) * 1000);
+    console.log(
+      temp.getDate(),
+      monthNames[temp.getMonth()],
+      temp.getFullYear()
+    );
+    let image = item["Image"];
+    let link = item["Link to Original Post"];
+    let title = item["Title"];
+    let currentHtml = `<div class="card"><img src=${image} width="80" height="80"/><div class="content"><h4>${title}</h4><p>${temp.getDate()} ${
+      monthNames[temp.getMonth()]
+    }, ${temp.getFullYear()}</p><a href=${link}>See Original Post</a></div></div>`;
     html += currentHtml;
   });
   newsElement.innerHTML = html;
