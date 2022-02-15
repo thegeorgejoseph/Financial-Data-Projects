@@ -114,6 +114,13 @@ function search() {
 function searchButton() {
   console.log("Search Button Clicked");
   textObj = document.getElementById("searchBar");
+  let profileElement = document.getElementById("company-profile");
+  let stocksElement = document.getElementById("stocks-summary");
+  let newsElement = document.getElementById("latest-news");
+  let chartsElement = document.getElementById("charts");
+  stocksElement.style.display = "none";
+  newsElement.style.display = "none";
+  chartsElement.style.display = "none";
   callBackend(textObj);
 }
 
