@@ -21,11 +21,11 @@ function createCompanyHTML(data) {
   stocksSummary.style.display = "none";
   html = `<img src=${logo} id='logo'>
   <table><tr>
-  <th align='right'>Company Name</th><th align='left'>${profile["Company Name"]}</th></tr>
-  <tr><th align='right'>Stock Ticker Symbol</th><th align='left'>${profile["Stock Ticker Symbol"]}</th></tr>
-  <tr><th align='right'>Stock Exchange Code</th><th align='left'>${profile["Stock Exchange Code"]}</th></tr>
-  <tr><th align='right'>Company Start Date</th><th align='left'>${profile["IPO"]}</th></tr>
-  <tr><th align='right'>Category</th><th align='left'>${profile["Category"]}</th></tr></table>`;
+  <th align='right'>Company Name</th><th align='left' id="lighweight">${profile["Company Name"]}</th></tr>
+  <tr><th align='right'>Stock Ticker Symbol</th><th align='left' id="lighweight">${profile["Stock Ticker Symbol"]}</th></tr>
+  <tr><th align='right'>Stock Exchange Code</th><th align='left' id="lighweight">${profile["Stock Exchange Code"]}</th></tr>
+  <tr><th align='right'>Company Start Date</th><th align='left' id="lighweight">${profile["IPO"]}</th></tr>
+  <tr><th align='right'>Category</th><th align='left' id="lighweight">${profile["Category"]}</th></tr></table>`;
   companyProfile.innerHTML = html;
 }
 
@@ -55,38 +55,38 @@ function stockSummary() {
   recommendation = dataStore["Recommendation"];
   redArrow = `<img src='img/RedArrowDown.png' width='10' height='10'></img>`;
   greenArrow = `<img src='img/GreenArrowUp.png' width='10' height='10'>`;
-  html = `<table id="stats" ><tr><th align='right'>Stock Ticker Symbol</th><th align='left'>${
+  html = `<table id="stats" ><tr><th align='right'>Stock Ticker Symbol</th><th align='left' id="lighweight">${
     summary["Stock Ticker Symbol"]
   }</th></tr>
-  <tr><th align='right'>Trading Day</th><th align='left'>${
+  <tr><th align='right'>Trading Day</th><th align='left' id="lighweight">${
     summary["Trading Day"]
   }</th></tr>
-  <tr><th align='right'>Previous Closing Price</th><th align='left'>${
+  <tr><th align='right'>Previous Closing Price</th><th align='left' id="lighweight">${
     summary["Previous Closing Price"]
   }</th></tr>
-  <tr><th align='right'>Opening Price</th><th align='left'>${
+  <tr><th align='right'>Opening Price</th><th align='left' id="lighweight">${
     summary["Opening Price"]
   }</th></tr>
-  <tr><th align='right'>High Price</th><th align='left'>${
+  <tr><th align='right'>High Price</th><th align='left' id="lighweight">${
     summary["High Price"]
   }</th></tr>
-  <tr><th align='right'>Low Price</th><th align='left'>${
+  <tr><th align='right'>Low Price</th><th align='left' id="lighweight">${
     summary["Low Price"]
   }</th></tr>
-  <tr><th align='right'>Change</th><th align='left'>${summary["Change"]} ${
-    summary["Change"] < 0 ? redArrow : greenArrow
-  }</th></tr>
-  <tr><th align='right'>Change Percent</th><th align='left'>${
+  <tr><th align='right'>Change</th><th align='left' id="lighweight">${
+    summary["Change"]
+  } ${summary["Change"] < 0 ? redArrow : greenArrow}</th></tr>
+  <tr><th align='right'>Change Percent</th><th align='left' id="lighweight">${
     summary["Change Percent"]
   } ${summary["Change Percent"] < 0 ? redArrow : greenArrow}</th></tr>
   </table>
-  <table id="trend"><tr><th id="ss-text">Strong Sell</th><th id="ss">${
+  <table id="trend"><tr><th id="ss-text" class="lighweight">Strong Sell</th><th id="ss">${
     recommendation["strongSell"]
   }</th><th id="s">${recommendation["sell"]}</th><th id="h">${
     recommendation["hold"]
   }</th><th id="b">${recommendation["buy"]}</th><th id="sb">${
     recommendation["strongBuy"]
-  }</th><th id="sb-text">Strong Buy</th></tr></table>
+  }</th><th id="sb-text" class="lighweight">Strong Buy</th></tr></table>
   <h3>Recommendation Trends</h3>`;
   stocksElement.innerHTML = html;
 }
