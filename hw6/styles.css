@@ -274,3 +274,10 @@ body {
   align-self: flex-start;
   padding: 0;
 }
+
+.charts {
+  border: 2px solid orange;
+  width: 1200px;
+  height: 600px;
+  display: none;
+}

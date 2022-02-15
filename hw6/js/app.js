@@ -34,8 +34,10 @@ function companyProfile() {
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
+  let chartsElement = document.getElementById("charts");
   stocksElement.style.display = "none";
   newsElement.style.display = "none";
+  chartsElement.style.display = "none";
   profileElement.style.display = "flex";
 }
 function stockSummary() {
@@ -43,8 +45,10 @@ function stockSummary() {
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
+  let chartsElement = document.getElementById("charts");
   profileElement.style.display = "none";
   newsElement.style.display = "none";
+  chartsElement.style.display = "none";
   stocksElement.style.display = "flex";
   wrapper.insertBefore(stocksElement, wrapper.firstChild);
   summary = dataStore["Quote"];
@@ -86,8 +90,18 @@ function stockSummary() {
   <h3>Recommendation Trends</h3>`;
   stocksElement.innerHTML = html;
 }
+
+function getCharts() {
+  let profileElement = document.getElementById("company-profile");
+  let stocksElement = document.getElementById("stocks-summary");
+  let newsElement = document.getElementById("latest-news");
+  let chartsElement = document.getElementById("charts");
+  profileElement.style.display = "none";
+  stocksElement.style.display = "none";
+  newsElement.style.display = "none";
+  chartsElement.style.display = "flex";
+}
 function search() {
-  console.log("Sup");
   let obj = document.getElementById("searchBar");
   obj.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
@@ -107,8 +121,10 @@ function getNews() {
   let companyElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
+  let chartsElement = document.getElementById("charts");
   companyElement.style.display = "none";
   stocksElement.style.display = "none";
+  chartsElement.style.display = "none";
   newsElement.style.display = "flex";
   newsList = dataStore["News"];
   html = ``;
