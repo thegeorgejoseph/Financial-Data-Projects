@@ -151,6 +151,7 @@ body {
 .company-profile table {
   align-self: center;
   border-collapse: collapse;
+  width: 550px;
 }
 
 .company-profile table th {
@@ -180,6 +181,7 @@ body {
   align-self: center;
   border-collapse: collapse;
   margin-top: 30px;
+  width: 400px;
 }
 
 .stocks-summary #stats th {
