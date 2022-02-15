@@ -159,8 +159,8 @@ body {
   width: 290px;
   border-left: none;
   border-right: none;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding:5px;
+
 }
 .stocks-summary {
   /* display: none  in the beginning this is set to none */
@@ -188,8 +188,7 @@ body {
   width: 290px;
   border-left: none;
   border-right: none;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 5px;
 }
 
 .stocks-summary #trend {
@@ -205,9 +204,11 @@ body {
 }
 .stocks-summary #ss-text {
   color: rgb(229, 14, 43);
+  padding-right:5px;
 }
 .stocks-summary #sb-text {
   color: rgb(35, 255, 108);
+  padding-left: 5px;
 }
 .stocks-summary #ss {
   background-color: rgb(229, 14, 43);
@@ -227,6 +228,7 @@ body {
 .stocks-summary h3 {
   box-sizing: border-box;
   align-self: center;
+  font-weight: 300;
 }
 
 .latest-news {
