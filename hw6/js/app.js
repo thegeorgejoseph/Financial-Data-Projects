@@ -164,7 +164,7 @@ function getNews() {
     let title = item["Title"];
     let currentHtml = `<div class="card"><img src=${image} width="80" height="80"/><div class="content"><h4>${title}</h4><p>${temp.getDate()} ${
       monthNames[temp.getMonth()]
-    }, ${temp.getFullYear()}</p><a href=${link}>See Original Post</a></div></div>`;
+    }, ${temp.getFullYear()}</p><a href=${link} target="_blank">See Original Post</a></div></div>`;
     html += currentHtml;
   });
   newsElement.innerHTML = html;
