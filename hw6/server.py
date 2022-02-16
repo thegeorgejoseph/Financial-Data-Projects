@@ -106,8 +106,14 @@ def latestNewsAPI(TICKER):
     addonString = f"company-news?symbol={TICKER}&from={one_month_ago}&to={today}&token={API_KEY}"
     req = requests.get(BASE_URL + addonString)
     res = req.json()
+    count = 1
     for obj in res:
+        if count == 6:
+            break
+        if obj["image"] == '' or obj["headline"] == '' or obj["datetime"] == '' or obj["url"] == '':
+            continue
         news.append({"Image":obj["image"],"Title":obj["headline"],"Date":obj["datetime"],"Link to Original Post": obj["url"]})
+        count += 1
     return news
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=81,debug=True)
