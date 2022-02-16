@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <script src="js/app.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <title>Stock Search</title>
   </head>
   <body>
@@ -38,7 +39,9 @@
     <div class="dynamic-wrapper" id="dynamic-wrapper">
       <div class="company-profile" id="company-profile"></div>
       <div class="stocks-summary" id="stocks-summary"></div>
-      <div class="charts" id="charts"></div>
+      <div class="charts" id="charts">
+        <div class="charts-container"></div>
+      </div>
       <div class="latest-news" id="latest-news"></div>
     </div>
   </body>
