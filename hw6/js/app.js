@@ -2,7 +2,7 @@ dataStore = {};
 
 function callBackend(e) {
   let text = e.value;
-  fetch(`http://10.25.226.61:81/search?text=${text}`, {
+  fetch(`http://192.168.1.170:81/search?text=${text}`, {
     method: "GET",
     mode: "cors",
   })
@@ -96,10 +96,124 @@ function getCharts() {
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
   let chartsElement = document.getElementById("charts");
+  let chartsContainer = document.getElementById("charts-container");
   profileElement.style.display = "none";
   stocksElement.style.display = "none";
   newsElement.style.display = "none";
   chartsElement.style.display = "flex";
+
+  console.log("");
+  let date = dataStore["Charts"]["Date"];
+  let stockPrice = dataStore["Charts"]["Stock Price"];
+  let volume = dataStore["Charts"]["Volume"];
+
+  dateStockPrice = date.map((el, idx) => [
+    parseInt(el) * 1000,
+    stockPrice[idx],
+  ]);
+  dateVolume = date.map((el, idx) => [parseInt(el) * 1000, volume[idx]]);
+
+  Highcharts.stockChart("charts-container", {
+    title: {
+      text: "Stock Price ",
+      margin: 40,
+    },
+    subtitle: {
+      text: "Something",
+      useHTML: true,
+    },
+    yAxis: [
+      {
+        labels: {
+          align: "right",
+        },
+        title: {
+          text: "Stock Price",
+        },
+        opposite: false,
+        enabled: true,
+      },
+      {
+        labels: {
+          align: "left",
+          offset: 20,
+        },
+        title: {
+          text: "Volume",
+        },
+        opposite: true,
+        enabled: true,
+      },
+    ],
+    rangeSelector: {
+      buttons: [
+        {
+          type: "day",
+          count: 7,
+          text: "7d",
+        },
+        {
+          type: "day",
+          count: 15,
+          text: "15d",
+        },
+        {
+          type: "month",
+          count: 1,
+          text: "1m",
+        },
+        {
+          type: "month",
+          count: 3,
+          text: "3m",
+        },
+        {
+          type: "month",
+          count: 6,
+          text: "6m",
+        },
+      ],
+      selected: 4,
+      inputEnabled: false,
+    },
+    navigation: {
+      buttonOptions: {
+        enabled: true,
+      },
+    },
+    series: [
+      {
+        type: "area",
+        name: "Stock Price",
+        data: dateStockPrice,
+        fillColor: {
+          linearGradient: {
+            x1: 0,
+            y1: 0,
+            x2: 0,
+            y2: 1,
+          },
+          stops: [
+            [0, Highcharts.getOptions().colors[0]],
+            [
+              1,
+              Highcharts.color(Highcharts.getOptions().colors[0])
+                .setOpacity(0)
+                .get("rgba"),
+            ],
+          ],
+        },
+        threshold: null,
+      },
+      {
+        type: "column",
+        name: "Volume",
+        data: dateVolume,
+        yAxis: 1,
+        color: "#434348",
+      },
+    ],
+  });
 }
 function search() {
   let obj = document.getElementById("searchBar");

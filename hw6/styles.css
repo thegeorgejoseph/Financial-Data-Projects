@@ -298,3 +298,7 @@ body {
   height: 600px;
   display: none;
 }
+
+.charts-container{
+  width: 1200px;
+}
