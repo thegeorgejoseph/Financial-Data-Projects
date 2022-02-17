@@ -37,10 +37,11 @@ body {
 .background .container {
   border: 0.5px solid rgb(205, 205, 206);
   border-radius: 6px;
-  box-shadow: -1px 1px 2px 1px rgb(205,205,206);
+  box-shadow: -1px 1px 2px 1px rgb(205, 205, 206);
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 .background #search {
   cursor: pointer;
@@ -59,6 +60,7 @@ body {
   /* border-radius: 6px 0px 0px 6px; */
   /* box-shadow: -1px 1px 2px 1px rgb(205, 205, 206); */
   border: none;
+  opacity: 0.1;
 }
 
 .background .searchBar {
@@ -91,8 +93,15 @@ body {
   border: none;
   /* border-radius: 0px 6px 6px 0px; */
   /* box-shadow: 1px 1px 2px 1px rgb(205, 205, 206); */
+  opacity: 0.1;
 }
 
+#clear:hover {
+  opacity: 0.5;
+}
+#search:hover {
+  opacity: 0.5;
+}
 .nav-container {
   /* border: 2px solid black; */
   display: flex;
