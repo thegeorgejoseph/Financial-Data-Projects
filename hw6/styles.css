@@ -4,10 +4,10 @@ body {
   overflow-x: hidden;
   font-family: sans-serif;
 }
-#lighweight{
+#lighweight {
   font-weight: 100;
 }
-.lighweight{
+.lighweight {
   font-weight: 100;
 }
 .header {
@@ -35,6 +35,9 @@ body {
 }
 
 .background .container {
+  border: 0.5px solid rgb(205, 205, 206);
+  border-radius: 6px;
+  box-shadow: -1px 1px 2px 1px rgb(205,205,206);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,12 +51,14 @@ body {
   background-image: url("img/search-solid.svg");
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 6px;
   background-color: white;
-  border: 0.5px solid rgb(205, 205, 206);
+  /* border: 0.5px solid rgb(205, 205, 206); */
   background-size: 30%;
-  border-right: none;
-  border-radius: 6px 0px 0px 6px;
-  box-shadow: -1px 1px 2px 1px rgb(205, 205, 206);
+  /* border-right: none; */
+  /* border-radius: 6px 0px 0px 6px; */
+  /* box-shadow: -1px 1px 2px 1px rgb(205, 205, 206); */
+  border: none;
 }
 
 .background .searchBar {
@@ -61,12 +66,13 @@ body {
   width: 600px;
   height: 40px;
   background-color: white;
-  border: 0.5px solid rgb(205, 205, 206);
-  border-left: none;
-  border-right: none;
+  /* border: 0.5px solid rgb(205, 205, 206); */
+  /* border-left: none; */
+  /* border-right: none; */
   font-size: 95%;
   color: rgba(152, 152, 153, 0.651);
-  box-shadow: 0px 1px 2px 1px rgb(205, 205, 206);
+  /* box-shadow: 0px 1px 2px 1px rgb(205, 205, 206); */
+  border: none;
   outline: none;
 }
 
@@ -78,11 +84,13 @@ body {
   background-image: url("img/times-solid.svg");
   background-position: center;
   background-repeat: no-repeat;
-  border: 0.5px solid rgb(205, 205, 206);
+  /* border: 0.5px solid rgb(205, 205, 206); */
   background-size: 30%;
   background-color: white;
-  border-radius: 0px 6px 6px 0px;
-  box-shadow: 1px 1px 2px 1px rgb(205, 205, 206);
+  border-radius: 6px;
+  border: none;
+  /* border-radius: 0px 6px 6px 0px; */
+  /* box-shadow: 1px 1px 2px 1px rgb(205, 205, 206); */
 }
 
 .nav-container {
@@ -161,8 +169,7 @@ body {
   width: 290px;
   border-left: none;
   border-right: none;
-  padding:5px;
-
+  padding: 5px;
 }
 .stocks-summary {
   /* display: none  in the beginning this is set to none */
@@ -207,7 +214,7 @@ body {
 }
 .stocks-summary #ss-text {
   color: rgb(229, 14, 43);
-  padding-right:5px;
+  padding-right: 5px;
 }
 .stocks-summary #sb-text {
   color: rgb(35, 255, 108);
@@ -293,12 +300,12 @@ body {
 }
 
 .charts {
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   width: 1200px;
   height: 600px;
   display: none;
 }
 
-.charts-container{
+.charts-container {
   width: 1200px;
 }
