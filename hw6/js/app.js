@@ -102,10 +102,14 @@ function getCharts() {
   newsElement.style.display = "none";
   chartsElement.style.display = "flex";
 
-  console.log("");
   let date = dataStore["Charts"]["Date"];
   let stockPrice = dataStore["Charts"]["Stock Price"];
   let volume = dataStore["Charts"]["Volume"];
+  let lastDateObj = new Date(parseInt(date[0]) * 1000);
+  let lastDate = ` ${lastDateObj.getFullYear()}-${lastDateObj.getMonth()}-${lastDateObj.getDate()}`;
+  let headlineString =
+    `Stock Price ${dataStore["Profile"]["Stock Ticker Symbol"]}` + lastDate;
+  let byLineString = `<a href='https://finnhub.io/' target='_blank'>Source: Finnhub</a>`;
 
   dateStockPrice = date.map((el, idx) => [
     parseInt(el) * 1000,
@@ -115,11 +119,11 @@ function getCharts() {
 
   Highcharts.stockChart("charts-container", {
     title: {
-      text: "Stock Price ",
+      text: headlineString,
       margin: 40,
     },
     subtitle: {
-      text: "Something",
+      text: byLineString,
       useHTML: true,
     },
     yAxis: [
