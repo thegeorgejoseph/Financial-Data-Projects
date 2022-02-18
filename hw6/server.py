@@ -50,8 +50,8 @@ def companyURL2API():
     companyInfo["IPO"] = res["ipo"]
     companyInfo["Stock Exchange Code"] = res["exchange"]
     companyInfo["Category"] = res["finnhubIndustry"]
-      
-    return {"Profile": companyInfo}
+    res = jsonify({"Profile": companyInfo})
+    return res
 
 @app.route("/quote",methods = ['GET'])
 @cross_origin(supports_credentials=True)
@@ -70,8 +70,8 @@ def quoteAPI():
     quoteResponse["Low Price"] = res["l"]
     quoteResponse["Change"] = res["d"]
     quoteResponse["Change Percent"] = res["dp"]
-    
-    return {"Quote": quoteResponse}
+    res = jsonify({"Quote": quoteResponse})
+    return res
 
 @app.route("/recommendation",methods = ['GET'])
 @cross_origin(supports_credentials=True)
@@ -87,8 +87,8 @@ def recommendationAPI():
     recommendation["strongBuy"] = res[0]["strongBuy"]
     recommendation["strongSell"] = res[0]["strongSell"]
     recommendation["IsLatest"] = res[0]["period"] > res[1]["period"]
-    
-    return {"Recommendation":recommendation}
+    res = jsonify({"Recommendation":recommendation})
+    return res
 
 @app.route("/charts",methods = ['GET'])
 @cross_origin(supports_credentials=True)
@@ -105,8 +105,8 @@ def highchartsAPI():
     charts["Date"] = res["t"]
     charts["Stock Price"] = res["c"]
     charts["Volume"] = res["v"]
-    
-    return {"Charts":charts}
+    res = jsonify({"Charts":charts})
+    return res
 
 @app.route("/news",methods = ['GET'])
 @cross_origin(supports_credentials=True)
@@ -128,7 +128,8 @@ def latestNewsAPI():
             continue
         news.append({"Image":obj["image"],"Title":obj["headline"],"Date":obj["datetime"],"Link to Original Post": obj["url"]})
         count += 1
-    return {"News":news}
+    res = jsonify({"News":news})
+    return res
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=81,debug=True)

@@ -81,6 +81,20 @@ function companyProfile() {
   profileElement.style.display = "flex";
 }
 function stockSummary() {
+  let monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   let wrapper = document.getElementById("dynamic-wrapper");
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
@@ -93,13 +107,15 @@ function stockSummary() {
   stocksElement.style.display = "flex";
   wrapper.insertBefore(stocksElement, wrapper.firstChild);
   summary = dataStore["Quote"];
+  tradingDate = new Date(parseInt(summary["Trading Day"]) * 1000);
+  tradingDateString = `${tradingDate.getDate()} ${
+    monthNames[tradingDate.getMonth()]
+  }, ${tradingDate.getFullYear()}`;
   recommendation = dataStore["Recommendation"];
   redArrow = `<img src='img/RedArrowDown.png' width='10' height='10'></img>`;
   greenArrow = `<img src='img/GreenArrowUp.png' width='10' height='10'>`;
   html = `<table id="stats" ><tr><th align='right'>Stock Ticker Symbol</th><th align='left' id="lighweight">${profile_ticker}</th></tr>
-  <tr><th align='right'>Trading Day</th><th align='left' id="lighweight">${
-    summary["Trading Day"]
-  }</th></tr>
+  <tr><th align='right'>Trading Day</th><th align='left' id="lighweight">${tradingDateString}</th></tr>
   <tr><th align='right'>Previous Closing Price</th><th align='left' id="lighweight">${
     summary["Previous Closing Price"]
   }</th></tr>
