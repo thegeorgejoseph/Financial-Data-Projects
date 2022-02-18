@@ -64,7 +64,7 @@ function createCompanyHTML(data) {
   <th align='right'>Company Name</th><th align='left' id="lighweight">${profile["Company Name"]}</th></tr>
   <tr><th align='right'>Stock Ticker Symbol</th><th align='left' id="lighweight">${profile["Stock Ticker Symbol"]}</th></tr>
   <tr><th align='right'>Stock Exchange Code</th><th align='left' id="lighweight">${profile["Stock Exchange Code"]}</th></tr>
-  <tr><th align='right'>Company Start Date</th><th align='left' id="lighweight">${profile["IPO"]}</th></tr>
+  <tr><th align='right'>Company IPO Date</th><th align='left' id="lighweight">${profile["IPO"]}</th></tr>
   <tr><th align='right'>Category</th><th align='left' id="lighweight">${profile["Category"]}</th></tr></table>`;
   companyProfile.innerHTML = html;
 }
