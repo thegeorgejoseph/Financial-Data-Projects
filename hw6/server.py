@@ -81,6 +81,17 @@ def recommendationAPI():
     req = requests.get(BASE_URL + addonString)
     res = req.json()
     recommendation = {}
+    if len(res) == 0:
+        res = {}
+        res[0] = {}
+        res[1] = {}
+        res[0]["buy"] = 0
+        res[0]["sell"] = 0
+        res[0]["hold"] = 0
+        res[0]["strongBuy"] = 0
+        res[0]["strongSell"] = 0
+        res[0]["period"] = 2
+        res[1]["period"] = 1
     recommendation["buy"] = res[0]["buy"]
     recommendation["sell"] = res[0]["sell"]
     recommendation["hold"] = res[0]["hold"]
