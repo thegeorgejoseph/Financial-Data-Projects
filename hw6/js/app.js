@@ -1,18 +1,58 @@
-dataStore = {};
-
+let dataStore = {};
+let URL = `http://192.168.1.170:81/`;
+fetchConfig = {
+  method: "GET",
+  mode: "cors",
+};
 function callBackend(e) {
   let text = e.value;
-  fetch(`http://192.168.1.170:81/search?text=${text}`, {
-    method: "GET",
-    mode: "cors",
-  })
-    .then((res) => res.json())
-    .then((data) => createCompanyHTML(data))
-    .catch((err) => console.log("Error", err));
+  if (text != "") {
+    Promise.all([
+      fetch(`${URL}profile?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+      fetch(`${URL}quote?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+      fetch(`${URL}recommendation?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+      fetch(`${URL}charts?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+      fetch(`${URL}news?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+    ])
+      .then(function (responses) {
+        return Promise.all(
+          responses.map(function (response) {
+            return response.json();
+          })
+        );
+      })
+      .then((data) => {
+        createDataStore(data);
+      })
+      .catch((err) => console.log(error));
+  }
 }
-
+function createDataStore(data) {
+  for (const obj in Object.values(data)) {
+    let tempKey = Object.keys(data[obj]);
+    let tempValues = Object.values(data[obj]);
+    dataStore[tempKey[0]] = tempValues[0];
+  }
+  //   console.log(dataStore);
+  createCompanyHTML(dataStore);
+}
 function createCompanyHTML(data) {
-  dataStore = data;
+  //   dataStore = data;
   profile = data["Profile"];
   logo = profile["logo"];
   let companyProfile = document.getElementsByClassName("company-profile")[0];
@@ -276,11 +316,11 @@ function getNews() {
     ];
     let temp_date = item["Date"];
     let temp = new Date(parseInt(temp_date) * 1000);
-    console.log(
-      temp.getDate(),
-      monthNames[temp.getMonth()],
-      temp.getFullYear()
-    );
+    // console.log(
+    //   temp.getDate(),
+    //   monthNames[temp.getMonth()],
+    //   temp.getFullYear()
+    // );
     let image = item["Image"];
     let link = item["Link to Original Post"];
     let title = item["Title"];
