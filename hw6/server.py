@@ -97,7 +97,7 @@ def highchartsAPI():
     charts = {}
     now = datetime.now()
     today = int(time.mktime(now.timetuple()))
-    temp = now + relativedelta(months=-6)
+    temp = now + relativedelta(months=-6,days=1)
     six_month_ago = int(time.mktime(temp.timetuple()))
     addonString = f"stock/candle?symbol={TICKER}&resolution=D&from={six_month_ago}&to={today}&token={API_KEY}"
     req = requests.get(BASE_URL + addonString)

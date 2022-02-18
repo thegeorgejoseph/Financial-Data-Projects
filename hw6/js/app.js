@@ -86,6 +86,7 @@ function stockSummary() {
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
   let chartsElement = document.getElementById("charts");
+  let profile_ticker = dataStore["Profile"]["Stock Ticker Symbol"];
   profileElement.style.display = "none";
   newsElement.style.display = "none";
   chartsElement.style.display = "none";
@@ -95,9 +96,7 @@ function stockSummary() {
   recommendation = dataStore["Recommendation"];
   redArrow = `<img src='img/RedArrowDown.png' width='10' height='10'></img>`;
   greenArrow = `<img src='img/GreenArrowUp.png' width='10' height='10'>`;
-  html = `<table id="stats" ><tr><th align='right'>Stock Ticker Symbol</th><th align='left' id="lighweight">${
-    summary["Stock Ticker Symbol"]
-  }</th></tr>
+  html = `<table id="stats" ><tr><th align='right'>Stock Ticker Symbol</th><th align='left' id="lighweight">${profile_ticker}</th></tr>
   <tr><th align='right'>Trading Day</th><th align='left' id="lighweight">${
     summary["Trading Day"]
   }</th></tr>
