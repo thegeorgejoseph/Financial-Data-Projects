@@ -53,6 +53,10 @@ function createDataStore(data) {
 }
 function createCompanyHTML(data) {
   //   dataStore = data;
+  document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("comp")[0].classList.add("tab-grey");
+  document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("char")[0].classList.remove("tab-grey");
   profile = data["Profile"];
   logo = profile["logo"];
   let companyProfile = document.getElementsByClassName("company-profile")[0];
@@ -70,6 +74,10 @@ function createCompanyHTML(data) {
 }
 
 function companyProfile() {
+  document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("comp")[0].classList.add("tab-grey");
+  document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("char")[0].classList.remove("tab-grey");
   let wrapper = document.getElementById("dynamic-wrapper");
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
@@ -81,6 +89,10 @@ function companyProfile() {
   profileElement.style.display = "flex";
 }
 function stockSummary() {
+  document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("comp")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("summ")[0].classList.add("tab-grey");
+  document.getElementsByClassName("char")[0].classList.remove("tab-grey");
   let monthNames = [
     "January",
     "February",
@@ -151,6 +163,10 @@ function stockSummary() {
 }
 
 function getCharts() {
+  document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("comp")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("char")[0].classList.add("tab-grey");
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
@@ -310,6 +326,10 @@ function searchButton() {
 }
 
 function getNews() {
+  document.getElementsByClassName("getn")[0].classList.add("tab-grey");
+  document.getElementsByClassName("comp")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
+  document.getElementsByClassName("char")[0].classList.remove("tab-grey");
   let companyElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
