@@ -43,7 +43,7 @@ function callBackend(e) {
         createDataStore(data);
         // console.log(dataStore);
       })
-      .catch((err) => handleError());
+      .catch((err) => console.log("Error", err));
   }
 }
 
@@ -334,7 +334,7 @@ function search() {
   let obj = document.getElementById("searchBar");
   obj.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-    //   console.log("Entered");
+      //   console.log("Entered");
       callBackend(e);
     }
   });
@@ -429,4 +429,9 @@ function clearAll() {
   chartsElement.style.display = "none";
   navElement.style.display = "none";
   errorElement.style.display = "none";
+}
+
+function clickSearch() {
+  buttonElement = document.getElementById("search");
+  buttonElement.click();
 }

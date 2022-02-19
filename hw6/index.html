@@ -16,13 +16,16 @@
         <h1 class="header">Stock Search</h1>
         <div class="container">
           <button id="search" onclick="searchButton()"></button>
-          <input
-            class="searchBar"
-            id="searchBar"
-            type="text"
-            autocomplete="off"
-            placeholder="Enter Stock Ticker Symbol"
-          />
+          <form onsubmit="searchButton()" >
+            <input
+              class="searchBar"
+              id="searchBar"
+              type="text"
+              autocomplete="off"
+              placeholder="Enter Stock Ticker Symbol"
+              required
+            />
+          </form>
           <button id="clear" onclick="clearAll()"></button>
         </div>
       </div>
@@ -46,7 +49,9 @@
         <div class="charts-container" id="charts-container"></div>
       </div>
       <div class="latest-news" id="latest-news"></div>
-      <div class="error-bar">Error: No record has been found, please enter a valid symbol</div>
+      <div class="error-bar">
+        Error: No record has been found, please enter a valid symbol
+      </div>
     </div>
   </body>
 </html>
