@@ -8,39 +8,44 @@ fetchConfig = {
 function callBackend(e) {
   let text = e.value;
   if (text != "") {
-    Promise.all([
-      fetch(`${URL}profile?text=${text}`, {
-        method: "GET",
-        mode: "cors",
-      }),
-      fetch(`${URL}quote?text=${text}`, {
-        method: "GET",
-        mode: "cors",
-      }),
-      fetch(`${URL}recommendation?text=${text}`, {
-        method: "GET",
-        mode: "cors",
-      }),
-      fetch(`${URL}charts?text=${text}`, {
-        method: "GET",
-        mode: "cors",
-      }),
-      fetch(`${URL}news?text=${text}`, {
-        method: "GET",
-        mode: "cors",
-      }),
-    ])
-      .then(function (responses) {
-        return Promise.all(
-          responses.map(function (response) {
-            return response.json();
-          })
-        );
-      })
-      .then((data) => {
-        createDataStore(data);
-      })
-      .catch((err) => console.log(error));
+    try {
+      Promise.all([
+        fetch(`${URL}profile?text=${text}`, {
+          method: "GET",
+          mode: "cors",
+        }),
+        fetch(`${URL}quote?text=${text}`, {
+          method: "GET",
+          mode: "cors",
+        }),
+        fetch(`${URL}recommendation?text=${text}`, {
+          method: "GET",
+          mode: "cors",
+        }),
+        fetch(`${URL}charts?text=${text}`, {
+          method: "GET",
+          mode: "cors",
+        }),
+        fetch(`${URL}news?text=${text}`, {
+          method: "GET",
+          mode: "cors",
+        }),
+      ])
+        .then(function (responses) {
+          return Promise.all(
+            responses.map(function (response) {
+              return response.json();
+            })
+          );
+        })
+        .then((data) => {
+          createDataStore(data);
+          console.log(dataStore);
+        })
+        .catch((err) => console.log("This is an error", error));
+    } catch {
+      console.log("Error Works!");
+    }
   }
 }
 function createDataStore(data) {
@@ -337,6 +342,7 @@ function searchButton() {
   let chartsElement = document.getElementById("charts");
   if (searchObj.value == "") {
     navbarElement.style.display = "none";
+    profileElement.style.display = "none";
   }
   if (searchObj.value != "") {
     navbarElement.style.display = "flex";
