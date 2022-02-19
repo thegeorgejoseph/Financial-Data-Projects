@@ -140,8 +140,8 @@ body {
   cursor: pointer;
 }
 
-.tab-grey{
-  background-color: rgb(192, 191, 191); 
+.tab-grey {
+  background-color: rgb(192, 191, 191);
 }
 
 .hidden {
@@ -327,4 +327,17 @@ body {
 
 .charts-container {
   width: 1200px;
+}
+
+.error-bar {
+  display: none;
+  width: 600px;
+  height: 50px;
+  /* border: 2px solid black; */
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background-color: rgb(231, 231, 231);
+  font-weight: 50;
 }

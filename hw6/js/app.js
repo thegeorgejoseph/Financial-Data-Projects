@@ -6,48 +6,56 @@ fetchConfig = {
   mode: "cors",
 };
 function callBackend(e) {
+  let navbarElement = document.getElementsByClassName("nav-container")[0];
   let text = e.value;
   if (text != "") {
-    try {
-      Promise.all([
-        fetch(`${URL}profile?text=${text}`, {
-          method: "GET",
-          mode: "cors",
-        }),
-        fetch(`${URL}quote?text=${text}`, {
-          method: "GET",
-          mode: "cors",
-        }),
-        fetch(`${URL}recommendation?text=${text}`, {
-          method: "GET",
-          mode: "cors",
-        }),
-        fetch(`${URL}charts?text=${text}`, {
-          method: "GET",
-          mode: "cors",
-        }),
-        fetch(`${URL}news?text=${text}`, {
-          method: "GET",
-          mode: "cors",
-        }),
-      ])
-        .then(function (responses) {
-          return Promise.all(
-            responses.map(function (response) {
-              return response.json();
-            })
-          );
-        })
-        .then((data) => {
-          createDataStore(data);
-          console.log(dataStore);
-        })
-        .catch((err) => console.log("This is an error", err));
-    } catch {
-      console.log("Error Works!");
-    }
+    Promise.all([
+      fetch(`${URL}profile?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+      fetch(`${URL}quote?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+      fetch(`${URL}recommendation?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+      fetch(`${URL}charts?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+      fetch(`${URL}news?text=${text}`, {
+        method: "GET",
+        mode: "cors",
+      }),
+    ])
+      .then(function (responses) {
+        return Promise.all(
+          responses.map(function (response) {
+            return response.json();
+          })
+        );
+      })
+      .then((data) => {
+        navbarElement.style.display = "flex";
+        createDataStore(data);
+        console.log(dataStore);
+      })
+      .catch((err) => handleError());
   }
 }
+
+function handleError() {
+  let errorElement = document.getElementsByClassName("error-bar")[0];
+  let navbarElement = document.getElementsByClassName("nav-container")[0];
+  let companyProfile = document.getElementsByClassName("company-profile")[0];
+  companyProfile.style.display = "none";
+  navbarElement.style.display = "none";
+  errorElement.style.display = "flex";
+}
+
 function createDataStore(data) {
   for (const obj in Object.values(data)) {
     let tempKey = Object.keys(data[obj]);
@@ -340,17 +348,18 @@ function searchButton() {
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
   let chartsElement = document.getElementById("charts");
+  let errorElement = document.getElementsByClassName("error-bar")[0];
   if (searchObj.value == "") {
     navbarElement.style.display = "none";
     profileElement.style.display = "none";
-  }
-  if (searchObj.value != "") {
-    navbarElement.style.display = "flex";
+    errorElement.style.display = "none";
   }
   stocksElement.style.display = "none";
   newsElement.style.display = "none";
   chartsElement.style.display = "none";
-  callBackend(searchObj);
+  if (searchObj.value != "") {
+    callBackend(searchObj);
+  }
   //   console.log(currentTab);
 }
 
@@ -410,6 +419,7 @@ function clearAll() {
   let chartsElement = document.getElementById("charts");
   let searchBar = document.getElementById("searchBar");
   let navElement = document.getElementsByClassName("nav-container")[0];
+  let errorElement = document.getElementsByClassName("error-bar")[0];
   currentTab = document.getElementById("comp");
   currentTab.click();
   searchBar.value = "";
@@ -418,4 +428,5 @@ function clearAll() {
   newsElement.style.display = "none";
   chartsElement.style.display = "none";
   navElement.style.display = "none";
+  errorElement.style.display = "none";
 }
