@@ -335,6 +335,9 @@ function searchButton() {
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
   let chartsElement = document.getElementById("charts");
+  if (searchObj.value == "") {
+    navbarElement.style.display = "none";
+  }
   if (searchObj.value != "") {
     navbarElement.style.display = "flex";
   }
