@@ -41,7 +41,7 @@ function callBackend(e) {
       .then((data) => {
         navbarElement.style.display = "flex";
         createDataStore(data);
-        console.log(dataStore);
+        // console.log(dataStore);
       })
       .catch((err) => handleError());
   }
@@ -334,7 +334,7 @@ function search() {
   let obj = document.getElementById("searchBar");
   obj.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      console.log("Entered");
+    //   console.log("Entered");
       callBackend(e);
     }
   });
