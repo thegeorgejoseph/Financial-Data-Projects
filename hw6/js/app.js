@@ -50,7 +50,15 @@ function createDataStore(data) {
     dataStore[tempKey[0]] = tempValues[0];
   }
   //   console.log(dataStore);
-  createCompanyHTML(dataStore);
+  if (currentTab == "") {
+    createCompanyHTML(dataStore);
+  } else if (currentTab == "Company") {
+    // console.log("Clicking");
+    createCompanyHTML(dataStore);
+  } else {
+    // console.log("Here");
+    currentTab.click();
+  }
 }
 function createCompanyHTML(data) {
   //   dataStore = data;
@@ -79,7 +87,10 @@ function createCompanyHTML(data) {
 }
 
 function companyProfile() {
-  currentTab = document.getElementById("comp");
+  if (currentTab != "" && currentTab != "Company") {
+    createCompanyHTML(dataStore);
+  }
+  currentTab = "Company";
   document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
   document.getElementsByClassName("comp")[0].classList.add("tab-grey");
   document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
@@ -331,6 +342,7 @@ function searchButton() {
   newsElement.style.display = "none";
   chartsElement.style.display = "none";
   callBackend(searchObj);
+  //   console.log(currentTab);
 }
 
 function getNews() {
@@ -389,6 +401,8 @@ function clearAll() {
   let chartsElement = document.getElementById("charts");
   let searchBar = document.getElementById("searchBar");
   let navElement = document.getElementsByClassName("nav-container")[0];
+  currentTab = document.getElementById("comp");
+  currentTab.click();
   searchBar.value = "";
   companyElement.style.display = "none";
   stocksElement.style.display = "none";
