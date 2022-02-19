@@ -42,7 +42,7 @@ function callBackend(e) {
           createDataStore(data);
           console.log(dataStore);
         })
-        .catch((err) => console.log("This is an error", error));
+        .catch((err) => console.log("This is an error", err));
     } catch {
       console.log("Error Works!");
     }
