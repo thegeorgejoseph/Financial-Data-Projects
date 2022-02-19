@@ -1,4 +1,5 @@
 let dataStore = {};
+let currentTab = "";
 let URL = `http://192.168.1.170:81/`;
 fetchConfig = {
   method: "GET",
@@ -61,8 +62,12 @@ function createCompanyHTML(data) {
   logo = profile["logo"];
   let companyProfile = document.getElementsByClassName("company-profile")[0];
   let stocksSummary = document.getElementById("stocks-summary");
+  let newsElement = document.getElementById("latest-news");
+  let chartsElement = document.getElementById("charts");
   companyProfile.style.display = "flex";
   stocksSummary.style.display = "none";
+  newsElement.style.display = "none";
+  chartsElement.style.display = "none";
   html = `<img src=${logo} id='logo'>
   <table><tr>
   <th align='right'>Company Name</th><th align='left' id="lighweight">${profile["Company Name"]}</th></tr>
@@ -74,6 +79,7 @@ function createCompanyHTML(data) {
 }
 
 function companyProfile() {
+  currentTab = document.getElementById("comp");
   document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
   document.getElementsByClassName("comp")[0].classList.add("tab-grey");
   document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
@@ -89,6 +95,7 @@ function companyProfile() {
   profileElement.style.display = "flex";
 }
 function stockSummary() {
+  currentTab = document.getElementById("summ");
   document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
   document.getElementsByClassName("comp")[0].classList.remove("tab-grey");
   document.getElementsByClassName("summ")[0].classList.add("tab-grey");
@@ -163,6 +170,7 @@ function stockSummary() {
 }
 
 function getCharts() {
+  currentTab = document.getElementById("char");
   document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
   document.getElementsByClassName("comp")[0].classList.remove("tab-grey");
   document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
@@ -326,6 +334,7 @@ function searchButton() {
 }
 
 function getNews() {
+  currentTab = document.getElementById("getn");
   document.getElementsByClassName("getn")[0].classList.add("tab-grey");
   document.getElementsByClassName("comp")[0].classList.remove("tab-grey");
   document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
