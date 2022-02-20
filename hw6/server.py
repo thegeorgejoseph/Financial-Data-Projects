@@ -85,11 +85,11 @@ def recommendationAPI():
         res = {}
         res[0] = {}
         res[1] = {}
-        res[0]["buy"] = 0
-        res[0]["sell"] = 0
-        res[0]["hold"] = 0
-        res[0]["strongBuy"] = 0
-        res[0]["strongSell"] = 0
+        res[0]["buy"] = "N.A"
+        res[0]["sell"] = "N.A"
+        res[0]["hold"] = "N.A"
+        res[0]["strongBuy"] = "N.A"
+        res[0]["strongSell"] = "N.A"
         res[0]["period"] = 2
         res[1]["period"] = 1
     recommendation["buy"] = res[0]["buy"]

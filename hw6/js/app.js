@@ -58,6 +58,8 @@ function handleError() {
 }
 
 function createDataStore(data) {
+  let errorElement = document.getElementsByClassName("error-bar")[0]
+  errorElement.style.display = "none";
   for (const obj in Object.values(data)) {
     let tempKey = Object.keys(data[obj]);
     let tempValues = Object.values(data[obj]);
@@ -344,7 +346,7 @@ function search() {
 function searchButton() {
   console.log("Search Button Clicked");
   searchObj = document.getElementById("searchBar");
-  console.log(searchObj.value);
+//   console.log(searchObj.value);
   let navbarElement = document.getElementsByClassName("nav-container")[0];
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
