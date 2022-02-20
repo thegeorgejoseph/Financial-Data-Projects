@@ -114,6 +114,7 @@ body {
 .navbar {
   height: 50px;
   width: 1200px;
+  color: rgba(95, 95, 95, 0.747);
   /* border: 2px solid black; */
 }
 
