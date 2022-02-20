@@ -7,7 +7,7 @@ fetchConfig = {
 };
 function callBackend(e) {
   let navbarElement = document.getElementsByClassName("nav-container")[0];
-  let text = e.value;
+  let text = e.value.toUpperCase();
   if (text != "") {
     Promise.all([
       fetch(`${URL}profile?text=${text}`, {
