@@ -8,6 +8,7 @@ fetchConfig = {
 function callBackend(e) {
   let navbarElement = document.getElementsByClassName("nav-container")[0];
   let text = e.value.toUpperCase();
+
   if (text != "") {
     Promise.all([
       fetch(`${URL}profile?text=${text}`, {
@@ -43,7 +44,7 @@ function callBackend(e) {
         createDataStore(data);
         // console.log(dataStore);
       })
-      .catch((err) => console.log("Error", err));
+      .catch((err) => handleError());
   }
 }
 
@@ -343,6 +344,7 @@ function search() {
 function searchButton() {
   console.log("Search Button Clicked");
   searchObj = document.getElementById("searchBar");
+  console.log(searchObj.value);
   let navbarElement = document.getElementsByClassName("nav-container")[0];
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");

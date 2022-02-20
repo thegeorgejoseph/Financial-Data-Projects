@@ -16,7 +16,7 @@
         <h1 class="header">Stock Search</h1>
         <div class="container">
           <button id="search" onclick="searchButton()"></button>
-          <form onsubmit="searchButton()" >
+          <form method="GET" onsubmit="event.preventDefault(); searchButton();" >
             <input
               class="searchBar"
               id="searchBar"
