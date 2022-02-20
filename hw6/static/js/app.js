@@ -58,7 +58,7 @@ function handleError() {
 }
 
 function createDataStore(data) {
-  let errorElement = document.getElementsByClassName("error-bar")[0]
+  let errorElement = document.getElementsByClassName("error-bar")[0];
   errorElement.style.display = "none";
   for (const obj in Object.values(data)) {
     let tempKey = Object.keys(data[obj]);
@@ -158,8 +158,8 @@ function stockSummary() {
     monthNames[tradingDate.getMonth()]
   }, ${tradingDate.getFullYear()}`;
   recommendation = dataStore["Recommendation"];
-  redArrow = `<img id="redArrow" src='img/RedArrowDown.png' width='10' height='10'></img>`;
-  greenArrow = `<img id="greenArrow" src='img/GreenArrowUp.png' width='10' height='10'></img>`;
+  redArrow = `<img id="redArrow" src='../static/img/RedArrowDown.png' width='10' height='10'></img>`;
+  greenArrow = `<img id="greenArrow" src='../static/img/GreenArrowUp.png' width='10' height='10'></img>`;
   html = `<table id="stats" ><tr><th align='right'>Stock Ticker Symbol</th><th align='left' id="lighweight">${profile_ticker}</th></tr>
   <tr><th align='right'>Trading Day</th><th align='left' id="lighweight">${tradingDateString}</th></tr>
   <tr><th align='right'>Previous Closing Price</th><th align='left' id="lighweight">${
@@ -346,7 +346,7 @@ function search() {
 function searchButton() {
   console.log("Search Button Clicked");
   searchObj = document.getElementById("searchBar");
-//   console.log(searchObj.value);
+  //   console.log(searchObj.value);
   let navbarElement = document.getElementsByClassName("nav-container")[0];
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");

@@ -20,7 +20,7 @@ body {
   /* width: 1400px; */
   box-sizing: border-box;
   /* border: 2px solid black; */
-  background-image: url("img/back.svg");
+  background-image: url("../img/back.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -49,7 +49,7 @@ body {
   height: 40px;
   width: 35px;
   box-sizing: border-box;
-  background-image: url("img/search-solid.svg");
+  background-image: url("../img/search-solid.svg");
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 6px;
@@ -84,7 +84,7 @@ body {
   height: 40px;
   width: 35px;
   cursor: pointer;
-  background-image: url("img/times-solid.svg");
+  background-image: url("../img/times-solid.svg");
   background-position: center;
   background-repeat: no-repeat;
   /* border: 0.5px solid rgb(205, 205, 206); */
