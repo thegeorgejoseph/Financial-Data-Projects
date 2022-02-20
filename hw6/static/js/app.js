@@ -80,6 +80,10 @@ function createCompanyHTML(data) {
   //   dataStore = data;
   document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
   document.getElementsByClassName("comp")[0].classList.add("tab-grey");
+  document.getElementsByClassName("comp")[0].classList.remove("hover");
+  document.getElementsByClassName("summ")[0].classList.add("hover");
+  document.getElementsByClassName("char")[0].classList.add("hover");
+  document.getElementsByClassName("getn")[0].classList.add("hover");
   document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
   document.getElementsByClassName("char")[0].classList.remove("tab-grey");
   profile = data["Profile"];
@@ -109,6 +113,10 @@ function companyProfile() {
   currentTab = "Company";
   document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
   document.getElementsByClassName("comp")[0].classList.add("tab-grey");
+  document.getElementsByClassName("comp")[0].classList.remove("hover");
+  document.getElementsByClassName("summ")[0].classList.add("hover");
+  document.getElementsByClassName("char")[0].classList.add("hover");
+  document.getElementsByClassName("getn")[0].classList.add("hover");
   document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
   document.getElementsByClassName("char")[0].classList.remove("tab-grey");
   let wrapper = document.getElementById("dynamic-wrapper");
@@ -126,6 +134,10 @@ function stockSummary() {
   document.getElementsByClassName("getn")[0].classList.remove("tab-grey");
   document.getElementsByClassName("comp")[0].classList.remove("tab-grey");
   document.getElementsByClassName("summ")[0].classList.add("tab-grey");
+  document.getElementsByClassName("summ")[0].classList.remove("hover");
+  document.getElementsByClassName("comp")[0].classList.add("hover");
+  document.getElementsByClassName("getn")[0].classList.add("hover");
+  document.getElementsByClassName("char")[0].classList.add("hover");
   document.getElementsByClassName("char")[0].classList.remove("tab-grey");
   let monthNames = [
     "January",
@@ -202,6 +214,10 @@ function getCharts() {
   document.getElementsByClassName("comp")[0].classList.remove("tab-grey");
   document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
   document.getElementsByClassName("char")[0].classList.add("tab-grey");
+  document.getElementsByClassName("char")[0].classList.remove("hover");
+  document.getElementsByClassName("comp")[0].classList.add("hover");
+  document.getElementsByClassName("summ")[0].classList.add("hover");
+  document.getElementsByClassName("getn")[0].classList.add("hover");
   let profileElement = document.getElementById("company-profile");
   let stocksElement = document.getElementById("stocks-summary");
   let newsElement = document.getElementById("latest-news");
@@ -370,6 +386,10 @@ function searchButton() {
 function getNews() {
   currentTab = document.getElementById("getn");
   document.getElementsByClassName("getn")[0].classList.add("tab-grey");
+  document.getElementsByClassName("getn")[0].classList.remove("hover");
+  document.getElementsByClassName("comp")[0].classList.add("hover");
+  document.getElementsByClassName("summ")[0].classList.add("hover");
+  document.getElementsByClassName("char")[0].classList.add("hover");
   document.getElementsByClassName("comp")[0].classList.remove("tab-grey");
   document.getElementsByClassName("summ")[0].classList.remove("tab-grey");
   document.getElementsByClassName("char")[0].classList.remove("tab-grey");

@@ -136,13 +136,13 @@ body {
   padding: 20px;
 }
 
-.navbar li:hover {
-  background-color: rgb(192, 191, 191);
+.navbar .hover:hover {
+  background-color: rgb(209, 209, 209);
   cursor: pointer;
 }
 
 .tab-grey {
-  background-color: rgb(192, 191, 191);
+  background-color: rgb(193, 193, 193);
 }
 
 .hidden {
