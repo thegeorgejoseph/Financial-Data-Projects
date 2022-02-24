@@ -1,5 +1,5 @@
 from curses import start_color
-from flask import Flask, Request, jsonify,request,render_template
+from flask import Flask, Request, jsonify,request,send_from_directory
 from flask_cors import CORS, cross_origin
 from dotenv import load_dotenv
 import os
@@ -22,7 +22,7 @@ response = {}
 @app.route("/",methods = ['GET'])
 @cross_origin(supports_credentials=True)
 def index():
-    return render_template("index.html")
+    return send_from_directory("templates","index.html")
 
 @app.route("/search",methods = ['GET'])
 @cross_origin(supports_credentials=True)

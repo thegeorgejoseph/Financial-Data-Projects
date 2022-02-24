@@ -1,6 +1,7 @@
 let dataStore = {};
 let currentTab = "";
-let URL = `https://finnhub-webapp-python.nn.r.appspot.com/`;
+// let URL = `https://finnhub-webapp-python.nn.r.appspot.com/`;
+let URL = `http://127.0.0.1:8080/`;
 fetchConfig = {
   method: "GET",
   mode: "cors",
