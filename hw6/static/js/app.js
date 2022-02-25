@@ -1,6 +1,6 @@
 let dataStore = {};
 let currentTab = "";
-let URL = `finnhub-webapp-python-v1.wl.r.appspot.com/`;
+let URL = `https://finnhub-webapp-python-v1.wl.r.appspot.com/`;
 // let URL = `http://127.0.0.1:8080/`;
 fetchConfig = {
   method: "GET",
@@ -240,6 +240,7 @@ function getCharts() {
       ? `0${lastDateObj.getMonth() + 1}`
       : lastDateObj.getMonth() + 1;
   // getMonth() gets indexed from 0
+  lastDateObj = new Date();
   let lastDate = ` ${lastDateObj.getFullYear()}-${month}-${lastDateObj.getDate()}`;
   let headlineString =
     `Stock Price ${dataStore["Profile"]["Stock Ticker Symbol"]}` + lastDate;
@@ -332,13 +333,8 @@ function getCharts() {
             y2: 1,
           },
           stops: [
-            [0, Highcharts.getOptions().colors[0]],
-            [
-              1,
-              Highcharts.color(Highcharts.getOptions().colors[0])
-                .setOpacity(0)
-                .get("rgba"),
-            ],
+            [0, "#7cb5ec"],
+            [1, "rgba(124,181,236,0)"],
           ],
         },
         threshold: null,
@@ -349,6 +345,14 @@ function getCharts() {
         data: dateVolume,
         yAxis: 1,
         color: "#434348",
+        pointWidth: 4,
+        dataGrouping: {
+          units: [
+            ["day", [1]],
+            ["week", [1, 2]],
+            ["month", [1, 2, 3, 4, 6]],
+          ],
+        },
       },
     ],
   });
