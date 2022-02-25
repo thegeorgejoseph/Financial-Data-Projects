@@ -241,6 +241,10 @@ function getCharts() {
       : lastDateObj.getMonth() + 1;
   // getMonth() gets indexed from 0
   lastDateObj = new Date();
+  month =
+    lastDateObj.getMonth() + 1 < 10
+      ? `0${lastDateObj.getMonth() + 1}`
+      : lastDateObj.getMonth() + 1;
   let lastDate = ` ${lastDateObj.getFullYear()}-${month}-${lastDateObj.getDate()}`;
   let headlineString =
     `Stock Price ${dataStore["Profile"]["Stock Ticker Symbol"]}` + lastDate;
@@ -284,6 +288,11 @@ function getCharts() {
         enabled: true,
       },
     ],
+    plotOptions: {
+      column: {
+        pointPlacement: "on",
+      },
+    },
     rangeSelector: {
       buttons: [
         {
