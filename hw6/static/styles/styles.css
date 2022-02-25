@@ -345,7 +345,7 @@ body {
   font-weight: 50;
 }
 
-form{
-  display:flex;
+form {
+  display: flex;
   justify-content: center;
 }

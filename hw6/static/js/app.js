@@ -245,11 +245,11 @@ function getCharts() {
     lastDateObj.getMonth() + 1 < 10
       ? `0${lastDateObj.getMonth() + 1}`
       : lastDateObj.getMonth() + 1;
-  let date =
+  let pdate =
     lastDateObj.getDate() < 10
       ? `0${lastDateObj.getDate()}`
       : lastDateObj.getDate();
-  let lastDate = ` ${lastDateObj.getFullYear()}-${month}-${date}`;
+  let lastDate = ` ${lastDateObj.getFullYear()}-${month}-${pdate}`;
   let headlineString =
     `Stock Price ${dataStore["Profile"]["Stock Ticker Symbol"]}` + lastDate;
   let byLineString = `<a href='https://finnhub.io/' target='_blank'>Source: Finnhub</a>`;
@@ -325,7 +325,7 @@ function getCharts() {
           text: "6m",
         },
       ],
-      selected: 4,
+      selected: 0,
       inputEnabled: false,
     },
     navigation: {
