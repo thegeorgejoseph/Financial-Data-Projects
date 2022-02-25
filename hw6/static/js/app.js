@@ -245,7 +245,11 @@ function getCharts() {
     lastDateObj.getMonth() + 1 < 10
       ? `0${lastDateObj.getMonth() + 1}`
       : lastDateObj.getMonth() + 1;
-  let lastDate = ` ${lastDateObj.getFullYear()}-${month}-${lastDateObj.getDate()}`;
+  let date =
+    lastDateObj.getDate() < 10
+      ? `0${lastDateObj.getDate()}`
+      : lastDateObj.getDate();
+  let lastDate = ` ${lastDateObj.getFullYear()}-${month}-${date}`;
   let headlineString =
     `Stock Price ${dataStore["Profile"]["Stock Ticker Symbol"]}` + lastDate;
   let byLineString = `<a href='https://finnhub.io/' target='_blank'>Source: Finnhub</a>`;
