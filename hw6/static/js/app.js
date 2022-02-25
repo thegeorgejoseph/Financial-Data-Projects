@@ -1,6 +1,6 @@
 let dataStore = {};
 let currentTab = "";
-let URL = `https://finnhub-webapp-python.nn.r.appspot.com/`;
+let URL = `finnhub-webapp-python-v1.wl.r.appspot.com/`;
 // let URL = `http://127.0.0.1:8080/`;
 fetchConfig = {
   method: "GET",
@@ -233,10 +233,13 @@ function getCharts() {
   let stockPrice = dataStore["Charts"]["Stock Price"];
   let volume = dataStore["Charts"]["Volume"];
   let lastDateObj = new Date(parseInt(date[0]) * 1000);
+  console.log(lastDateObj);
+  console.log(lastDateObj.getMonth());
   let month =
-    lastDateObj.getMonth() < 10
-      ? `0${lastDateObj.getMonth() + 1}` // getMonth() gets indexed from 0
+    lastDateObj.getMonth() + 1 < 10
+      ? `0${lastDateObj.getMonth() + 1}`
       : lastDateObj.getMonth() + 1;
+  // getMonth() gets indexed from 0
   let lastDate = ` ${lastDateObj.getFullYear()}-${month}-${lastDateObj.getDate()}`;
   let headlineString =
     `Stock Price ${dataStore["Profile"]["Stock Ticker Symbol"]}` + lastDate;
