@@ -16,11 +16,28 @@
     id="navbarNavAltMarkup"
   >
     <div class="navbar-nav">
-      <a class="nav-link active text-white-50 btn-focus" href="#"
-        >Search<span class="sr-only">(current)</span></a
+      <a
+        class="nav-link active text-white-50"
+        type="buton"
+        (click)="changeLinkNumber1()"
+        [ngClass]="isPrimary == '1' ? 'btn-focus' : 'none'"
+        [ngStyle]="{ cursor: 'pointer' }"
+        >Search</a
       >
-      <a class="nav-link text-white-50 btn-focus" href="#">Watchlist</a>
-      <a class="nav-link text-white-50 btn-focus" href="#">Portfolio</a>
+      <a
+        class="nav-link text-white-50"
+        type="button"
+        (click)="changeLinkNumber2()"
+        [ngClass]="isPrimary == '2' ? 'btn-focus' : 'none'"
+        >Watchlist</a
+      >
+      <a
+        class="nav-link text-white-50"
+        type="button"
+        (click)="changeLinkNumber3()"
+        [ngClass]="isPrimary == '3' ? 'btn-focus' : 'none'"
+        >Portfolio</a
+      >
     </div>
   </div>
 </nav>

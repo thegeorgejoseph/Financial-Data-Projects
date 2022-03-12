@@ -2,7 +2,7 @@
   background-color: var(--primary-color) !important;
 }
 
-.btn-focus:focus {
+.btn-focus {
   border: 1px solid white !important;
   border-radius: 10px !important;
   color: white !important;
