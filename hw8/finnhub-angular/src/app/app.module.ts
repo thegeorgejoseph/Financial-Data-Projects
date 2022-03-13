@@ -11,6 +11,7 @@ import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchComponent } from './components/search/search.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 const appRoutes: Routes = [
   { path: '', component: SearchComponent },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     WatchlistComponent,
     PortfolioComponent,
     SearchComponent,
+    SearchbarComponent,
   ],
   imports: [
     BrowserModule,

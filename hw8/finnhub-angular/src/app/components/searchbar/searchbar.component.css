@@ -1,0 +1,33 @@
+.search-container {
+  border-radius: 40px !important;
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 3px solid var(--primary-color) !important;
+  box-sizing: border-box;
+  margin-top: 2rem !important;
+}
+.inputter {
+  border-radius: 40px !important;
+  width: 75% !important;
+  height: 2rem !important;
+  outline: none !important;
+}
+.searcher {
+  color: var(--primary-color) !important;
+}
+
+.x {
+  color: var(--primary-color) !important;
+}
+
+button {
+  outline: none;
+  background: none;
+  border: none;
+}
+
+h1 {
+  font-size: 3rem;
+}
