@@ -18,15 +18,16 @@
     <div class="navbar-nav">
       <a
         class="nav-link active text-white-50"
-        type="buton"
+        type="button"
+        routerLink="search"
         (click)="changeLinkNumber1()"
         [ngClass]="isPrimary == '1' ? 'btn-focus' : 'none'"
-        [ngStyle]="{ cursor: 'pointer' }"
         >Search</a
       >
       <a
         class="nav-link text-white-50"
         type="button"
+        routerLink="watchlist"
         (click)="changeLinkNumber2()"
         [ngClass]="isPrimary == '2' ? 'btn-focus' : 'none'"
         >Watchlist</a
@@ -34,6 +35,7 @@
       <a
         class="nav-link text-white-50"
         type="button"
+        routerLink="portfolio"
         (click)="changeLinkNumber3()"
         [ngClass]="isPrimary == '3' ? 'btn-focus' : 'none'"
         >Portfolio</a
