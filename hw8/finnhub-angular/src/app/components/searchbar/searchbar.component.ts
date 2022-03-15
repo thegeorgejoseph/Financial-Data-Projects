@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { SearchService } from '../../services/search.service';
 @Component({
@@ -10,7 +11,12 @@ export class SearchbarComponent implements OnInit {
   ticker: string;
   defaultOptions;
   options;
-  constructor(private AutoCompleteService: SearchService) {}
+  formGroup: FormGroup;
+
+  constructor(
+    private AutoCompleteService: SearchService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.searchThis();
@@ -30,6 +36,6 @@ export class SearchbarComponent implements OnInit {
   }
 
   onSubmit(): void {
-    return;
+    console.log('submitted!');
   }
 }
