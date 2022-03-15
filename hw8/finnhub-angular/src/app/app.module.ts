@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
@@ -38,6 +41,9 @@ const appRoutes: Routes = [
     NgbModule,
     FormsModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    HttpClientModule,
+    MatAutocompleteModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

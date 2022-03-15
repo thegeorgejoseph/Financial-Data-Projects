@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { debounceTime } from 'rxjs/operators';
+import { SearchService } from '../../services/search.service';
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
@@ -7,15 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchbarComponent implements OnInit {
   ticker: string;
-  constructor() {}
+  options;
+  constructor(private AutoCompleteService: SearchService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.searchThis();
+  }
 
   searchThis(): void {
     if (!this.ticker) {
       return console.log('the ticker is empty right now');
     }
-    console.log(this.ticker);
+
+    this.AutoCompleteService.getAutoCompleteData(this.ticker)
+      .pipe(debounceTime(2000))
+      .subscribe((response) => {
+        this.options = response;
+      });
   }
 
   onSubmit(): void {
