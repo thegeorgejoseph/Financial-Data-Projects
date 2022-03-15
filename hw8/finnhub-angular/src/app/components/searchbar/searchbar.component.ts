@@ -8,6 +8,7 @@ import { SearchService } from '../../services/search.service';
 })
 export class SearchbarComponent implements OnInit {
   ticker: string;
+  defaultOptions;
   options;
   constructor(private AutoCompleteService: SearchService) {}
 
@@ -17,6 +18,7 @@ export class SearchbarComponent implements OnInit {
 
   searchThis(): void {
     if (!this.ticker) {
+      this.options = [];
       return console.log('the ticker is empty right now');
     }
 
