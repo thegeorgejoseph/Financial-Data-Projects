@@ -5,8 +5,11 @@ app = express();
 require("dotenv").config();
 
 const PORT = process.env.PORT || 5003;
+
+const autocompleteRoute = require("./routes/autocomplete");
 const companyDetailsRoute = require("./routes/companyDetails");
 
+app.use("/autocomplete", autocompleteRoute);
 app.use("/company", companyDetailsRoute);
 
 app.listen(PORT, () => console.log(`Node server running on port ${PORT}...`));

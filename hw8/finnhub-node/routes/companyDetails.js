@@ -3,7 +3,6 @@ const express = require("express");
 const router = express.Router();
 
 require("dotenv").config();
-console.log(process.env.API_URL);
 router.get("/description", (req, res) => {
   axios
     .get(

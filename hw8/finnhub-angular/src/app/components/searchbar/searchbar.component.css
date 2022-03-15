@@ -1,7 +1,7 @@
 .search-container {
   border-radius: 40px !important;
   width: 30%;
-  display: flex;
+  display: flex !important;
   justify-content: space-around;
   align-items: center;
   border: 3px solid var(--primary-color) !important;
@@ -10,16 +10,25 @@
 }
 .inputter {
   border-radius: 40px !important;
-  width: 75% !important;
+  width: 85% !important;
   height: 2rem !important;
   outline: none !important;
+  align-self: flex-start !important;
 }
 .searcher {
   color: var(--primary-color) !important;
+  align-self: flex-end;
+  padding-left: 1vh !important;
+  padding-right: 1vh !important;
 }
 
 .x {
   color: var(--primary-color) !important;
+  padding-left: 1rem !important;
+}
+
+form {
+  width: 90% !important;
 }
 
 button {
