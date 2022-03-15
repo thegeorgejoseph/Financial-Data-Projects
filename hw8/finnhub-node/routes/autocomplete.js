@@ -11,8 +11,11 @@ router.get("/:ticker", (req, res) => {
     )
     .then((response) => {
       response.data = response.data.result
-        .filter((res) => res.type === "Common Stock")
-        .map((obj) => obj.displaySymbol);
+        .filter(
+          (res) =>
+            res.type === "Common Stock" && !res.displaySymbol.includes(".")
+        )
+        .map((obj) => `${obj.displaySymbol} | ${obj.description}`);
       res.status(200).json(response.data);
     })
     .catch((err) =>

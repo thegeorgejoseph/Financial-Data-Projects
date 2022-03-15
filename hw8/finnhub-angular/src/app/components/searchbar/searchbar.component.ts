@@ -23,7 +23,7 @@ export class SearchbarComponent implements OnInit {
     }
 
     this.AutoCompleteService.getAutoCompleteData(this.ticker)
-      .pipe(debounceTime(2000))
+      .pipe(debounceTime(500))
       .subscribe((response) => {
         this.options = response;
       });
