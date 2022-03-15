@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     NoopAnimationsModule,
     NgbModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [],
