@@ -11,7 +11,14 @@ export class SearchbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit() {
-    
+  searchThis(): void {
+    if (!this.ticker) {
+      return console.log('the ticker is empty right now');
+    }
+    console.log(this.ticker);
+  }
+
+  onSubmit(): void {
+    return;
   }
 }

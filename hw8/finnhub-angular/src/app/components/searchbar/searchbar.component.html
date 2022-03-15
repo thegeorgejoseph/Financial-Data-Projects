@@ -9,6 +9,7 @@
         type="text"
         name="ticker"
         [(ngModel)]="ticker"
+        (input)="searchThis()"
         placeholder="Enter stock ticker symbol"
       /><button
         type="button"
