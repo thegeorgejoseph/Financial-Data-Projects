@@ -35,6 +35,10 @@ export class SearchbarComponent implements OnInit {
       });
   }
 
+  setTicker() {
+    console.log('executed');
+    this.ticker = this.ticker.split(' ')[0];
+  }
   onSubmit(): void {
     console.log('submitted!');
   }

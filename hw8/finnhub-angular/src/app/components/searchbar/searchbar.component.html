@@ -22,7 +22,11 @@
         #auto="matAutocomplete"
         (optionSelected)="($event.option.value)"
       >
-        <mat-option *ngFor="let item of options" [value]="item">
+        <mat-option
+          *ngFor="let item of options"
+          [value]="item"
+          (click)="setTicker()"
+        >
           {{ item }}
         </mat-option>
       </mat-autocomplete>
