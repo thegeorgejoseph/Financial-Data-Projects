@@ -11,7 +11,7 @@ export class SearchbarComponent implements OnInit {
   ticker: string;
   defaultOptions;
   options;
-  formGroup: FormGroup;
+  isLoading: boolean;
 
   constructor(
     private AutoCompleteService: SearchService,
@@ -24,14 +24,16 @@ export class SearchbarComponent implements OnInit {
 
   searchThis(): void {
     if (!this.ticker) {
-      this.options = [];
+      this.onClear();
       return console.log('the ticker is empty right now');
     }
-
+    this.options = [];
+    this.isLoading = true;
     this.AutoCompleteService.getAutoCompleteData(this.ticker)
       .pipe(debounceTime(500))
       .subscribe((response) => {
         this.options = response;
+        this.isLoading = false;
       });
   }
 
@@ -41,5 +43,10 @@ export class SearchbarComponent implements OnInit {
   }
   onSubmit(): void {
     console.log('submitted!');
+  }
+
+  onClear() {
+    this.options = [];
+    this.isLoading = false;
   }
 }
