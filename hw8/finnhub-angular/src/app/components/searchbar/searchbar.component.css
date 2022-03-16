@@ -3,7 +3,7 @@
   width: 25%;
   display: flex !important;
   justify-content: space-between !important;
-  align-items: flex-start !important;
+  align-items: center !important;
   border: 3px solid var(--primary-color) !important;
   box-sizing: border-box;
   margin-top: 2rem !important;
@@ -20,13 +20,14 @@
 .searcher {
   /* border: 2px solid black !important; */
   color: var(--primary-color) !important;
-  align-self: flex-end;
+  align-self: center;
   margin-left: 8px !important;
 }
 
 .x {
   /* border: 2px solid black !important; */
   color: var(--primary-color) !important;
+  align-self: center;
   margin-left: 10px !important;
 }
 

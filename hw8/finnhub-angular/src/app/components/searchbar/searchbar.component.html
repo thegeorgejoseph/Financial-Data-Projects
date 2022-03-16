@@ -17,7 +17,12 @@
         class="searcher bi bi-search"
         style="font-size: 16px"
       ></button
-      ><button type="button" class="x bi bi-x" style="font-size: 20px"></button>
+      ><button
+        type="button"
+        class="x bi bi-x"
+        style="font-size: 22px"
+        (click)="onClear()"
+      ></button>
       <mat-autocomplete
         #auto="matAutocomplete"
         (optionSelected)="($event.option.value)"

@@ -20,8 +20,8 @@ import { SearchComponent } from './components/search/search.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 const appRoutes: Routes = [
-  { path: '', component: SearchComponent },
-  { path: 'search', component: SearchComponent },
+  { path: '', redirectTo: 'search/home', pathMatch: 'full' },
+  { path: 'search/home', component: SearchComponent },
   { path: 'watchlist', component: WatchlistComponent },
   { path: 'portfolio', component: PortfolioComponent },
 ];

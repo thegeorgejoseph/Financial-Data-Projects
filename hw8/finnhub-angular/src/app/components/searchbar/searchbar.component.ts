@@ -48,5 +48,6 @@ export class SearchbarComponent implements OnInit {
   onClear() {
     this.options = [];
     this.isLoading = false;
+    this.ticker = '';
   }
 }
