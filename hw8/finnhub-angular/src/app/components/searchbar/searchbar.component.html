@@ -21,7 +21,7 @@
         type="button"
         class="x bi bi-x"
         style="font-size: 22px"
-        (click)="onClear()"
+        (click)="onClear(); clearLocal();"
       ></button>
       <mat-autocomplete
         #auto="matAutocomplete"

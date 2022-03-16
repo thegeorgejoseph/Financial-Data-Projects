@@ -52,4 +52,8 @@ export class SearchbarComponent implements OnInit {
     this.isLoading = false;
     this.ticker = '';
   }
+
+  clearLocal(): void {
+    localStorage.clear(); // clearing local storage for development purposes
+  }
 }
