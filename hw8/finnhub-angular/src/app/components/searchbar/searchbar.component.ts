@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { SearchService } from '../../services/search.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
@@ -15,7 +16,7 @@ export class SearchbarComponent implements OnInit {
 
   constructor(
     private AutoCompleteService: SearchService,
-    private fb: FormBuilder
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,10 +39,11 @@ export class SearchbarComponent implements OnInit {
   }
 
   setTicker() {
-    console.log('executed');
     this.ticker = this.ticker.split(' ')[0];
   }
   onSubmit(): void {
+    localStorage.setItem('ticker', this.ticker);
+    this.router.navigateByUrl(`search/${this.ticker}`);
     console.log('submitted!');
   }
 

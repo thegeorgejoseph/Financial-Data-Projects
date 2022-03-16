@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+// import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,16 +15,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
-import { RouterModule, Routes } from '@angular/router';
 import { SearchComponent } from './components/search/search.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
-
-const appRoutes: Routes = [
-  { path: '', redirectTo: 'search/home', pathMatch: 'full' },
-  { path: 'search/home', component: SearchComponent },
-  { path: 'watchlist', component: WatchlistComponent },
-  { path: 'portfolio', component: PortfolioComponent },
-];
+import { SearchdetailsComponent } from './components/searchdetails/searchdetails.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +28,7 @@ const appRoutes: Routes = [
     PortfolioComponent,
     SearchComponent,
     SearchbarComponent,
+    SearchdetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +36,6 @@ const appRoutes: Routes = [
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
     HttpClientModule,
     MatAutocompleteModule,
     MatInputModule,
@@ -50,6 +43,5 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [RouterModule],
 })
 export class AppModule {}
