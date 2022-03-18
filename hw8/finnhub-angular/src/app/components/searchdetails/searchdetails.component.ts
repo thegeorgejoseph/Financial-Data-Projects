@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({
   selector: 'app-searchdetails',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchdetailsComponent implements OnInit {
   ticker = localStorage.getItem('ticker');
-  constructor() {}
+  localData;
+  constructor(private data$: DataServiceService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.data$.subject.subscribe(data => this.localData = data)
+  }
 }

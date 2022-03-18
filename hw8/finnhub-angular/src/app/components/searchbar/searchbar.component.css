@@ -7,6 +7,7 @@
   border: 3px solid var(--primary-color) !important;
   box-sizing: border-box;
   margin-top: 2rem !important;
+  flex-wrap: nowrap !important;
 }
 .inputter {
   /* border: 2px solid black !important; */
@@ -16,12 +17,14 @@
   outline: none !important;
   align-self: flex-start !important;
   margin-left: 1rem !important;
+  flex-shrink: 0 !important;
 }
 .searcher {
   /* border: 2px solid black !important; */
   color: var(--primary-color) !important;
   align-self: center;
   margin-left: 8px !important;
+  flex-shrink: 0 !important;
 }
 
 .x {
@@ -29,6 +32,7 @@
   color: var(--primary-color) !important;
   align-self: center;
   margin-left: 10px !important;
+  flex-shrink: 0 !important;
 }
 
 form {
@@ -46,7 +50,7 @@ h1 {
   font-size: 3rem;
 }
 
-h4{
+h4 {
   font-size: 5rem;
   align-self: center;
   width: 1000px;

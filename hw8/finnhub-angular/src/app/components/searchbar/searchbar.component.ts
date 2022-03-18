@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { SearchService } from '../../services/search.service';
 import { Router } from '@angular/router';
+import { DataServiceService } from 'src/app/services/data-service.service';
+
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
@@ -16,7 +18,8 @@ export class SearchbarComponent implements OnInit {
 
   constructor(
     private AutoCompleteService: SearchService,
-    public router: Router
+    public router: Router,
+    private data$: DataServiceService
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +43,7 @@ export class SearchbarComponent implements OnInit {
 
   setTicker() {
     this.ticker = this.ticker.split(' ')[0];
+    this.data$.sendData({ ticker: this.ticker });
   }
   onSubmit(): void {
     localStorage.setItem('ticker', this.ticker);

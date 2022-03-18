@@ -19,6 +19,8 @@ import { SearchComponent } from './components/search/search.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { SearchdetailsComponent } from './components/searchdetails/searchdetails.component';
 
+import { DataServiceService } from './services/data-service.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,7 @@ import { SearchdetailsComponent } from './components/searchdetails/searchdetails
     MatInputModule,
     MatProgressSpinnerModule,
   ],
-  providers: [],
+  providers: [DataServiceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
