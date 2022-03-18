@@ -19,7 +19,11 @@ router.get("/:ticker", (req, res) => {
         current = res.data;
         dataObj = { ...dataObj, ...current };
       });
-      res.status(200).json(dataObj);
+      if (dataObj.d === null && dataObj.dp === null && dataObj.t === 0) {
+        throw "Invalid Ticker";
+      } else {
+        res.status(200).json(dataObj);
+      }
     })
     .catch((err) => {
       res.status(404).json({ msg: err });
