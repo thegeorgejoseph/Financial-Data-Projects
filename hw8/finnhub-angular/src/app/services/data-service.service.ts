@@ -4,11 +4,17 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class DataServiceService {
-  public subject = new BehaviorSubject({});
+  dataStream;
+  public subject = new BehaviorSubject({
+    ticker: localStorage.getItem('ticker') || '',
+  });
 
-  constructor() {}
+  constructor() {
+    this.dataStream = {};
+  }
 
   sendData(data): void {
-    this.subject.next(data); // essentially takes the data that is passed in from the component and then sends it to all the observers
+    this.dataStream = { ...this.dataStream, ...data };
+    this.subject.next(this.dataStream); // essentially takes the data that is passed in from the component and then sends it to all the observers
   }
 }

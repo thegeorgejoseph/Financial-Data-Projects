@@ -15,9 +15,10 @@ export class SearchbarComponent implements OnInit {
   defaultOptions;
   options;
   isLoading: boolean;
+  companyDescriptionObject;
 
   constructor(
-    private AutoCompleteService: SearchService,
+    private SearchService: SearchService,
     public router: Router,
     private data$: DataServiceService
   ) {}
@@ -33,7 +34,7 @@ export class SearchbarComponent implements OnInit {
     }
     this.options = [];
     this.isLoading = true;
-    this.AutoCompleteService.getAutoCompleteData(this.ticker)
+    this.SearchService.getAutoCompleteData(this.ticker)
       .pipe(debounceTime(500))
       .subscribe((response) => {
         this.options = response;
@@ -43,11 +44,19 @@ export class SearchbarComponent implements OnInit {
 
   setTicker() {
     this.ticker = this.ticker.split(' ')[0];
-    this.data$.sendData({ ticker: this.ticker });
+    this.data$.sendData({ ticker: this.ticker }); // this is the reason for the dynamic rendering in the searchdetails child so remove this if there is a bug
   }
   onSubmit(): void {
     localStorage.setItem('ticker', this.ticker);
     this.router.navigateByUrl(`search/${this.ticker}`);
+    //here need to load the loading component / set the variable that will load the loading component and then
+    this.companyDescriptionObject = this.SearchService.getCompanyDescription(
+      this.ticker
+    ).subscribe((res) => {
+      this.companyDescriptionObject = res;
+      this.data$.sendData(this.companyDescriptionObject);
+    });
+
     console.log('submitted!');
   }
 

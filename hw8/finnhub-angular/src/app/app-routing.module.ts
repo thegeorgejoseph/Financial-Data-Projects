@@ -8,13 +8,17 @@ import { SearchdetailsComponent } from './components/searchdetails/searchdetails
 const routes: Routes = [
   { path: '', redirectTo: 'search/home', pathMatch: 'full' },
   { path: 'search/home', component: SearchComponent, pathMatch: 'full' },
-  { path: 'search/:ticker', component: SearchComponent, children: [{ path:'', component: SearchdetailsComponent}]},
+  {
+    path: 'search/:ticker',
+    component: SearchComponent,
+    children: [{ path: '', component: SearchdetailsComponent }],
+  },
   { path: 'watchlist', component: WatchlistComponent },
   { path: 'portfolio', component: PortfolioComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
