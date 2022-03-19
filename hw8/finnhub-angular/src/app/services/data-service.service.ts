@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 export class DataServiceService {
   dataStream;
   public subject = new BehaviorSubject({
-    ticker: localStorage.getItem('ticker') || '',
+    // ticker: localStorage.getItem('ticker') || '',
   });
 
   constructor() {

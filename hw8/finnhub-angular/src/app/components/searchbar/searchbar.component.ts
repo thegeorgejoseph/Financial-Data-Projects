@@ -44,7 +44,7 @@ export class SearchbarComponent implements OnInit {
 
   setTicker() {
     this.ticker = this.ticker.split(' ')[0];
-    this.data$.sendData({ ticker: this.ticker }); // this is the reason for the dynamic rendering in the searchdetails child so remove this if there is a bug
+    // this.data$.sendData({ ticker: this.ticker }); // this is the reason for the dynamic rendering in the searchdetails child so remove this if there is a bug
   }
   onSubmit(): void {
     localStorage.setItem('ticker', this.ticker);
@@ -68,5 +68,9 @@ export class SearchbarComponent implements OnInit {
 
   clearLocal(): void {
     localStorage.clear(); // clearing local storage for development purposes
+  }
+
+  homeRoute(): void {
+    this.router.navigateByUrl('/search/home');
   }
 }
