@@ -30,6 +30,8 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { TopnewsComponent } from './components/topnews/topnews.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { InsightsComponent } from './components/insights/insights.component';
+import { HLOPComponent } from './components/hlop/hlop.component';
+import { AboutcompanyComponent } from './components/aboutcompany/aboutcompany.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { InsightsComponent } from './components/insights/insights.component';
     TopnewsComponent,
     ChartsComponent,
     InsightsComponent,
+    HLOPComponent,
+    AboutcompanyComponent,
   ],
   imports: [
     BrowserModule,

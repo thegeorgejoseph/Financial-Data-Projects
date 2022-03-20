@@ -17,7 +17,6 @@ export class DescriptRightComponent implements OnInit, OnDestroy {
   intervalId: any;
   constructor(
     private data$: DataServiceService,
-    private autoupdate$: AutoupdaterService,
     private searchService: SearchService
   ) {}
 
