@@ -21,4 +21,5 @@ export class SearchService {
   runAutoUpdater(value) {
     return this.http.get(`${BACKEND_URL}/autoupdate/${value}`);
   }
+  
 }

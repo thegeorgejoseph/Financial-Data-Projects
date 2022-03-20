@@ -1,0 +1,14 @@
+.link {
+  cursor: pointer !important;
+  text-decoration: underline !important;
+  color: black !important;
+}
+
+.lightweight {
+  font-weight: 100 !important;
+}
+
+.peerlink {
+  cursor: pointer !important;
+  /* text-decoration: underline !important; */
+}
