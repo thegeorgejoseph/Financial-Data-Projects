@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -49,6 +51,8 @@ import { DescriptRightComponent } from './components/descript-right/descript-rig
     MatAutocompleteModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
   ],
   providers: [DataServiceService, AutoupdaterService],
   bootstrap: [AppComponent],

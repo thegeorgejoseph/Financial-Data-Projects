@@ -50,11 +50,8 @@ export class DescriptRightComponent implements OnInit, OnDestroy {
           this.color = 'red';
           this.isPositive = false;
         }
-        this.callSearchServiceAutoUpdater();
+        // this.callSearchServiceAutoUpdater();
       }
-      // try {
-      //   this.intervalId = this.autoUpdaterFunction();
-      // } catch {}
     });
   }
 
@@ -70,40 +67,4 @@ export class DescriptRightComponent implements OnInit, OnDestroy {
       15000
     );
   }
-
-  // autoUpdaterFunction() {
-  //   this.autoupdate$.sendToObserver(this.localData.ticker);
-  //   this.autoupdate$.subject.subscribe((data) => {
-  //     if (data.hasUpdated === true) {
-  //       this.autoUpdateData = data;
-
-  //       console.log('running autoupdate');
-  //       // console.log(this.autoUpdateData);
-  //       // console.log(this.localData);
-  //       this.localData.c = this.autoUpdateData.c;
-  //       this.localData.d = this.autoUpdateData.d;
-  //       this.localData.dp = this.autoUpdateData.dp;
-  //       this.localData.h = this.autoUpdateData.h;
-  //       this.localData.l = this.autoUpdateData.l;
-  //       this.localData.o = this.autoUpdateData.o;
-  //       this.localData.pc = this.autoUpdateData.pc;
-  //       this.localData.t = this.autoUpdateData.t;
-  //       // console.log(this.localData.c === this.autoUpdateData.c);
-  //       this.localData.t = new Date(this.localData.t * 1000)
-  //         .toISOString()
-  //         .split('.')[0]
-  //         .replace('T', ' ');
-  //       this.localData.c = this.localData.c.toFixed(2);
-  //       this.localData.d = this.localData.d.toFixed(2);
-  //       this.localData.dp = this.localData.dp.toFixed(2);
-  //       if (this.localData.dp > 0) {
-  //         this.color = 'green';
-  //         this.isPositive = true;
-  //       } else if (this.localData.dp < 0) {
-  //         this.color = 'red';
-  //         this.isPositive = false;
-  //       }
-  //     }
-  //   });
-  // }
 }

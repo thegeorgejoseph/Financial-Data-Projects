@@ -8,3 +8,12 @@ img {
   height: 140px;
   width: 140px;
 }
+
+h6 {
+  margin-top: 4rem !important;
+}
+
+.market {
+  margin-top: 3rem !important;
+  font-weight: 700 !important;
+}
