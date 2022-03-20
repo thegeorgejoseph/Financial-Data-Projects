@@ -26,6 +26,10 @@ import { AutoupdaterService } from './services/autoupdater.service';
 import { DescriptLeftComponent } from './components/descript-left/descript-left.component';
 import { DescriptMiddleComponent } from './components/descript-middle/descript-middle.component';
 import { DescriptRightComponent } from './components/descript-right/descript-right.component';
+import { SummaryComponent } from './components/summary/summary.component';
+import { TopnewsComponent } from './components/topnews/topnews.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { InsightsComponent } from './components/insights/insights.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,10 @@ import { DescriptRightComponent } from './components/descript-right/descript-rig
     DescriptLeftComponent,
     DescriptMiddleComponent,
     DescriptRightComponent,
+    SummaryComponent,
+    TopnewsComponent,
+    ChartsComponent,
+    InsightsComponent,
   ],
   imports: [
     BrowserModule,
