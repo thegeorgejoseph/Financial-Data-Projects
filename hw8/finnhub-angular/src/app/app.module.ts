@@ -20,6 +20,7 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { SearchdetailsComponent } from './components/searchdetails/searchdetails.component';
 
 import { DataServiceService } from './services/data-service.service';
+import { AutoupdaterService } from './services/autoupdater.service';
 import { DescriptLeftComponent } from './components/descript-left/descript-left.component';
 import { DescriptMiddleComponent } from './components/descript-middle/descript-middle.component';
 import { DescriptRightComponent } from './components/descript-right/descript-right.component';
@@ -49,7 +50,7 @@ import { DescriptRightComponent } from './components/descript-right/descript-rig
     MatInputModule,
     MatProgressSpinnerModule,
   ],
-  providers: [DataServiceService],
+  providers: [DataServiceService, AutoupdaterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

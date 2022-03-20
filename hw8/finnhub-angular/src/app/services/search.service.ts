@@ -17,4 +17,8 @@ export class SearchService {
   getCompanyDescription(value) {
     return this.http.get(`${BACKEND_URL}/companydescript/${value}`);
   }
+
+  runAutoUpdater(value) {
+    return this.http.get(`${BACKEND_URL}/autoupdate/${value}`);
+  }
 }

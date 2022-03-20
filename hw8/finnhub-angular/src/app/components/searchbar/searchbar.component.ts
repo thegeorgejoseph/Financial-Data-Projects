@@ -50,9 +50,7 @@ export class SearchbarComponent implements OnInit {
     localStorage.setItem('ticker', this.ticker);
     this.router.navigateByUrl(`search/${this.ticker}`);
     //here need to load the loading component / set the variable that will load the loading component and then
-    this.companyDescriptionObject = this.SearchService.getCompanyDescription(
-      this.ticker
-    ).subscribe((res) => {
+    this.SearchService.getCompanyDescription(this.ticker).subscribe((res) => {
       this.companyDescriptionObject = res;
       this.data$.sendData(this.companyDescriptionObject);
     });

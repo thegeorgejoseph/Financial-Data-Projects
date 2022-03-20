@@ -17,7 +17,7 @@ router.get("/:ticker", (req, res) => {
     .then((responses) => {
       responses.map((res) => {
         current = res.data;
-        console.log(current);
+        // console.log(current);
         if (Object.keys(current).length === 0) {
           throw "Invalid Ticker";
         }
