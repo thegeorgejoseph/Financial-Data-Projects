@@ -13,6 +13,9 @@ router.get("/:ticker", (req, res) => {
     axios.get(
       `https://finnhub.io/api/v1/quote?symbol=${req.params.ticker}&token=${process.env.API_URL}` // double check that quote api gets all caps as input for it to work!
     ),
+    axios.get(
+      `https://finnhub.io/api/v1/stock/peers?symbol=${req.params.ticker}&token=${process.env.API_URL}`
+    ),
   ])
     .then((responses) => {
       responses.map((res) => {
@@ -21,7 +24,11 @@ router.get("/:ticker", (req, res) => {
         if (Object.keys(current).length === 0) {
           throw "Invalid Ticker";
         }
-        dataObj = { ...dataObj, ...current };
+        if (Array.isArray(current)) {
+          dataObj = { ...dataObj, response: current.filter((x) => x != "") };
+        } else {
+          dataObj = { ...dataObj, ...current };
+        }
       });
       res.status(200).json(dataObj);
     })
