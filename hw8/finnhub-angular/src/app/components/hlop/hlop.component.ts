@@ -29,18 +29,29 @@ export class HLOPComponent implements OnInit, OnDestroy {
   getHLOP() {
     this.data$.subject.subscribe((data) => {
       this.localData = data;
+      // console.log(this.localData);
       if (this.localData.containsData) {
         this.ngOnDestroy();
-        this.localData.h = this.localData.h.toFixed(2);
-        this.localData.l = this.localData.l.toFixed(2);
-        this.localData.o = this.localData.o.toFixed(2);
-        this.localData.pc = this.localData.pc.toFixed(2);
+        // if (
+        //   (this.localData.h + '').split('.')[1].length > 2 ||
+        //   (this.localData.l + '').split('.')[1].length > 2 ||
+        //   (this.localData.o + '').split('.')[1].length > 2 ||
+        //   (this.localData.pc + '').split('.')[1].length > 2
+        // ) {
+        // }
+
+        this.localData.h = this.roundMe(this.localData.h);
+        this.localData.l = this.roundMe(this.localData.l);
+        this.localData.o = this.roundMe(this.localData.o);
+        this.localData.pc = this.roundMe(this.localData.pc);
 
         // this.callSearchServiceAutoUpdater();
       }
     });
   }
-
+  roundMe(num) {
+    return Math.round((num + Number.EPSILON) * 100) / 100;
+  }
   callSearchServiceAutoUpdater() {
     this.intervalId = setInterval(
       () =>

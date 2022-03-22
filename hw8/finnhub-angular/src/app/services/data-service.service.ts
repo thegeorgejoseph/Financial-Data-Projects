@@ -4,13 +4,14 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class DataServiceService {
-  dataStream = {containsData : false};
+  dataStream = { containsData: false };
   public subject = new BehaviorSubject({
     // ticker: localStorage.getItem('ticker') || '',
   });
 
   constructor() {
-    this.dataStream = { containsData: false };
+    console.log('Service Instantiated');
+    // this.dataStream = { containsData: false };
   }
 
   sendData(data): void {

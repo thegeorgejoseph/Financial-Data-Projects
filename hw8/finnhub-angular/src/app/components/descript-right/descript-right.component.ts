@@ -31,17 +31,21 @@ export class DescriptRightComponent implements OnInit, OnDestroy {
   }
 
   getDataFromService() {
+    // console.log(this.isPositive);
     this.data$.subject.subscribe((data) => {
       this.localData = data;
+      // console.log(this.localData);
       if (this.localData.containsData) {
         this.ngOnDestroy();
-        this.localData.t = new Date(this.localData.t * 1000)
-          .toISOString()
-          .split('.')[0]
-          .replace('T', ' ');
-        this.localData.c = this.localData.c.toFixed(2);
-        this.localData.d = this.localData.d.toFixed(2);
-        this.localData.dp = this.localData.dp.toFixed(2);
+        if (!new String(this.localData.t).includes(':')) {
+          this.localData.t = new Date(this.localData.t * 1000)
+            .toISOString()
+            .split('.')[0]
+            .replace('T', ' ');
+          this.localData.c = this.localData.c.toFixed(2);
+          this.localData.d = this.localData.d.toFixed(2);
+          this.localData.dp = this.localData.dp.toFixed(2);
+        }
         if (this.localData.dp > 0) {
           this.color = 'green';
           this.isPositive = true;
