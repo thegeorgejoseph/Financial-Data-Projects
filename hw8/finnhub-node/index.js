@@ -15,6 +15,11 @@ app.use(function (req, res, next) {
   next();
 });
 
+// app.use((req, res, next) => {
+//   res.set("Cache-Control", "no-store");
+//   next();
+// });
+
 const autocompleteRoute = require("./routes/autocomplete");
 const companyDetailsRoute = require("./routes/companyDetails");
 const companyDescriptRoute = require("./routes/companydescript");

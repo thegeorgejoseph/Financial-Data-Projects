@@ -6,6 +6,8 @@ require("dotenv").config();
 dataObj = {};
 
 router.get("/:ticker", (req, res) => {
+  currentDate = new Date().toISOString().split("T")[0];
+  dataMonthAgo = "2022-01-02";
   Promise.all([
     axios.get(
       `https://finnhub.io/api/v1/stock/profile2?symbol=${req.params.ticker}&token=${process.env.API_URL}`
@@ -16,6 +18,9 @@ router.get("/:ticker", (req, res) => {
     axios.get(
       `https://finnhub.io/api/v1/stock/peers?symbol=${req.params.ticker}&token=${process.env.API_URL}`
     ),
+    axios.get(
+      `https://finnhub.io/api/v1/company-news?symbol=${req.params.ticker}&from=${dataMonthAgo}&to=${currentDate}&token=${process.env.API_URL}`
+    ),
   ])
     .then((responses) => {
       responses.map((res) => {
@@ -24,7 +29,20 @@ router.get("/:ticker", (req, res) => {
         if (Object.keys(current).length === 0) {
           throw "Invalid Ticker";
         }
-        if (Array.isArray(current)) {
+        if (
+          Array.isArray(current) &&
+          !Array.isArray(current[0]) &&
+          current[0]["category"] !== undefined
+        ) {
+          current = current.filter(
+            (item) =>
+              item["image"] !== "" ||
+              item["headline"] !== "" ||
+              item["url"] !== "" ||
+              item["datetime"] !== ""
+          );
+          dataObj = { ...dataObj, news: current.slice(0, 5) };
+        } else if (Array.isArray(current)) {
           dataObj = { ...dataObj, response: current.filter((x) => x != "") };
         } else {
           dataObj = { ...dataObj, ...current };

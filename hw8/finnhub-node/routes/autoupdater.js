@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 require("dotenv").config();
+dataObj = {};
 
 router.get("/:ticker", (req, res) => {
   axios
@@ -10,7 +11,8 @@ router.get("/:ticker", (req, res) => {
       `https://finnhub.io/api/v1/quote?symbol=${req.params.ticker}&token=${process.env.API_URL}` // double check that quote api gets all caps as input for it to work!
     )
     .then((response) => {
-      res.status(200).json(response.data);
+      dataObj = { ...dataObj, ...response.data };
+      res.status(200).json(dataObj);
     })
     .catch((err) => res.status(400).json({ msg: err }));
 });
