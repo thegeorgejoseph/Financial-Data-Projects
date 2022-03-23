@@ -32,6 +32,7 @@ import { ChartsComponent } from './components/charts/charts.component';
 import { InsightsComponent } from './components/insights/insights.component';
 import { HLOPComponent } from './components/hlop/hlop.component';
 import { AboutcompanyComponent } from './components/aboutcompany/aboutcompany.component';
+import { NewsCardComponent } from './components/news-card/news-card.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { AboutcompanyComponent } from './components/aboutcompany/aboutcompany.co
     InsightsComponent,
     HLOPComponent,
     AboutcompanyComponent,
+    NewsCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -65,6 +65,7 @@ export class DescriptRightComponent implements OnInit, OnDestroy {
           .runAutoUpdater(this.localData.ticker)
           .subscribe((res) => {
             this.autoUpdateData = res;
+            console.log(this.autoUpdateData);
             this.data$.sendData(this.autoUpdateData);
           }),
       15000

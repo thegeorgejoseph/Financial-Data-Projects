@@ -36,9 +36,9 @@ router.get("/:ticker", (req, res) => {
         ) {
           current = current.filter(
             (item) =>
-              item["image"] !== "" ||
-              item["headline"] !== "" ||
-              item["url"] !== "" ||
+              item["image"] !== "" &&
+              item["headline"] !== "" &&
+              item["url"] !== "" &&
               item["datetime"] !== ""
           );
           dataObj = { ...dataObj, news: current.slice(0, 5) };
