@@ -1,4 +1,4 @@
-button {
+.card-button {
   display: block !important;
   height: 100px !important;
   background: none !important;
@@ -23,4 +23,28 @@ img {
 
 .card-text {
   text-align: left !important;
+}
+
+.source {
+  font-size: 25px !important;
+  font-weight: 700 !important;
+}
+
+.head {
+  box-sizing: border-box !important;
+  padding: 0 !important;
+}
+.twitter {
+  padding: 5px !important;
+  font-size: 40px !important;
+  color: rgba(29 161 242) !important;
+  margin-left: 10px !important;
+  cursor: pointer;
+}
+
+.facebook {
+  padding: 5px !important;
+  font-size: 40px !important;
+  color: blue !important;
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-<button class="m-3">
+<button class="m-3 card-button" (click)="open(content)">
   <div class="card">
     <div class="row">
       <div class="col-2">
@@ -12,3 +12,41 @@
     </div>
   </div>
 </button>
+
+<ng-template #content let-modal>
+  <div class="modal-header d-flex flex-column">
+    <div
+      class="modal-body head col d-flex flex-row justify-content-center align-items-center"
+    >
+      <p class="h2">{{ source }}</p>
+      <button
+        type="button"
+        class="close align-self-start"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body row text-secondary w-100" style="font: 15px">
+      {{ date }}
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="h3">{{ headline }}</div>
+    <div class="div">
+      {{ description }}
+    </div>
+    <p class="text-secondary">
+      For more details click
+      <a class="link-info" [href]="url" target="_blank">here</a>
+    </p>
+    <div class="mt-5 border rounded">
+      <p class="row modal-body" style="font: 10px">Share</p>
+      <div class="row modal-body">
+        <i class="fa-brands fa-twitter twitter"></i>
+        <i class="fa-brands fa-facebook-square facebook"></i>
+      </div>
+    </div>
+  </div>
+</ng-template>
