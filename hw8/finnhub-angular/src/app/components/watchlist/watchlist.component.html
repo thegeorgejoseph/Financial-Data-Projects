@@ -1,5 +1,24 @@
 <div class="special">
-  <div class="spinner d-flex justify-content-center align-items-center">
-    <div class="spinner-border text-primary" role="status"></div>
+  <div class="container watchlist h-100">
+    <div class="h1 pt-5 pb-5 d-flex">My Watchlist</div>
+    <p class="container-fluid">
+      <ngb-alert
+        *ngIf="watchlistSize === 0"
+        [dismissible]="false"
+        class="d-flex justify-content-center"
+      >
+        Currently you don't have any stock in your watchlist.
+      </ngb-alert>
+    </p>
+    <div
+      *ngFor="let item of watchlist | keyvalue"
+      class="container-fluid border border-warning"
+    >
+      {{ item.key }} || {{ item.value }}
+    </div>
   </div>
 </div>
+
+<!-- <div class="spinner d-flex justify-content-center align-items-center">
+  <div class="spinner-border text-primary" role="status"></div>
+</div> -->

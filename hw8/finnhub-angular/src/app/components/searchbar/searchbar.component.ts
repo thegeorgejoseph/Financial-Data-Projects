@@ -53,6 +53,7 @@ export class SearchbarComponent implements OnInit {
     this.SearchService.getCompanyDescription(this.ticker).subscribe((res) => {
       this.companyDescriptionObject = res;
       this.data$.sendData(this.companyDescriptionObject);
+      
     });
 
     console.log('submitted!');
@@ -65,7 +66,8 @@ export class SearchbarComponent implements OnInit {
   }
 
   clearLocal(): void {
-    localStorage.clear(); // clearing local storage for development purposes
+    localStorage.removeItem('ticker'); // clearing local storage for development purposes
+    localStorage.removeItem('dataStream');
   }
 
   homeRoute(): void {

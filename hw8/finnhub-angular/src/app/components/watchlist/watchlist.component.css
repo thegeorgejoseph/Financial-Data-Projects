@@ -10,3 +10,12 @@
     ),
     url("../../../assets/background-graph.jpg");
 }
+
+.watchlist {
+  margin-top: 100px !important;
+  box-sizing: border-box !important;
+}
+
+.container-fluid {
+  padding: 0 !important;
+}
