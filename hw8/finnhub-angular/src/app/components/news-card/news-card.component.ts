@@ -1,4 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { DataServiceService } from '../../services/data-service.service';
 import { SearchService } from '../../services/search.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -7,7 +13,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './news-card.component.html',
   styleUrls: ['./news-card.component.css'],
 })
-export class NewsCardComponent implements OnInit {
+export class NewsCardComponent implements OnInit, OnChanges {
   @Input() newsItem;
   image;
   url;
@@ -15,8 +21,9 @@ export class NewsCardComponent implements OnInit {
   source;
   date;
   description;
-  @Input() name;
+  // @Input() name;
   closeResult = '';
+  localData;
   monthMap = {
     1: 'January',
     2: 'February',
@@ -38,6 +45,7 @@ export class NewsCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // console.log(this.newsItem);
     this.image = this.newsItem.image;
     this.url = this.newsItem.url;
     this.headline = this.newsItem.headline;
@@ -59,5 +67,9 @@ export class NewsCardComponent implements OnInit {
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.ngOnInit();
   }
 }

@@ -5,9 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataServiceService {
   dataStream = { containsData: false, didClick: false, watchlist: {} };
-  public subject = new BehaviorSubject({
-    // ticker: localStorage.getItem('ticker') || '',
-  });
+  public subject = new BehaviorSubject({});
 
   constructor() {
     console.log('Service Instantiated');
@@ -19,5 +17,9 @@ export class DataServiceService {
     this.dataStream.containsData = true;
     localStorage.setItem('dataStream', JSON.stringify(this.dataStream));
     this.subject.next(this.dataStream); // essentially takes the data that is passed in from the component and then sends it to all the observers
+  }
+
+  sendNewsItem(data): void {
+    this.subject.next(data);
   }
 }
