@@ -16,13 +16,33 @@ export class DescriptLeftComponent implements OnInit {
 
   getDataFromService() {
     this.data$.subject.subscribe((data) => {
+      console.log('calling');
       this.localData = data;
-      this.didClick = this.localData.didClick;
+      if (
+        JSON.parse(localStorage.getItem('watchlist')).includes(
+          localStorage.getItem('ticker')
+        )
+      ) {
+        this.didClick = true;
+      } else {
+        this.didClick = false;
+      }
     });
   }
 
   changeStar() {
     this.didClick = !this.didClick;
+    if (this.didClick) {
+      let localWatchList = JSON.parse(localStorage.getItem('watchlist'));
+      localWatchList.push(localStorage.getItem('ticker'));
+      localStorage.setItem('watchlist', JSON.stringify(localWatchList));
+    } else {
+      let localWatchList = JSON.parse(localStorage.getItem('watchlist'));
+      localWatchList = localWatchList.filter(
+        (x) => x !== localStorage.getItem('ticker')
+      );
+      localStorage.setItem('watchlist', JSON.stringify(localWatchList));
+    }
     let watchlist = this.localData.watchlist;
     if (watchlist.hasOwnProperty(localStorage.getItem('ticker'))) {
       delete watchlist[localStorage.getItem('ticker')];

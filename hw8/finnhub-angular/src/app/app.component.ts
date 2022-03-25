@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
   title = 'finnhub-angular';
 
   ngOnInit() {
-    // let watchlist = {};
-    // localStorage.setItem('watchlist', JSON.stringify(watchlist));
+    let watchlist = [];
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
   }
 }

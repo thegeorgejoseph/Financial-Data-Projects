@@ -53,7 +53,6 @@ export class SearchbarComponent implements OnInit {
     this.SearchService.getCompanyDescription(this.ticker).subscribe((res) => {
       this.companyDescriptionObject = res;
       this.data$.sendData(this.companyDescriptionObject);
-      
     });
 
     console.log('submitted!');
