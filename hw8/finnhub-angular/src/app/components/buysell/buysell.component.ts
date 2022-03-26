@@ -79,10 +79,10 @@ export class BuysellComponent implements OnInit, OnChanges {
   }
 
   sellStocks(ticker) {
-    // this.quantityToSell =
-    //   JSON.parse(localStorage.getItem('portfolio'))['stocks'][ticker][
-    //     'quantityOwned'
-    //   ] || 0;
+    this.quantityToSell =
+      JSON.parse(localStorage.getItem('portfolio'))['stocks'][ticker][
+        'quantityOwned'
+      ] || 0;
     let currentSellPrice = this.sellQuantity * this.localData.c;
     let portfolioMoney = JSON.parse(localStorage.getItem('portfolio'))[
       'wallet'
@@ -91,21 +91,27 @@ export class BuysellComponent implements OnInit, OnChanges {
     let portfolio = JSON.parse(localStorage.getItem('portfolio'));
     let stocks = portfolio['stocks'];
     let stock: PortfolioStock;
+    let updatedStocks;
     if (stocks.hasOwnProperty(ticker)) {
       stock = stocks[ticker];
       stock.quantityOwned = stock.quantityOwned - this.sellQuantity;
       stock.totalCost = stock.totalCost + currentSellPrice;
-      // stocks[ticker] = stock;
+      updatedStocks = stock.quantityOwned;
     } else {
       stock = {
         quantityOwned: this.quantity,
         totalCost: currentSellPrice,
       };
+      updatedStocks = this.quantity;
     }
     stocks[ticker] = stock;
     portfolio['wallet'] = updatedMoney;
     portfolio['stocks'] = stocks;
     localStorage.setItem('portfolio', JSON.stringify(portfolio));
     this.walletMoney = updatedMoney;
+    this.quantityToSell = updatedStocks;
+    if (this.quantityToSell === 0) {
+      this.didBuy = false;
+    }
   }
 }

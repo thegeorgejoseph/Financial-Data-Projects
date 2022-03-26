@@ -104,7 +104,7 @@
       <button
         type="button"
         class="btn btn-success m-1"
-        [disabled]="sellQuantity > quantityToSell"
+        [disabled]="quantityToSell === 0 || sellQuantity > quantityToSell"
         (click)="sellStocks(localData.ticker)"
       >
         Sell
