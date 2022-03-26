@@ -10,6 +10,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     let watchlist = [];
+    // let stocks: PortfolioStock[] = [];
+    let portfolio = { wallet: 25000, stocks: {} };
+    localStorage.setItem('dataStream', JSON.stringify({}));
     localStorage.setItem('watchlist', JSON.stringify(watchlist));
+    localStorage.setItem('portfolio', JSON.stringify(portfolio));
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-descript-left',
   templateUrl: './descript-left.component.html',
@@ -8,7 +10,14 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 export class DescriptLeftComponent implements OnInit {
   localData;
   didClick: boolean;
-  constructor(private data$: DataServiceService) {}
+  closeResult = '';
+  quantity = '';
+  localPortfolio = JSON.parse(localStorage.getItem('portfolio'));
+  walletMoney = ''
+  constructor(
+    private data$: DataServiceService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.getDataFromService();

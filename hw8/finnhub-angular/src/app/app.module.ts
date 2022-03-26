@@ -33,6 +33,8 @@ import { InsightsComponent } from './components/insights/insights.component';
 import { HLOPComponent } from './components/hlop/hlop.component';
 import { AboutcompanyComponent } from './components/aboutcompany/aboutcompany.component';
 import { NewsCardComponent } from './components/news-card/news-card.component';
+import { WatchlistCardComponent } from './components/watchlist-card/watchlist-card.component';
+import { BuysellComponent } from './components/buysell/buysell.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { NewsCardComponent } from './components/news-card/news-card.component';
     HLOPComponent,
     AboutcompanyComponent,
     NewsCardComponent,
+    WatchlistCardComponent,
+    BuysellComponent,
   ],
   imports: [
     BrowserModule,

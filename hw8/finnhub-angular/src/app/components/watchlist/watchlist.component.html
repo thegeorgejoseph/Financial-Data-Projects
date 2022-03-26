@@ -10,11 +10,8 @@
         Currently you don't have any stock in your watchlist.
       </ngb-alert>
     </p>
-    <div
-      *ngFor="let item of watchlist | keyvalue"
-      class="container-fluid border border-warning"
-    >
-      {{ item.key }} || {{ item.value }}
+    <div *ngFor="let item of watchlist | keyvalue" class="container-fluid p-2">
+      <app-watchlist-card [data]="item.value"></app-watchlist-card>
     </div>
   </div>
 </div>

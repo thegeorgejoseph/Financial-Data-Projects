@@ -15,8 +15,11 @@ export class DataServiceService {
   sendData(data): void {
     this.dataStream = { ...this.dataStream, ...data };
     this.dataStream.containsData = true;
-    localStorage.setItem('dataStream', JSON.stringify(this.dataStream));
-    this.subject.next(this.dataStream); // essentially takes the data that is passed in from the component and then sends it to all the observers
+    let ticker = localStorage.getItem('ticker');
+    let result = JSON.parse(localStorage.getItem('dataStream'));
+    result[ticker] = this.dataStream;
+    localStorage.setItem('dataStream', JSON.stringify(result)); // storing it into local storage
+    this.subject.next(this.dataStream); // just passes current ticker data to observers
   }
 
   sendNewsItem(data): void {
