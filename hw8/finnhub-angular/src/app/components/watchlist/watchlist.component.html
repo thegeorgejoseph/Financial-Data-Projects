@@ -11,7 +11,7 @@
       </ngb-alert>
     </p>
     <div *ngFor="let item of watchlist | keyvalue" class="container-fluid p-2">
-      <app-watchlist-card [data]="item.value"></app-watchlist-card>
+      <app-watchlist-card [data]="item.value" (onRemove)="removeCard($event)" [localData]="localData"></app-watchlist-card>
     </div>
   </div>
 </div>

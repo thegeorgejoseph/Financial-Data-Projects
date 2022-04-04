@@ -8,6 +8,7 @@ i {
 
 .card {
   background-color: white !important;
+  margin: 1rem !important;
 }
 
 #name {

@@ -16,7 +16,7 @@ export class SearchbarComponent implements OnInit {
   options;
   isLoading: boolean;
   companyDescriptionObject;
-
+  localData;
   constructor(
     private SearchService: SearchService,
     public router: Router,
@@ -24,7 +24,14 @@ export class SearchbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.searchThis();
+    if (this.router.url.split('/').length - 1 === 2) {
+      console.log(
+        'the current route in the searchbar component is',
+        this.router.url
+      );
+    } else {
+      this.searchThis();
+    }
   }
 
   searchThis(): void {

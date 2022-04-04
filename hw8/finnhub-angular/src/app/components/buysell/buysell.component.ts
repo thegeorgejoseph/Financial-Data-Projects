@@ -1,6 +1,9 @@
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subject, BehaviorSubject } from 'rxjs';
 import { DataServiceService } from 'src/app/services/data-service.service';
+import {AlertServiceService} from 'src/app/services/alert-service.service';
+
 interface PortfolioStock {
   quantityOwned: number;
   totalCost: number;
@@ -20,9 +23,12 @@ export class BuysellComponent implements OnInit, OnChanges {
   ticker;
   quantityToSell;
   sellQuantity: any = '';
+  alertMessage;
+
   constructor(
     private modalService: NgbModal,
-    private data$: DataServiceService
+    private data$: DataServiceService,
+    private alert$: AlertServiceService
   ) {}
 
   ngOnInit(): void {
@@ -76,6 +82,7 @@ export class BuysellComponent implements OnInit, OnChanges {
     this.quantityToSell = this.quantity;
     this.walletMoney = updatedMoney;
     this.didBuy = true;
+    this.changeMessage(ticker);
   }
 
   sellStocks(ticker) {
@@ -106,6 +113,9 @@ export class BuysellComponent implements OnInit, OnChanges {
     }
     stocks[ticker] = stock;
     portfolio['wallet'] = updatedMoney;
+    if (updatedStocks == 0) {
+      delete stocks[ticker];
+    }
     portfolio['stocks'] = stocks;
     localStorage.setItem('portfolio', JSON.stringify(portfolio));
     this.walletMoney = updatedMoney;
@@ -113,5 +123,9 @@ export class BuysellComponent implements OnInit, OnChanges {
     if (this.quantityToSell === 0) {
       this.didBuy = false;
     }
+  }
+
+  changeMessage(ticker) {
+    this.alert$.sendData(`${ticker} bought successfully.`);
   }
 }

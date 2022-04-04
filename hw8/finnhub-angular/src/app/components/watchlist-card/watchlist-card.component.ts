@@ -5,7 +5,10 @@ import {
   OnChanges,
   SimpleChanges,
   Input,
+  Output,
+  EventEmitter,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({
@@ -15,9 +18,11 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 })
 export class WatchlistCardComponent implements OnInit {
   @Input() data;
+  @Input() localData;
   isPositive: boolean;
   color = 'black';
-  constructor(private data$: DataServiceService) {}
+  @Output() onRemove = new EventEmitter<string>();
+  constructor(private data$: DataServiceService, private router: Router) {}
 
   ngOnInit(): void {
     if (this.data.dp > 0) {
@@ -28,8 +33,17 @@ export class WatchlistCardComponent implements OnInit {
       this.color = 'red';
     }
   }
-
+  removeFromWatchList() {
+    this.onRemove.emit(this.data.ticker);
+  }
   // ngOnChanges(changes: SimpleChanges): void {
   //     this.ngOnInit();
   // }
+  goToRoute() {
+    localStorage.setItem('ticker', this.data.ticker);
+    this.router.navigate(['/search', `home`]);
+    this.router.navigate(['/search', `${this.data.ticker}`]);
+    let tickerInfoToPopulate = this.localData['history'][`${this.data.ticker}`];
+    this.data$.sendData(tickerInfoToPopulate);
+  }
 }

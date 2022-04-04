@@ -1,4 +1,12 @@
 <div class="container justify-content-center">
+  <ngb-alert
+    #selfClosingAlert
+    *ngIf="successMessage !== ''"
+    type="success"
+    (closed)="successMessage = ''"
+    style="text-align: center"
+    >{{ successMessage }}
+  </ngb-alert>
   <div class="row justify-content-between">
     <app-descript-left class="col-4"></app-descript-left>
     <app-descript-middle class="col-4"></app-descript-middle>

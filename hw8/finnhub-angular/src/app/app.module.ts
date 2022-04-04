@@ -72,7 +72,7 @@ import { BuysellComponent } from './components/buysell/buysell.component';
     MatTabsModule,
     BrowserAnimationsModule,
   ],
-  providers: [DataServiceService, AutoupdaterService],
+  providers: [DataServiceService, AutoupdaterService, BuysellComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

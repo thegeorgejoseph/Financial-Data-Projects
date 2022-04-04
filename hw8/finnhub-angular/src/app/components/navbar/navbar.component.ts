@@ -1,18 +1,38 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ChangeDetectorRef
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
   isPrimary: string;
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private data$: DataServiceService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.router.url === '/watchlist') {
+      this.changeLinkNumber2();
+    } else if (this.router.url === '/portfolio') {
+      this.changeLinkNumber3();
+    } else {
+      this.changeLinkNumber1();
+    }
+  }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('something changed');
+    this.ngOnInit();
+  }
   changeLinkNumber1(): void {
     const ticker = localStorage.getItem('ticker');
     if (ticker) {
