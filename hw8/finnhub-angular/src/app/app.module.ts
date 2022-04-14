@@ -20,6 +20,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { SearchdetailsComponent } from './components/searchdetails/searchdetails.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { HighchartsChartComponent } from 'highcharts-angular';
 
 import { DataServiceService } from './services/data-service.service';
 import { AutoupdaterService } from './services/autoupdater.service';
@@ -58,6 +60,7 @@ import { BuysellComponent } from './components/buysell/buysell.component';
     NewsCardComponent,
     WatchlistCardComponent,
     BuysellComponent,
+    HighchartsChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { BuysellComponent } from './components/buysell/buysell.component';
     MatProgressSpinnerModule,
     MatTabsModule,
     BrowserAnimationsModule,
+    HighchartsChartModule,
   ],
   providers: [DataServiceService, AutoupdaterService, BuysellComponent],
   bootstrap: [AppComponent],

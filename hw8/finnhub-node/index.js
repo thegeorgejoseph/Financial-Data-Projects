@@ -30,4 +30,12 @@ app.use("/company", companyDetailsRoute);
 app.use("/companydescript", companyDescriptRoute);
 app.use("/autoupdate", autoUpdateRoute);
 
+app.use(express.static(path.join(__dirname,'todayDatetodaty')))
+app.get('/',(req, res) => res.redirect("/search/home"))
+app.get('/search',(req, res) => res.redirect("/search/home"))
+app.use('/search/home', express.static(path.join(__dirname,'public')))
+app.use('/search/:ticker', express.static(path.join(__dirname,'public')))
+app.use('/watchlist', express.static(path.join(__dirname,'public')))
+app.use('/portfolio', express.static(path.join(__dirname,'public')))
+
 app.listen(PORT, () => console.log(`Node server running on port ${PORT}...`));
