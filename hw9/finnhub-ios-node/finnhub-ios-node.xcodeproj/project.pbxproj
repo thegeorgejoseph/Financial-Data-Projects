@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		F22DD05C2808F8AF00A768B1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD05B2808F8AF00A768B1 /* HomeView.swift */; };
+		F22DD05E2808FE3100A768B1 /* PortfolioHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD05D2808FE3100A768B1 /* PortfolioHomeView.swift */; };
+		F22DD0602808FE3C00A768B1 /* FavoritesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD05F2808FE3C00A768B1 /* FavoritesHomeView.swift */; };
+		F22DD0622809026600A768B1 /* PortfolioHomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD0612809026600A768B1 /* PortfolioHomeCardView.swift */; };
+		F22DD0642809072100A768B1 /* FavoritesHomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD0632809072100A768B1 /* FavoritesHomeCardView.swift */; };
+		F22DD06728091FCA00A768B1 /* PortfolioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD06628091FCA00A768B1 /* PortfolioModel.swift */; };
+		F22DD0692809261A00A768B1 /* PortfolioCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD0682809261A00A768B1 /* PortfolioCardDetail.swift */; };
 		F2A3F20B2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */; };
 		F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20C2808E7AE00E6E050 /* ContentView.swift */; };
 		F2A3F20F2808E7AF00E6E050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F20E2808E7AF00E6E050 /* Assets.xcassets */; };
@@ -17,6 +23,12 @@
 
 /* Begin PBXFileReference section */
 		F22DD05B2808F8AF00A768B1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F22DD05D2808FE3100A768B1 /* PortfolioHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioHomeView.swift; sourceTree = "<group>"; };
+		F22DD05F2808FE3C00A768B1 /* FavoritesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesHomeView.swift; sourceTree = "<group>"; };
+		F22DD0612809026600A768B1 /* PortfolioHomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioHomeCardView.swift; sourceTree = "<group>"; };
+		F22DD0632809072100A768B1 /* FavoritesHomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesHomeCardView.swift; sourceTree = "<group>"; };
+		F22DD06628091FCA00A768B1 /* PortfolioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioModel.swift; sourceTree = "<group>"; };
+		F22DD0682809261A00A768B1 /* PortfolioCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCardDetail.swift; sourceTree = "<group>"; };
 		F2A3F2072808E7AE00E6E050 /* finnhub-ios-node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "finnhub-ios-node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finnhub_ios_nodeApp.swift; sourceTree = "<group>"; };
 		F2A3F20C2808E7AE00E6E050 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,8 +52,21 @@
 			isa = PBXGroup;
 			children = (
 				F22DD05B2808F8AF00A768B1 /* HomeView.swift */,
+				F22DD0612809026600A768B1 /* PortfolioHomeCardView.swift */,
+				F22DD05D2808FE3100A768B1 /* PortfolioHomeView.swift */,
+				F22DD0632809072100A768B1 /* FavoritesHomeCardView.swift */,
+				F22DD05F2808FE3C00A768B1 /* FavoritesHomeView.swift */,
+				F22DD0682809261A00A768B1 /* PortfolioCardDetail.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F22DD06528091F9A00A768B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F22DD06628091FCA00A768B1 /* PortfolioModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F2A3F1FE2808E7AE00E6E050 = {
@@ -63,6 +88,7 @@
 		F2A3F2092808E7AE00E6E050 /* finnhub-ios-node */ = {
 			isa = PBXGroup;
 			children = (
+				F22DD06528091F9A00A768B1 /* Models */,
 				F22DD05A2808F89E00A768B1 /* Views */,
 				F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */,
 				F2A3F20C2808E7AE00E6E050 /* ContentView.swift */,
@@ -152,9 +178,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F22DD05E2808FE3100A768B1 /* PortfolioHomeView.swift in Sources */,
 				F22DD05C2808F8AF00A768B1 /* HomeView.swift in Sources */,
 				F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */,
 				F2A3F20B2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift in Sources */,
+				F22DD0622809026600A768B1 /* PortfolioHomeCardView.swift in Sources */,
+				F22DD0642809072100A768B1 /* FavoritesHomeCardView.swift in Sources */,
+				F22DD06728091FCA00A768B1 /* PortfolioModel.swift in Sources */,
+				F22DD0602808FE3C00A768B1 /* FavoritesHomeView.swift in Sources */,
+				F22DD0692809261A00A768B1 /* PortfolioCardDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
