@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F22DD05C2808F8AF00A768B1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD05B2808F8AF00A768B1 /* HomeView.swift */; };
 		F2A3F20B2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */; };
 		F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20C2808E7AE00E6E050 /* ContentView.swift */; };
 		F2A3F20F2808E7AF00E6E050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F20E2808E7AF00E6E050 /* Assets.xcassets */; };
 		F2A3F2122808E7AF00E6E050 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F2112808E7AF00E6E050 /* Preview Assets.xcassets */; };
+		F2A3F2192808F1D900E6E050 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F2182808F1D900E6E050 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F22DD05B2808F8AF00A768B1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F2A3F2072808E7AE00E6E050 /* finnhub-ios-node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "finnhub-ios-node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finnhub_ios_nodeApp.swift; sourceTree = "<group>"; };
 		F2A3F20C2808E7AE00E6E050 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F2A3F20E2808E7AF00E6E050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2A3F2112808E7AF00E6E050 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F2A3F2182808F1D900E6E050 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F22DD05A2808F89E00A768B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F22DD05B2808F8AF00A768B1 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F2A3F1FE2808E7AE00E6E050 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +63,12 @@
 		F2A3F2092808E7AE00E6E050 /* finnhub-ios-node */ = {
 			isa = PBXGroup;
 			children = (
+				F22DD05A2808F89E00A768B1 /* Views */,
 				F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */,
 				F2A3F20C2808E7AE00E6E050 /* ContentView.swift */,
 				F2A3F20E2808E7AF00E6E050 /* Assets.xcassets */,
 				F2A3F2102808E7AF00E6E050 /* Preview Content */,
+				F2A3F2182808F1D900E6E050 /* Launch Screen.storyboard */,
 			);
 			path = "finnhub-ios-node";
 			sourceTree = "<group>";
@@ -125,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A3F2192808F1D900E6E050 /* Launch Screen.storyboard in Resources */,
 				F2A3F2122808E7AF00E6E050 /* Preview Assets.xcassets in Resources */,
 				F2A3F20F2808E7AF00E6E050 /* Assets.xcassets in Resources */,
 			);
@@ -137,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F22DD05C2808F8AF00A768B1 /* HomeView.swift in Sources */,
 				F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */,
 				F2A3F20B2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift in Sources */,
 			);
@@ -272,6 +288,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -300,6 +317,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
