@@ -14,6 +14,11 @@
 		F22DD0642809072100A768B1 /* FavoritesHomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD0632809072100A768B1 /* FavoritesHomeCardView.swift */; };
 		F22DD06728091FCA00A768B1 /* PortfolioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD06628091FCA00A768B1 /* PortfolioModel.swift */; };
 		F22DD0692809261A00A768B1 /* PortfolioCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD0682809261A00A768B1 /* PortfolioCardDetail.swift */; };
+		F26D4A18280A34BB00B8CB06 /* msft.json in Resources */ = {isa = PBXBuildFile; fileRef = F26D4A17280A34BB00B8CB06 /* msft.json */; };
+		F26D4A1A280A369300B8CB06 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D4A19280A369300B8CB06 /* MockModel.swift */; };
+		F26D4A1D280A498800B8CB06 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F26D4A1C280A498800B8CB06 /* Alamofire */; };
+		F26D4A20280A49AA00B8CB06 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = F26D4A1F280A49AA00B8CB06 /* SwiftyJSON */; };
+		F26D4A23280A49F500B8CB06 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F26D4A22280A49F500B8CB06 /* Kingfisher */; };
 		F2A3F20B2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */; };
 		F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20C2808E7AE00E6E050 /* ContentView.swift */; };
 		F2A3F20F2808E7AF00E6E050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F20E2808E7AF00E6E050 /* Assets.xcassets */; };
@@ -29,6 +34,8 @@
 		F22DD0632809072100A768B1 /* FavoritesHomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesHomeCardView.swift; sourceTree = "<group>"; };
 		F22DD06628091FCA00A768B1 /* PortfolioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioModel.swift; sourceTree = "<group>"; };
 		F22DD0682809261A00A768B1 /* PortfolioCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCardDetail.swift; sourceTree = "<group>"; };
+		F26D4A17280A34BB00B8CB06 /* msft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msft.json; sourceTree = "<group>"; };
+		F26D4A19280A369300B8CB06 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		F2A3F2072808E7AE00E6E050 /* finnhub-ios-node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "finnhub-ios-node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finnhub_ios_nodeApp.swift; sourceTree = "<group>"; };
 		F2A3F20C2808E7AE00E6E050 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +49,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F26D4A23280A49F500B8CB06 /* Kingfisher in Frameworks */,
+				F26D4A20280A49AA00B8CB06 /* SwiftyJSON in Frameworks */,
+				F26D4A1D280A498800B8CB06 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				F22DD06628091FCA00A768B1 /* PortfolioModel.swift */,
+				F26D4A19280A369300B8CB06 /* MockModel.swift */,
+				F26D4A17280A34BB00B8CB06 /* msft.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,6 +135,11 @@
 			dependencies = (
 			);
 			name = "finnhub-ios-node";
+			packageProductDependencies = (
+				F26D4A1C280A498800B8CB06 /* Alamofire */,
+				F26D4A1F280A49AA00B8CB06 /* SwiftyJSON */,
+				F26D4A22280A49F500B8CB06 /* Kingfisher */,
+			);
 			productName = "finnhub-ios-node";
 			productReference = F2A3F2072808E7AE00E6E050 /* finnhub-ios-node.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +168,11 @@
 				Base,
 			);
 			mainGroup = F2A3F1FE2808E7AE00E6E050;
+			packageReferences = (
+				F26D4A1B280A498800B8CB06 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F26D4A1E280A49AA00B8CB06 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				F26D4A21280A49F500B8CB06 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = F2A3F2082808E7AE00E6E050 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -168,6 +190,7 @@
 				F2A3F2192808F1D900E6E050 /* Launch Screen.storyboard in Resources */,
 				F2A3F2122808E7AF00E6E050 /* Preview Assets.xcassets in Resources */,
 				F2A3F20F2808E7AF00E6E050 /* Assets.xcassets in Resources */,
+				F26D4A18280A34BB00B8CB06 /* msft.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22DD05E2808FE3100A768B1 /* PortfolioHomeView.swift in Sources */,
+				F26D4A1A280A369300B8CB06 /* MockModel.swift in Sources */,
 				F22DD05C2808F8AF00A768B1 /* HomeView.swift in Sources */,
 				F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */,
 				F2A3F20B2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift in Sources */,
@@ -387,6 +411,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F26D4A1B280A498800B8CB06 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		F26D4A1E280A49AA00B8CB06 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		F26D4A21280A49F500B8CB06 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F26D4A1C280A498800B8CB06 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F26D4A1B280A498800B8CB06 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		F26D4A1F280A49AA00B8CB06 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F26D4A1E280A49AA00B8CB06 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		F26D4A22280A49F500B8CB06 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F26D4A21280A49F500B8CB06 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F2A3F1FF2808E7AE00E6E050 /* Project object */;
 }

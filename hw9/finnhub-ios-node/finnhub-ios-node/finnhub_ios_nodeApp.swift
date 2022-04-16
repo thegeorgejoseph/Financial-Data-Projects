@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct finnhub_ios_nodeApp: App {
+//    @ObservedObject var data =  MockModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(MockModel())
         }
     }
 }
