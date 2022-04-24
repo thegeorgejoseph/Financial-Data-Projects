@@ -14,6 +14,8 @@
 		F22DD0642809072100A768B1 /* FavoritesHomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD0632809072100A768B1 /* FavoritesHomeCardView.swift */; };
 		F22DD06728091FCA00A768B1 /* PortfolioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD06628091FCA00A768B1 /* PortfolioModel.swift */; };
 		F22DD0692809261A00A768B1 /* PortfolioCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DD0682809261A00A768B1 /* PortfolioCardDetail.swift */; };
+		F22EBD7B281382AF00774BEB /* PortfolioToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EBD7A281382AF00774BEB /* PortfolioToast.swift */; };
+		F22EBD7F28139C7600774BEB /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EBD7E28139C7600774BEB /* Toast.swift */; };
 		F26D4A18280A34BB00B8CB06 /* msft.json in Resources */ = {isa = PBXBuildFile; fileRef = F26D4A17280A34BB00B8CB06 /* msft.json */; };
 		F26D4A1A280A369300B8CB06 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D4A19280A369300B8CB06 /* MockModel.swift */; };
 		F26D4A1D280A498800B8CB06 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F26D4A1C280A498800B8CB06 /* Alamofire */; };
@@ -24,6 +26,10 @@
 		F2A3F20F2808E7AF00E6E050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F20E2808E7AF00E6E050 /* Assets.xcassets */; };
 		F2A3F2122808E7AF00E6E050 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F2112808E7AF00E6E050 /* Preview Assets.xcassets */; };
 		F2A3F2192808F1D900E6E050 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F2182808F1D900E6E050 /* Launch Screen.storyboard */; };
+		F2FEB8382815C5C8005F5942 /* ChartsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEB8372815C5C8005F5942 /* ChartsTabView.swift */; };
+		F2FEB83C2815D84F005F5942 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = F2FEB83B2815D84F005F5942 /* index.html */; };
+		F2FEB83E2815DB99005F5942 /* ChartsWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEB83D2815DB99005F5942 /* ChartsWebView.swift */; };
+		F2FEB8402815ECFB005F5942 /* logic.js in Resources */ = {isa = PBXBuildFile; fileRef = F2FEB83F2815ECFB005F5942 /* logic.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,9 @@
 		F22DD0632809072100A768B1 /* FavoritesHomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesHomeCardView.swift; sourceTree = "<group>"; };
 		F22DD06628091FCA00A768B1 /* PortfolioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioModel.swift; sourceTree = "<group>"; };
 		F22DD0682809261A00A768B1 /* PortfolioCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCardDetail.swift; sourceTree = "<group>"; };
+		F22EBD7A281382AF00774BEB /* PortfolioToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioToast.swift; sourceTree = "<group>"; };
+		F22EBD7E28139C7600774BEB /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		F22EBD802815C3C500774BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F26D4A17280A34BB00B8CB06 /* msft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msft.json; sourceTree = "<group>"; };
 		F26D4A19280A369300B8CB06 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		F2A3F2072808E7AE00E6E050 /* finnhub-ios-node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "finnhub-ios-node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +51,10 @@
 		F2A3F20E2808E7AF00E6E050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2A3F2112808E7AF00E6E050 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F2A3F2182808F1D900E6E050 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F2FEB8372815C5C8005F5942 /* ChartsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsTabView.swift; sourceTree = "<group>"; };
+		F2FEB83B2815D84F005F5942 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		F2FEB83D2815DB99005F5942 /* ChartsWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsWebView.swift; sourceTree = "<group>"; };
+		F2FEB83F2815ECFB005F5942 /* logic.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = logic.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +80,9 @@
 				F22DD0632809072100A768B1 /* FavoritesHomeCardView.swift */,
 				F22DD05F2808FE3C00A768B1 /* FavoritesHomeView.swift */,
 				F22DD0682809261A00A768B1 /* PortfolioCardDetail.swift */,
+				F22EBD7E28139C7600774BEB /* Toast.swift */,
+				F2FEB8372815C5C8005F5942 /* ChartsTabView.swift */,
+				F2FEB83D2815DB99005F5942 /* ChartsWebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -77,6 +93,7 @@
 				F22DD06628091FCA00A768B1 /* PortfolioModel.swift */,
 				F26D4A19280A369300B8CB06 /* MockModel.swift */,
 				F26D4A17280A34BB00B8CB06 /* msft.json */,
+				F22EBD7A281382AF00774BEB /* PortfolioToast.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -100,6 +117,9 @@
 		F2A3F2092808E7AE00E6E050 /* finnhub-ios-node */ = {
 			isa = PBXGroup;
 			children = (
+				F2FEB83F2815ECFB005F5942 /* logic.js */,
+				F2FEB83B2815D84F005F5942 /* index.html */,
+				F22EBD802815C3C500774BEB /* Info.plist */,
 				F22DD06528091F9A00A768B1 /* Models */,
 				F22DD05A2808F89E00A768B1 /* Views */,
 				F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */,
@@ -187,8 +207,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2FEB83C2815D84F005F5942 /* index.html in Resources */,
 				F2A3F2192808F1D900E6E050 /* Launch Screen.storyboard in Resources */,
 				F2A3F2122808E7AF00E6E050 /* Preview Assets.xcassets in Resources */,
+				F2FEB8402815ECFB005F5942 /* logic.js in Resources */,
 				F2A3F20F2808E7AF00E6E050 /* Assets.xcassets in Resources */,
 				F26D4A18280A34BB00B8CB06 /* msft.json in Resources */,
 			);
@@ -202,15 +224,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22DD05E2808FE3100A768B1 /* PortfolioHomeView.swift in Sources */,
+				F22EBD7F28139C7600774BEB /* Toast.swift in Sources */,
 				F26D4A1A280A369300B8CB06 /* MockModel.swift in Sources */,
 				F22DD05C2808F8AF00A768B1 /* HomeView.swift in Sources */,
 				F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */,
 				F2A3F20B2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift in Sources */,
 				F22DD0622809026600A768B1 /* PortfolioHomeCardView.swift in Sources */,
 				F22DD0642809072100A768B1 /* FavoritesHomeCardView.swift in Sources */,
+				F2FEB83E2815DB99005F5942 /* ChartsWebView.swift in Sources */,
 				F22DD06728091FCA00A768B1 /* PortfolioModel.swift in Sources */,
+				F2FEB8382815C5C8005F5942 /* ChartsTabView.swift in Sources */,
 				F22DD0602808FE3C00A768B1 /* FavoritesHomeView.swift in Sources */,
 				F22DD0692809261A00A768B1 /* PortfolioCardDetail.swift in Sources */,
+				F22EBD7B281382AF00774BEB /* PortfolioToast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +367,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"finnhub-ios-node/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "finnhub-ios-node/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -370,6 +397,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"finnhub-ios-node/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "finnhub-ios-node/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
