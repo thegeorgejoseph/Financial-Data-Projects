@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FacebookShare
+import FacebookCore
 
 struct NewsSheetView: View {
     @Environment(\.dismiss) var dismiss
@@ -42,14 +44,42 @@ struct NewsSheetView: View {
                 }
             }
             HStack{
-                Image("Twitter social icons - circle - blue")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
-                Image("f_logo_RGB-Blue_144")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
+                Button{
+                    let tweetText = "\(item.headline)"
+                    let tweetUrl = "\(item.url)"
+
+                    let shareString = "https://twitter.com/intent/tweet?text=\(tweetText)&url=\(tweetUrl)"
+
+                    // encode a space to %20 for example
+                    let escapedShareString = shareString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
+                    // cast to an url
+                    let url = URL(string: escapedShareString)
+
+                    // open in safari
+                    UIApplication.shared.open(url!)
+                } label :{
+                    Image("Twitter social icons - circle - blue")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                }
+                Button{
+                    let shareString = "http://www.facebook.com/share.php?u=\(item.url)"
+                    // encode a space to %20 for example
+                    let escapedShareString = shareString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
+                    // cast to an url
+                    let url = URL(string: escapedShareString)
+
+                    // open in safari
+                    UIApplication.shared.open(url!)
+                } label : {
+                    Image("f_logo_RGB-Blue_144")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                }
             }
             Spacer()
         }

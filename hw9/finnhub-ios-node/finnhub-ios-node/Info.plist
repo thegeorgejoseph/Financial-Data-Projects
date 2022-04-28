@@ -7,5 +7,25 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb546827866786287</string>
+      </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>546827866786287</string>
+    <key>FacebookClientToken</key>
+    <string>02264cee9346c6e4c345e2dd41ec8753</string>
+    <key>FacebookDisplayName</key>
+    <string>finnhub-ios</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>fbapi</string>
+      <string>fb-messenger-share-api</string>
+    </array>
 </dict>
 </plist>

@@ -6,17 +6,20 @@
 //
 
 import SwiftUI
+import FacebookCore
 
 @main
 struct finnhub_ios_nodeApp: App {
-    
-    
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(MockModel())
                 .environmentObject(CustomPortfolioStorageModel())
+                .onOpenURL(perform: { url in
+                    ApplicationDelegate.shared.application(UIApplication.shared, open: url, sourceApplication: nil, annotation: UIApplication.OpenURLOptionsKey.annotation)
+                    
+                })
         }
     }
 }
