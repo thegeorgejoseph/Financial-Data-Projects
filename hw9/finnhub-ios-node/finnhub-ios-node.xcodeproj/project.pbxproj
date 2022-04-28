@@ -22,6 +22,7 @@
 		F22E80F4281A484E00D132ED /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E80F3281A484E00D132ED /* NewsView.swift */; };
 		F22EBD7B281382AF00774BEB /* PortfolioToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EBD7A281382AF00774BEB /* PortfolioToast.swift */; };
 		F22EBD7F28139C7600774BEB /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EBD7E28139C7600774BEB /* Toast.swift */; };
+		F2572526281A5A910054234D /* NewsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2572525281A5A910054234D /* NewsSheetView.swift */; };
 		F26D4A18280A34BB00B8CB06 /* msft.json in Resources */ = {isa = PBXBuildFile; fileRef = F26D4A17280A34BB00B8CB06 /* msft.json */; };
 		F26D4A1A280A369300B8CB06 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D4A19280A369300B8CB06 /* MockModel.swift */; };
 		F26D4A1D280A498800B8CB06 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F26D4A1C280A498800B8CB06 /* Alamofire */; };
@@ -55,6 +56,7 @@
 		F22EBD7A281382AF00774BEB /* PortfolioToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioToast.swift; sourceTree = "<group>"; };
 		F22EBD7E28139C7600774BEB /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		F22EBD802815C3C500774BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F2572525281A5A910054234D /* NewsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSheetView.swift; sourceTree = "<group>"; };
 		F26D4A17280A34BB00B8CB06 /* msft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msft.json; sourceTree = "<group>"; };
 		F26D4A19280A369300B8CB06 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		F2A3F2072808E7AE00E6E050 /* finnhub-ios-node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "finnhub-ios-node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 				F22E80EF281A39C200D132ED /* InsightsView.swift */,
 				F22E80F1281A46F900D132ED /* PortfolioHeaderView.swift */,
 				F22E80F3281A484E00D132ED /* NewsView.swift */,
+				F2572525281A5A910054234D /* NewsSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				F22E80F0281A39C200D132ED /* InsightsView.swift in Sources */,
 				F22DD0692809261A00A768B1 /* PortfolioCardDetail.swift in Sources */,
 				F22EBD7B281382AF00774BEB /* PortfolioToast.swift in Sources */,
+				F2572526281A5A910054234D /* NewsSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
