@@ -9,7 +9,10 @@ import SwiftUI
 import Kingfisher
 
 struct PortfolioCardDetail: View {
+    //Ground Truth for all things related to this ticker so this is where this gets initialised for the first time
+    
     @EnvironmentObject var dataObj: MockModel
+    @EnvironmentObject var portfolioItems: CustomPortfolioStorageModel
     @State private var isFavorite: Bool = false
     @State private var showToast: Bool = false
     
@@ -22,12 +25,17 @@ struct PortfolioCardDetail: View {
             return Color.gray
         }
     }
+    
+    
     var body: some View {
         if dataObj.tickerData != nil{
             let profile: Profile = dataObj.tickerData!.profile!
             let quote: Quote = dataObj.tickerData!.quote
+            let peers: [String] = dataObj.tickerData!.peers
             let trendColor: Color = self.getColor(value: quote.dp)
             let arrowSymbol: String = (trendColor == Color.green) ? "arrow.up.right" : "arrow.down.right"
+            var thisStock: Stock = Stock(ticker: profile.ticker, shares: 0, change: quote.c)
+            let _temp = CustomPortfolioStorageModel().setPortfolioItem(currentStock: thisStock)
             VStack{
                 ScrollView{
                     HStack{
@@ -54,8 +62,8 @@ struct PortfolioCardDetail: View {
                     ChartsTabView()
                         .frame(height: 400)
                         .padding(.all)
-                    Spacer()
-                    
+                    PortfolioSectionView(sectionItems: thisStock,trendColor: trendColor)
+                    StatsAboutView(quote: quote, profile: profile, peers: peers)
                 }
                 
                 
@@ -88,8 +96,8 @@ struct PortfolioCardDetail: View {
     }
 }
 
-struct PortfolioCardDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        PortfolioCardDetail()
-    }
-}
+//struct PortfolioCardDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+////        PortfolioCardDetail()
+//    }
+//}

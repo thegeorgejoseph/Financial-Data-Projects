@@ -15,19 +15,20 @@ struct ChartsTabView: View {
                 .tabItem{
                     Label(" ", systemImage: "chart.xyaxis.line")
                         .tag("hourly")
+                        .onTapGesture {
+                            currentTab = "historical"
+                            
+                        }
                 }
             Text("Hisorical Charts")
                 .tag("historical")
                 .tabItem{
                     Label(" ",systemImage: "clock")
+                        .onTapGesture {
+                            currentTab = "hourly"
+                            
+                        }
                 }
-        }
-        .onTapGesture{
-            if currentTab == "hourly"{
-                currentTab = "historical"
-            } else {
-                currentTab = "hourly"
-            }
         }
     }
 }
