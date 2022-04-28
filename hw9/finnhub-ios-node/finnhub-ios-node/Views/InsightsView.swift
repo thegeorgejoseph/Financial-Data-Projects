@@ -13,7 +13,7 @@ struct InsightsView: View {
     @State var insights: Insights
     var body: some View {
         Text("Social Sentiments")
-            .font(.largeTitle.weight(.semibold))
+            .font(.title.weight(.semibold))
         
         HStack{
             List{

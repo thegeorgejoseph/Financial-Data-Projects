@@ -19,7 +19,8 @@ struct Profile: Codable {
     let weburl: String
 }
 
-struct News: Codable{
+struct News: Codable, Identifiable{
+    let id = UUID()
     let headline: String
     let source: String
     let datetime: String

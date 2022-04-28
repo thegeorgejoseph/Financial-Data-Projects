@@ -33,44 +33,26 @@ struct PortfolioCardDetail: View {
             let quote: Quote = dataObj.tickerData!.quote
             let peers: [String] = dataObj.tickerData!.peers
             let insights: Insights = dataObj.tickerData!.insights
+            let news: [News] = dataObj.tickerData!.news
             let trendColor: Color = self.getColor(value: quote.dp)
             let arrowSymbol: String = (trendColor == Color.green) ? "arrow.up.right" : "arrow.down.right"
             var thisStock: Stock = Stock(ticker: profile.ticker, shares: 0, change: quote.c)
-            let _temp = CustomPortfolioStorageModel().setPortfolioItem(currentStock: thisStock)
+            let _temp: Any = CustomPortfolioStorageModel().setPortfolioItem(currentStock: thisStock)
             VStack{
                 ScrollView{
-                    HStack{
-                        Text(profile.name)
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                        KFImage.url(URL(string:profile.logo))
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                    }
-                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    HStack{
-                        Text("$\(String(format:"%.2f", quote.c))").font(.title).fontWeight(.bold)
-                        HStack{
-                            Image(systemName: arrowSymbol)
-                            Text("$\(String(format:"%.2f", quote.d))(\(String(format:"%.2f", quote.dp))%)")
-                        }
-                        .foregroundColor(trendColor)
-                        Spacer()
-                    }
-                    .padding(.all)
+                    PortfolioHeaderView(profile:profile, quote: quote, trendColor: trendColor, arrowSymbol: arrowSymbol)
                     ChartsTabView()
                         .frame(height: 400)
                         .padding(.all)
                     PortfolioSectionView(sectionItems: thisStock,trendColor: trendColor)
                     StatsAboutView(quote: quote, profile: profile, peers: peers)
                     InsightsView(profile: profile, insights: insights)
+                    NewsView(news: news)
                 }
                 
                 
             }
-            .navigationTitle("AAPL")
+            .navigationTitle("\(profile.ticker)")
             .toolbar{
                 Button(action: favoriteAction){
                     Image(systemName: isFavorite ? "plus.circle.fill" : "plus.circle")
