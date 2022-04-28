@@ -32,6 +32,7 @@ struct PortfolioCardDetail: View {
             let profile: Profile = dataObj.tickerData!.profile!
             let quote: Quote = dataObj.tickerData!.quote
             let peers: [String] = dataObj.tickerData!.peers
+            let insights: Insights = dataObj.tickerData!.insights
             let trendColor: Color = self.getColor(value: quote.dp)
             let arrowSymbol: String = (trendColor == Color.green) ? "arrow.up.right" : "arrow.down.right"
             var thisStock: Stock = Stock(ticker: profile.ticker, shares: 0, change: quote.c)
@@ -64,6 +65,7 @@ struct PortfolioCardDetail: View {
                         .padding(.all)
                     PortfolioSectionView(sectionItems: thisStock,trendColor: trendColor)
                     StatsAboutView(quote: quote, profile: profile, peers: peers)
+                    InsightsView(profile: profile, insights: insights)
                 }
                 
                 

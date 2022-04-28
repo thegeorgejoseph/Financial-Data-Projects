@@ -17,6 +17,7 @@
 		F22E80EA2819BA1800D132ED /* PortfolioSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E80E92819BA1800D132ED /* PortfolioSectionView.swift */; };
 		F22E80EC2819C67F00D132ED /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E80EB2819C67F00D132ED /* StockModel.swift */; };
 		F22E80EE281A122600D132ED /* StatsAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E80ED281A122600D132ED /* StatsAboutView.swift */; };
+		F22E80F0281A39C200D132ED /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E80EF281A39C200D132ED /* InsightsView.swift */; };
 		F22EBD7B281382AF00774BEB /* PortfolioToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EBD7A281382AF00774BEB /* PortfolioToast.swift */; };
 		F22EBD7F28139C7600774BEB /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EBD7E28139C7600774BEB /* Toast.swift */; };
 		F26D4A18280A34BB00B8CB06 /* msft.json in Resources */ = {isa = PBXBuildFile; fileRef = F26D4A17280A34BB00B8CB06 /* msft.json */; };
@@ -46,6 +47,7 @@
 		F22E80E92819BA1800D132ED /* PortfolioSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioSectionView.swift; sourceTree = "<group>"; };
 		F22E80EB2819C67F00D132ED /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
 		F22E80ED281A122600D132ED /* StatsAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsAboutView.swift; sourceTree = "<group>"; };
+		F22E80EF281A39C200D132ED /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		F22EBD7A281382AF00774BEB /* PortfolioToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioToast.swift; sourceTree = "<group>"; };
 		F22EBD7E28139C7600774BEB /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		F22EBD802815C3C500774BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				F2FEB8372815C5C8005F5942 /* ChartsTabView.swift */,
 				F2FEB83D2815DB99005F5942 /* ChartsWebView.swift */,
 				F22E80ED281A122600D132ED /* StatsAboutView.swift */,
+				F22E80EF281A39C200D132ED /* InsightsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				F22DD06728091FCA00A768B1 /* PortfolioModel.swift in Sources */,
 				F2FEB8382815C5C8005F5942 /* ChartsTabView.swift in Sources */,
 				F22DD0602808FE3C00A768B1 /* FavoritesHomeView.swift in Sources */,
+				F22E80F0281A39C200D132ED /* InsightsView.swift in Sources */,
 				F22DD0692809261A00A768B1 /* PortfolioCardDetail.swift in Sources */,
 				F22EBD7B281382AF00774BEB /* PortfolioToast.swift in Sources */,
 			);
