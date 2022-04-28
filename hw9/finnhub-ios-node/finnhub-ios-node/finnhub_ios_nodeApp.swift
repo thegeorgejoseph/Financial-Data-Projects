@@ -10,7 +10,7 @@ import FacebookCore
 
 @main
 struct finnhub_ios_nodeApp: App {
-
+    @AppStorage("wallet") var wallet:Double = 25000.00
     var body: some Scene {
         WindowGroup {
             ContentView()

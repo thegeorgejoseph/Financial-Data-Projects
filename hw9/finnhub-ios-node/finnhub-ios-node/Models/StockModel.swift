@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Stock: Codable{
     let ticker: String
+    let name: String
     let shares: Int
     let change: Double
 }

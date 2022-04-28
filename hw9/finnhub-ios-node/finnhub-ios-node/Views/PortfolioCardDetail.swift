@@ -36,7 +36,7 @@ struct PortfolioCardDetail: View {
             let news: [News] = dataObj.tickerData!.news
             let trendColor: Color = self.getColor(value: quote.dp)
             let arrowSymbol: String = (trendColor == Color.green) ? "arrow.up.right" : "arrow.down.right"
-            var thisStock: Stock = Stock(ticker: profile.ticker, shares: 0, change: quote.c)
+            var thisStock: Stock = Stock(ticker: profile.ticker, name: profile.name, shares: 0, change: quote.c)
             let _temp: Any = CustomPortfolioStorageModel().setPortfolioItem(currentStock: thisStock)
             VStack{
                 ScrollView{

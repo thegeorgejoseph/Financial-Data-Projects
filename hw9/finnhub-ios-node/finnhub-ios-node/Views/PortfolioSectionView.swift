@@ -10,6 +10,7 @@ import SwiftUI
 struct PortfolioSectionView: View {
     @State var sectionItems: Stock
     @State var trendColor: Color
+    @State private var showingSheet = false
     var body: some View {
         let priceChange = (sectionItems.change - sectionItems.change)
         HStack{
@@ -38,7 +39,7 @@ struct PortfolioSectionView: View {
                 Spacer()
                 
                 Button("Trade"){
-                    openTradingSheet()
+                    showingSheet.toggle()
                 }
                 .padding(.all)
                 .frame(width:200)
@@ -46,6 +47,9 @@ struct PortfolioSectionView: View {
                 .foregroundColor(Color.white)
                 .font(.title2)
                 .buttonStyle(PlainButtonStyle())
+                .sheet(isPresented: $showingSheet){
+                    TradingSheetView(stock: $sectionItems)
+                }
                 Spacer()
             }.padding(.trailing, 20.0)
            
