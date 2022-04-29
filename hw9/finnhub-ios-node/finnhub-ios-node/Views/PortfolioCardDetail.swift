@@ -47,6 +47,10 @@ struct PortfolioCardDetail: View {
                     PortfolioSectionView(sectionItems: thisStock,trendColor: trendColor)
                     StatsAboutView(quote: quote, profile: profile, peers: peers)
                     InsightsView(profile: profile, insights: insights)
+                    RECWebView(htmlName: "recIndex", recommendation: insights.recommendation)
+                        .frame(height: 450)
+                    EPSWebView(htmlName: "epsIndex", earnings: insights.earnings)
+                        .frame(height: 450)
                     NewsView(news: news)
                 }
                 
