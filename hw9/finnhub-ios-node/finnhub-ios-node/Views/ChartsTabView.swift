@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ChartsTabView: View {
+    @State var quote: Quote
+    @State var charts: HistoricalVolume
     @State private var currentTab: String = "hourly"
     var body: some View {
         TabView(selection: $currentTab){
-            WebView(htmlName: "index")
+            WebView(htmlName: "index", quote: quote)
                 .tabItem{
                     Label(" ", systemImage: "chart.xyaxis.line")
                         .tag("hourly")
@@ -20,7 +22,7 @@ struct ChartsTabView: View {
                             
                         }
                 }
-            Text("Hisorical Charts")
+            SMAWebView(htmlName: "SMAIndex", charts: charts)
                 .tag("historical")
                 .tabItem{
                     Label(" ",systemImage: "clock")
@@ -30,11 +32,5 @@ struct ChartsTabView: View {
                         }
                 }
         }
-    }
-}
-
-struct ChartsTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChartsTabView()
     }
 }

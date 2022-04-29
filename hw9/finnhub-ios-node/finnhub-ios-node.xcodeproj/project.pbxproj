@@ -37,6 +37,8 @@
 		F26D4A1D280A498800B8CB06 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F26D4A1C280A498800B8CB06 /* Alamofire */; };
 		F26D4A20280A49AA00B8CB06 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = F26D4A1F280A49AA00B8CB06 /* SwiftyJSON */; };
 		F26D4A23280A49F500B8CB06 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F26D4A22280A49F500B8CB06 /* Kingfisher */; };
+		F28FADC6281C891F006B491E /* SMAlogic.js in Resources */ = {isa = PBXBuildFile; fileRef = F28FADC4281C891F006B491E /* SMAlogic.js */; };
+		F28FADC7281C891F006B491E /* SMAIndex.html in Resources */ = {isa = PBXBuildFile; fileRef = F28FADC5281C891F006B491E /* SMAIndex.html */; };
 		F2A3F20B2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */; };
 		F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20C2808E7AE00E6E050 /* ContentView.swift */; };
 		F2A3F20F2808E7AF00E6E050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F20E2808E7AF00E6E050 /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		F2572543281BA0EA0054234D /* LazyNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyNavigation.swift; sourceTree = "<group>"; };
 		F26D4A17280A34BB00B8CB06 /* msft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msft.json; sourceTree = "<group>"; };
 		F26D4A19280A369300B8CB06 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
+		F28FADC4281C891F006B491E /* SMAlogic.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SMAlogic.js; sourceTree = "<group>"; };
+		F28FADC5281C891F006B491E /* SMAIndex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SMAIndex.html; sourceTree = "<group>"; };
 		F2A3F2072808E7AE00E6E050 /* finnhub-ios-node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "finnhub-ios-node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finnhub_ios_nodeApp.swift; sourceTree = "<group>"; };
 		F2A3F20C2808E7AE00E6E050 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 		F2A3F2092808E7AE00E6E050 /* finnhub-ios-node */ = {
 			isa = PBXGroup;
 			children = (
+				F28FADC5281C891F006B491E /* SMAIndex.html */,
+				F28FADC4281C891F006B491E /* SMAlogic.js */,
 				F2FEB83F2815ECFB005F5942 /* logic.js */,
 				F2FEB83B2815D84F005F5942 /* index.html */,
 				F22EBD802815C3C500774BEB /* Info.plist */,
@@ -257,6 +263,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F28FADC6281C891F006B491E /* SMAlogic.js in Resources */,
+				F28FADC7281C891F006B491E /* SMAIndex.html in Resources */,
 				F2FEB83C2815D84F005F5942 /* index.html in Resources */,
 				F2A3F2192808F1D900E6E050 /* Launch Screen.storyboard in Resources */,
 				F2A3F2122808E7AF00E6E050 /* Preview Assets.xcassets in Resources */,

@@ -10,16 +10,29 @@ import WebKit
 
 class Coordinator : NSObject, WKNavigationDelegate {
     // ... any other code
-    let temp: String = "passing data into javascript functionality works and now only the functionality for getting the highcharts charts to render in the webview remains!"
+    var quote : Quote
+    init(value : Quote){
+        quote = value
+    }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        webView.evaluateJavaScript("temporaryFunc(\"\(temp)\")", completionHandler: { (value, error) in
-            // .. do anything needed with result, if any
-        })
+        do{
+            let encodedData = try JSONEncoder().encode(quote)
+            let jsonString = String(data: encodedData,
+                                    encoding: .utf8)
+//            print(jsonString!)
+            webView.evaluateJavaScript("temporaryFunc(\'\(jsonString!)\')", completionHandler: { (value, error) in
+                // .. do anything needed with result, if any
+            })
+        } catch{
+            print("WebView Error")
+        }
     }
 }
 
 struct WebView: UIViewRepresentable{
     let htmlName : String
+    var quote : Quote
     private let webView = WKWebView()
     
     func makeUIView(context: Context) -> some UIView {
@@ -27,7 +40,47 @@ struct WebView: UIViewRepresentable{
         return webView
     }
     func makeCoordinator() -> Coordinator {
-        Coordinator()
+        Coordinator(value: quote)
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        webView.load(htmlName)
+    }
+}
+
+class SMACoordinator : NSObject, WKNavigationDelegate {
+    // ... any other code
+    var charts : HistoricalVolume
+    init(value : HistoricalVolume){
+        charts = value
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        do{
+            let encodedData = try JSONEncoder().encode(charts)
+            let jsonString = String(data: encodedData,
+                                    encoding: .utf8)
+//            print(jsonString!)
+            webView.evaluateJavaScript("temporaryFunc(\'\(jsonString!)\')", completionHandler: { (value, error) in
+                // .. do anything needed with result, if any
+            })
+        } catch{
+            print("WebView Error")
+        }
+    }
+}
+
+struct SMAWebView: UIViewRepresentable{
+    let htmlName : String
+    var charts : HistoricalVolume
+    private let webView = WKWebView()
+    
+    func makeUIView(context: Context) -> some UIView {
+        webView.navigationDelegate = context.coordinator
+        return webView
+    }
+    func makeCoordinator() -> SMACoordinator {
+        SMACoordinator(value: charts)
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
@@ -54,16 +107,10 @@ extension WKWebView {
     }
 }
 
-struct ChartsWebView: View {
-    @Binding var stringName: String
-    var body: some View {
-        let fileName: String? = nil
-        WebView(htmlName: fileName!)
-    }
-}
-
-struct ChartsWebView_Previews: PreviewProvider {
-    static var previews: some View {
-        WebView(htmlName: "index")
-    }
-}
+//struct ChartsWebView: View {
+//    @Binding var stringName: String
+//    var body: some View {
+//        let fileName: String? = nil
+//        WebView(htmlName: fileName!)
+//    }
+//}

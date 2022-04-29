@@ -14,6 +14,9 @@ struct TradingSheetView: View {
     @State var showingSheet: Bool = false
     @State var didBuy: Bool = false
     @Binding var portfolioSheetBinding: Bool
+    @State private var showToast: Bool = false
+    @State var toastString: String = ""
+    @State var wallet: Double = 25000.00
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
             HStack{
@@ -43,8 +46,11 @@ struct TradingSheetView: View {
             }
             HStack{
                 Spacer()
-                Text("x $\(String(format: "%.2f",stock.change))/share = $\(input == "" ? "0.0" : String(Double(input)! * stock.change))")
+                
+                Text("x $\(String(format: "%.2f",stock.change))/share = $\(input == "" ? "0.0" : String(Double(input)! * stock.change ) )")
                     .font(.body)
+                
+                
             }
             Spacer()
             HStack{
@@ -78,15 +84,41 @@ struct TradingSheetView: View {
                 CongratsView(didBuy: $didBuy, shares: $input, stock: $stock, showingSheet: $portfolioSheetBinding)
             }
         }
+        .toast(isPresented: self.$showToast) {
+            HStack {
+                Text("\(toastString)")
+            }
+        }
         .padding()
     }
     
     func buyAction(){
-        didBuy = true
-        showingSheet = true
+        if input == "" || input == "0" {
+            toastString = "Cannot buy non-positive shares"
+            showToast = true
+        }
+        else if Double(input)! * stock.change > wallet {
+            toastString = "Not enough money to buy"
+            showToast = true
+        }
+        else {
+            didBuy = true
+            showingSheet = true
+        }
+        
     }
     func sellAction(){
-        didBuy = false
-        showingSheet = true
+        if input == "" || input == "0" {
+            toastString = "Cannot sell non-positive shares"
+            showToast = true
+        }
+        else if Int(input)! > stock.shares {
+            toastString = "Not enough shares to sell"
+            showToast = true
+        }
+        else{
+            didBuy = false
+            showingSheet = true
+        }
     }
 }

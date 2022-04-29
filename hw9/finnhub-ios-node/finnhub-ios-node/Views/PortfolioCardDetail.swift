@@ -33,6 +33,7 @@ struct PortfolioCardDetail: View {
             let quote: Quote = dataObj.tickerData!.quote
             let peers: [String] = dataObj.tickerData!.peers
             let insights: Insights = dataObj.tickerData!.insights
+            let charts: HistoricalVolume = dataObj.tickerData!.charts
             let news: [News] = dataObj.tickerData!.news
             let trendColor: Color = self.getColor(value: quote.dp)
             let arrowSymbol: String = (trendColor == Color.green) ? "arrow.up.right" : "arrow.down.right"
@@ -41,9 +42,8 @@ struct PortfolioCardDetail: View {
             VStack{
                 ScrollView{
                     PortfolioHeaderView(profile:profile, quote: quote, trendColor: trendColor, arrowSymbol: arrowSymbol)
-                    ChartsTabView()
-                        .frame(height: 400)
-                        .padding(.all)
+                    ChartsTabView(quote: quote, charts: charts)
+                        .frame(height: 450)
                     PortfolioSectionView(sectionItems: thisStock,trendColor: trendColor)
                     StatsAboutView(quote: quote, profile: profile, peers: peers)
                     InsightsView(profile: profile, insights: insights)

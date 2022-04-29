@@ -13,9 +13,6 @@ struct HomeView: View {
     @Environment(\.openURL) var openURL
     @State var isEditing: Bool = false
     @State var tempList:[PortfolioHomeCardModel] = [PortfolioHomeCardModel(name:"AAPL"), PortfolioHomeCardModel(name:"RIVN"), PortfolioHomeCardModel(name:"ADSK")]
-    var planets =
-    ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"] +
-    ["Ceres", "Pluto", "Haumea", "Makemake", "Eris"]
     private var currentDate: Date = Date()
     
     
@@ -27,7 +24,7 @@ struct HomeView: View {
                 List {
                     if searchBar.text != "" {
                         if searchBar.results != nil {
-                            var autoResults: [String] = searchBar.results!
+                            let autoResults: [String] = searchBar.results!
                             Section{
                                 ForEach(
                                     autoResults,id: \.self
