@@ -98,15 +98,23 @@ struct CompanyDetails: Identifiable, Codable {
     let charts: HistoricalVolume
 }
 
+struct Autocomplete: Identifiable, Codable{
+    let id = UUID()
+    let description : String
+    let displaySymbol: String
+    let primary: [String]?
+    let symbol: String
+    let type: String
+}
 
 class MockModel: ObservableObject{
     
     @Published var tickerData: CompanyDetails? = nil
 //    @Published var profileDetails: HistoricalVolume? = nil
     
-    init(){
+    init(ticker: String){
 //        let jsonURL = "https://finnhub-angular-node.wl.r.appspot.com/company_details?symbol=MSFT"
-        let request = AF.request("https://finnhub-angular-node.wl.r.appspot.com/company_details?symbol=MSFT", method: .get)
+        let request = AF.request("https://finnhub-angular-node.wl.r.appspot.com/company_details?symbol=\(ticker)", method: .get)
         request.responseJSON{(response) in
 //            print(data)
             if response.data != nil{
@@ -125,4 +133,34 @@ class MockModel: ObservableObject{
         }
     }
     
+}
+
+
+class AutocompleteHandler: ObservableObject {
+     private var resultObj: [Autocomplete]? = nil
+     @Published var result : [String]? = nil
+    func getData(section: String){
+        let request = AF.request("http://finnhub-angular-node.wl.r.appspot.com/autocomplete?q=\(section)", method: .get)
+        var array: [String] = []
+        request.responseJSON{(response) in
+//            print(data)
+            if response.data != nil{
+                do{
+                    let json = try JSON(data: response.data!)
+                    let jsonString = "\(json)"
+                    let jsonData = jsonString.data(using: .utf8)
+                    self.resultObj = try JSONDecoder().decode([Autocomplete].self, from: jsonData!)
+//                    print(self.result)
+                    for item in self.resultObj!{
+                        array.append(item.symbol)
+                    }
+//                    print(array)
+                    self.result = array
+                    print("Autocomplete Data Received into Middleware!")
+                } catch{
+                    print(String(describing: error))
+                }
+            }
+        }
+    }
 }

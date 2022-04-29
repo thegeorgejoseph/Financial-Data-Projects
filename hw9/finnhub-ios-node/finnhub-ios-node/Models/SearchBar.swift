@@ -11,6 +11,9 @@ import SwiftUI
 class SearchBar: NSObject, ObservableObject {
 
     @Published var text: String = ""
+    @Published var results: [String]? = nil
+    let debouncer = Debouncer(delay: 0)
+    private var autoObj: AutocompleteHandler =  AutocompleteHandler()
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
 
     override init() {
@@ -23,10 +26,14 @@ class SearchBar: NSObject, ObservableObject {
 extension SearchBar: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
-
+        
         // Publish search bar text changes.
         if let searchBarText = searchController.searchBar.text {
             self.text = searchBarText
+            debouncer.run(action: {
+                self.autoObj.getData(section: searchBarText)
+                self.results = self.autoObj.result
+            })
         }
     }
 }

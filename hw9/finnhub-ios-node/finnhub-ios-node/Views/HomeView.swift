@@ -26,16 +26,26 @@ struct HomeView: View {
             NavigationView {
                 List {
                     if searchBar.text != "" {
-                        Section{
-                            ForEach(
-                                planets.filter {
-                                    $0.localizedStandardContains(searchBar.text)
-                                },
-                                id: \.self
-                            ) { eachPlanet in
-                                Text(eachPlanet)
+                        if searchBar.results != nil {
+                            var autoResults: [String] = searchBar.results!
+                            Section{
+                                ForEach(
+                                    autoResults,id: \.self
+                                ) { ticker in
+                                    NavigationLink(destination: NavigationLazyView(PortfolioCardDetail().environmentObject(MockModel(ticker: ticker)))){
+                                        Text(ticker)
+                                    }
+                                    
+                                }
+                            }
+                        } else {
+                            HStack{
+                                Spacer()
+                                ProgressView()
+                                Spacer()
                             }
                         }
+                        
                     }
                     else {
                         Section{

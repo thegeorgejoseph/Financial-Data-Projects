@@ -14,7 +14,7 @@ struct finnhub_ios_nodeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(MockModel())
+                .environmentObject(MockModel(ticker: "MSFT")) // this needs to be removed when AppStorage logic is solid
                 .environmentObject(CustomPortfolioStorageModel())
         }
     }

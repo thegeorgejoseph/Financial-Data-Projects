@@ -30,7 +30,8 @@
 		F2572536281B36790054234D /* TradingSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2572535281B36790054234D /* TradingSheetView.swift */; };
 		F2572538281B5C8D0054234D /* CongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2572537281B5C8D0054234D /* CongratsView.swift */; };
 		F257253E281B6B750054234D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F257253D281B6B750054234D /* SearchBar.swift */; };
-		F2572540281B6BAD0054234D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F257253F281B6BAD0054234D /* SearchBarView.swift */; };
+		F2572542281B976D0054234D /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2572541281B976D0054234D /* Debouncer.swift */; };
+		F2572544281BA0EA0054234D /* LazyNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2572543281BA0EA0054234D /* LazyNavigation.swift */; };
 		F26D4A18280A34BB00B8CB06 /* msft.json in Resources */ = {isa = PBXBuildFile; fileRef = F26D4A17280A34BB00B8CB06 /* msft.json */; };
 		F26D4A1A280A369300B8CB06 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D4A19280A369300B8CB06 /* MockModel.swift */; };
 		F26D4A1D280A498800B8CB06 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F26D4A1C280A498800B8CB06 /* Alamofire */; };
@@ -68,7 +69,8 @@
 		F2572535281B36790054234D /* TradingSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingSheetView.swift; sourceTree = "<group>"; };
 		F2572537281B5C8D0054234D /* CongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsView.swift; sourceTree = "<group>"; };
 		F257253D281B6B750054234D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		F257253F281B6BAD0054234D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		F2572541281B976D0054234D /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
+		F2572543281BA0EA0054234D /* LazyNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyNavigation.swift; sourceTree = "<group>"; };
 		F26D4A17280A34BB00B8CB06 /* msft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msft.json; sourceTree = "<group>"; };
 		F26D4A19280A369300B8CB06 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		F2A3F2072808E7AE00E6E050 /* finnhub-ios-node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "finnhub-ios-node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +123,7 @@
 				F2572525281A5A910054234D /* NewsSheetView.swift */,
 				F2572535281B36790054234D /* TradingSheetView.swift */,
 				F2572537281B5C8D0054234D /* CongratsView.swift */,
-				F257253F281B6BAD0054234D /* SearchBarView.swift */,
+				F2572543281BA0EA0054234D /* LazyNavigation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +137,7 @@
 				F22EBD7A281382AF00774BEB /* PortfolioToast.swift */,
 				F22E80EB2819C67F00D132ED /* StockModel.swift */,
 				F257253D281B6B750054234D /* SearchBar.swift */,
+				F2572541281B976D0054234D /* Debouncer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,10 +278,11 @@
 				F22EBD7F28139C7600774BEB /* Toast.swift in Sources */,
 				F2572538281B5C8D0054234D /* CongratsView.swift in Sources */,
 				F22E80EA2819BA1800D132ED /* PortfolioSectionView.swift in Sources */,
-				F2572540281B6BAD0054234D /* SearchBarView.swift in Sources */,
+				F2572544281BA0EA0054234D /* LazyNavigation.swift in Sources */,
 				F257253E281B6B750054234D /* SearchBar.swift in Sources */,
 				F2572536281B36790054234D /* TradingSheetView.swift in Sources */,
 				F26D4A1A280A369300B8CB06 /* MockModel.swift in Sources */,
+				F2572542281B976D0054234D /* Debouncer.swift in Sources */,
 				F22E80EE281A122600D132ED /* StatsAboutView.swift in Sources */,
 				F22DD05C2808F8AF00A768B1 /* HomeView.swift in Sources */,
 				F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */,
