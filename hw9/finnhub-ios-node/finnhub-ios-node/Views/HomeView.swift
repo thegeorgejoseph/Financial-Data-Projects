@@ -8,55 +8,73 @@
 import SwiftUI
 
 struct HomeView: View {
-        @EnvironmentObject var mockObj: MockModel
-//    @ObservedObject var mockObj: MockModel = MockModel()
+    @EnvironmentObject var mockObj: MockModel
+    @ObservedObject var searchBar: SearchBar = SearchBar()
     @Environment(\.openURL) var openURL
     @State var isEditing: Bool = false
     @State var tempList:[PortfolioHomeCardModel] = [PortfolioHomeCardModel(name:"AAPL"), PortfolioHomeCardModel(name:"RIVN"), PortfolioHomeCardModel(name:"ADSK")]
+    var planets =
+    ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"] +
+    ["Ceres", "Pluto", "Haumea", "Makemake", "Eris"]
     private var currentDate: Date = Date()
     
     
     var body: some View {
         if mockObj.tickerData != nil{
             var profile: Profile = mockObj.tickerData!.profile!
-//            Text("\(profile.ticker)") // is how you use the data from the API
+            //            Text("\(profile.ticker)") // is how you use the data from the API
             NavigationView {
                 List {
-                    Section{
-                        Text(currentDate, style: .date)
-                            .font(.system(size: 30))
-                            .fontWeight(.bold)
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    Section(header: Text("Portfolio")){
-                        PortfolioHomeView()
-                        ForEach(tempList, id: \.id) { item in
-                            NavigationLink(destination:PortfolioCardDetail()){
-                                PortfolioHomeCardView(item: item)
+                    if searchBar.text != "" {
+                        Section{
+                            ForEach(
+                                planets.filter {
+                                    $0.localizedStandardContains(searchBar.text)
+                                },
+                                id: \.self
+                            ) { eachPlanet in
+                                Text(eachPlanet)
                             }
-                            
                         }
-                        .onDelete(perform: delete)
-                        .onMove(perform: move)
                     }
-                    
-                    Section(header: Text("Favorites")){
-                        FavoritesHomeCardView()
-                    }
-                    
-                    Section{
-                        HStack {
-                            Spacer()
-                            Text("Powered by Finnhub.io").font(.footnote).foregroundColor(.secondary).onTapGesture {
-                                openURL(URL(string: "https://finnhub.io")!)
+                    else {
+                        Section{
+                            Text(currentDate, style: .date)
+                                .font(.system(size: 30))
+                                .fontWeight(.bold)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Section(header: Text("Portfolio")){
+                            PortfolioHomeView()
+                            ForEach(tempList, id: \.id) { item in
+                                NavigationLink(destination:PortfolioCardDetail()){
+                                    PortfolioHomeCardView(item: item)
+                                }
+                                
                             }
-                            Spacer()
+                            .onDelete(perform: delete)
+                            .onMove(perform: move)
+                        }
+                        
+                        Section(header: Text("Favorites")){
+                            FavoritesHomeCardView()
+                        }
+                        
+                        Section{
+                            HStack {
+                                Spacer()
+                                Text("Powered by Finnhub.io").font(.footnote).foregroundColor(.secondary).onTapGesture {
+                                    openURL(URL(string: "https://finnhub.io")!)
+                                }
+                                Spacer()
+                            }
                         }
                     }
                     
                 }
                 .navigationTitle("Stocks")
+                .add(self.searchBar)
                 .toolbar {
                     EditButton()
                 }

@@ -39,7 +39,7 @@ struct PortfolioSectionView: View {
                 Spacer()
                 
                 Button("Trade"){
-                    showingSheet.toggle()
+                    showingSheet = true
                 }
                 .padding(.all)
                 .frame(width:200)
@@ -48,7 +48,7 @@ struct PortfolioSectionView: View {
                 .font(.title2)
                 .buttonStyle(PlainButtonStyle())
                 .sheet(isPresented: $showingSheet){
-                    TradingSheetView(stock: $sectionItems)
+                    TradingSheetView(stock: $sectionItems, portfolioSheetBinding: $showingSheet)
                 }
                 Spacer()
             }.padding(.trailing, 20.0)
