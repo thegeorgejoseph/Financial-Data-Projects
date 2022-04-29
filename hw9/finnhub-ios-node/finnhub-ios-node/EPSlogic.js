@@ -18,13 +18,11 @@ function temporaryFunc(earnings) {
       },
       xAxis: {
         type: "linear",
-        scrollbar: {
-          enabled: true,
-        },
         categories: temp.categories,
       },
       yAxis: [
         {
+        opposite: false,
           title: {
             text: "Quarterly EPS",
           },
@@ -44,6 +42,18 @@ function temporaryFunc(earnings) {
           color: "#434343",
         },
       ],
+    navigator: {
+    enabled: false
+    },
+    legend: {
+    enabled: true
+    },
+    scrollbar :{
+        enabled: false
+        },
+    rangeSelector:{
+        enabled: false
+    }
     });
   } catch (e) {
     testElement.innerHTML =
