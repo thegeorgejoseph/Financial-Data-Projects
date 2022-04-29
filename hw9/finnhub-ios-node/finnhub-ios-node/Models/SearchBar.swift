@@ -11,7 +11,7 @@ import SwiftUI
 class SearchBar: NSObject, ObservableObject {
 
     @Published var text: String = ""
-    @Published var results: [String]? = nil
+    @Published var results: [[String]]? = nil
     let debouncer = Debouncer(delay: 0)
     private var autoObj: AutocompleteHandler =  AutocompleteHandler()
     let searchController: UISearchController = UISearchController(searchResultsController: nil)

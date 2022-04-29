@@ -24,13 +24,20 @@ struct HomeView: View {
                 List {
                     if searchBar.text != "" {
                         if searchBar.results != nil {
-                            let autoResults: [String] = searchBar.results!
+                            let autoResults: [[String]] = searchBar.results!
                             Section{
                                 ForEach(
                                     autoResults,id: \.self
                                 ) { ticker in
-                                    NavigationLink(destination: NavigationLazyView(PortfolioCardDetail().environmentObject(MockModel(ticker: ticker)))){
-                                        Text(ticker)
+                                    NavigationLink(destination: NavigationLazyView(PortfolioCardDetail().environmentObject(MockModel(ticker: ticker[0])))){
+                                        VStack(alignment:.leading){
+                                            Text(ticker[0])
+                                                .font(.title3.weight(.bold))
+                                            Text(ticker[1])
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                        }
+                                        
                                     }
                                     
                                 }

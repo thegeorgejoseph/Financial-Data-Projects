@@ -138,10 +138,10 @@ class MockModel: ObservableObject{
 
 class AutocompleteHandler: ObservableObject {
      private var resultObj: [Autocomplete]? = nil
-     @Published var result : [String]? = nil
+     @Published var result : [[String]]? = nil
     func getData(section: String){
         let request = AF.request("http://finnhub-angular-node.wl.r.appspot.com/autocomplete?q=\(section)", method: .get)
-        var array: [String] = []
+        var array: [[String]] = []
         request.responseJSON{(response) in
 //            print(data)
             if response.data != nil{
@@ -152,7 +152,7 @@ class AutocompleteHandler: ObservableObject {
                     self.resultObj = try JSONDecoder().decode([Autocomplete].self, from: jsonData!)
 //                    print(self.result)
                     for item in self.resultObj!{
-                        array.append(item.symbol)
+                        array.append([item.symbol,item.description])
                     }
 //                    print(array)
                     self.result = array
