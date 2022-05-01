@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct TradingSheetView: View {
+    @EnvironmentObject var localStorage: LocalStorage
     @Environment(\.dismiss) var dismiss
     @Binding var stock: Stock
     @State private var input: String = ""
-    @State var showingSheet: Bool = false
     @State var didBuy: Bool = false
-    @Binding var portfolioSheetBinding: Bool
     @State private var showToast: Bool = false
     @State var toastString: String = ""
-    @State var wallet: Double = 25000.00
+    @ObservedObject var modalState: ModalState
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
             HStack{
                 Spacer()
                 Image(systemName: "xmark")
                     .onTapGesture{
-                        dismiss()
+                        self.modalState.isModal1Presented = false
                     }
                     .foregroundColor(Color.gray)
             }
@@ -47,7 +46,7 @@ struct TradingSheetView: View {
             HStack{
                 Spacer()
                 
-                Text("x $\(String(format: "%.2f",stock.change))/share = $\(input == "" ? "0.0" : String(Double(input)! * stock.change ) )")
+                Text("x $\(String(format: "%.2f",stock.change))/share = $\(input == "" ? "0.0" : String(format:"%.2f", Double(input)! * stock.change ) )")
                     .font(.body)
                 
                 
@@ -55,7 +54,7 @@ struct TradingSheetView: View {
             Spacer()
             HStack{
                 Spacer()
-                Text("$\(25000) available to buy \(stock.ticker)")
+                Text("$\(String(format: "%.2f", localStorage.wallet)) available to buy \(stock.ticker)")
                     .foregroundColor(.secondary)
                     .font(.footnote)
                 Spacer()
@@ -80,8 +79,8 @@ struct TradingSheetView: View {
                 .font(.title2)
                 .buttonStyle(PlainButtonStyle())
             }
-            .sheet(isPresented: $showingSheet){
-                CongratsView(didBuy: $didBuy, shares: $input, stock: $stock, showingSheet: $portfolioSheetBinding)
+            .sheet(isPresented: $modalState.isModal2Presented){
+                CongratsView(didBuy: $didBuy, shares: $input, stock: $stock, modalState: self.modalState)
             }
         }
         .toast(isPresented: self.$showToast) {
@@ -97,13 +96,26 @@ struct TradingSheetView: View {
             toastString = "Cannot buy non-positive shares"
             showToast = true
         }
-        else if Double(input)! * stock.change > wallet {
+        else if Double(input)! * stock.change > localStorage.wallet {
             toastString = "Not enough money to buy"
             showToast = true
         }
         else {
+            let buyingPrice = Double(input) ?? 0.0 * stock.change
+            localStorage.wallet -= buyingPrice
+            localStorage.net += buyingPrice
+            stock.shares += Int(input) ?? 0
+//            if localStorage.portfolioArray.contains(where: {$0.ticker == stock.ticker}){
+//
+//            } else {
+//                localStorage.portfolioArray.append(stock)
+//            }
+            localStorage.portfolioArray = localStorage.portfolioArray.filter{item in
+                item.ticker != stock.ticker
+            }
+            localStorage.portfolioArray.append(stock)
             didBuy = true
-            showingSheet = true
+            self.modalState.isModal2Presented = true
         }
         
     }
@@ -117,8 +129,21 @@ struct TradingSheetView: View {
             showToast = true
         }
         else{
+            let sellingPrice = Double(input) ?? 0.0 * stock.change
+            localStorage.wallet += sellingPrice
+            localStorage.net -= sellingPrice
+            stock.shares -= Int(input) ?? 0
+            if stock.shares == 0 {
+                localStorage.portfolioArray = localStorage.portfolioArray.filter{item in
+                    item.ticker != stock.ticker
+                }
+            }
+            localStorage.portfolioArray = localStorage.portfolioArray.filter{item in
+                item.ticker != stock.ticker
+            }
+            localStorage.portfolioArray.append(stock)
             didBuy = false
-            showingSheet = true
+            self.modalState.isModal2Presented = true
         }
     }
 }

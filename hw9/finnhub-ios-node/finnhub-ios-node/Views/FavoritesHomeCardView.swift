@@ -8,23 +8,24 @@
 import SwiftUI
 
 struct FavoritesHomeCardView: View {
-    private var amount = 174.49
+    @State var stock: Stock
+    var amount = 174.49
     var body: some View {
         HStack{
             VStack(alignment: .leading){
-                Text("AAPL").font(.title2).fontWeight(.semibold)
-                Text("Apple Inc.").font(.subheadline).foregroundColor(.secondary)
+                Text("\(stock.ticker)").font(.title2).fontWeight(.semibold)
+                Text("\(stock.name)").font(.subheadline).foregroundColor(.secondary)
             }
             Spacer()
             VStack(alignment: .trailing){
-                Text("$\(amount,specifier: "%.2f")").font(.title3).fontWeight(.semibold)
+                Text("$\(stock.change,specifier: "%.2f")").font(.title3).fontWeight(.semibold)
                 HStack{
                     Image(systemName: "arrow.down.right")
-                    Text("-$0.23")
-                    Text("(-0.13%)")
+                    Text("\(String(format: "%.2f", stock.d))")
+                    Text("(\(String(format: "%.2f", stock.dp))%)")
                     
                 }
-                        .foregroundColor(.red)
+                .foregroundColor(stock.dp < 0 ? Color.red : Color.green)
             }
         }
     }

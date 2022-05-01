@@ -8,38 +8,67 @@
 import SwiftUI
 
 struct PortfolioSectionView: View {
+    //    @EnvironmentObject var localStorage: LocalStorage
     @State var sectionItems: Stock
     @State var trendColor: Color
-    @State private var showingSheet = false
+    @StateObject var modalState = ModalState()
     var body: some View {
         let priceChange = (sectionItems.change - sectionItems.change)
         HStack{
             if sectionItems.shares == 0 {
                 VStack(alignment: .leading, spacing: 5){
-                   Text("You have 0 shares of \(sectionItems.ticker).")
-                   Text("Start trading!")
-               }
+                    Text("You have 0 shares of \(sectionItems.ticker).")
+                    Text("Start trading!")
+                }
                 .padding(.all)
             } else {
-                VStack(alignment: .leading,spacing: 20){
-                Text("Portfolio")
-                    .font(.largeTitle)
-                Text("Shares Owned: \(sectionItems.shares)")
-                Text("Avg. Cost / Share: \(sectionItems.shares > 0 ? String(format: "%.2f", Double(sectionItems.shares) * sectionItems.change / Double(sectionItems.shares)) : String(0))")
-                Text("Total Cost: \(String(format: "%.2f",Double(sectionItems.shares) * sectionItems.change))")
-                Text("Change: \(String(format: "%.2f",priceChange))")
-                Text("Market Value: \(String(format: "%.2f",priceChange/(sectionItems.change * Double(sectionItems.shares))))")
+                VStack(alignment: .leading,spacing: 5){
+                    Text("Portfolio")
+                        .font(.largeTitle)
+                        .padding()
+                    HStack{
+                        Text("Shares Owned: ")
+                            .font(Font.headline.weight(.bold))
+                            .padding(.leading)
+                        Text("\(sectionItems.shares)")
+                        
+                    }
+                    HStack{
+                        Text("Avg. Cost / Share: ")
+                            .font(Font.headline.weight(.bold))
+                            .padding(.leading)
+                        Text("\(sectionItems.shares > 0 ? String(format: "%.2f", Double(sectionItems.shares) * sectionItems.change / Double(sectionItems.shares)) : String(0))")
+                    }
+                    HStack{
+                        Text("Total Cost: ")
+                            .font(Font.headline.weight(.bold))
+                            .padding(.leading)
+                        Text("\(String(format: "%.2f",Double(sectionItems.shares) * sectionItems.change))")
+                            
+                    }
+                    HStack{
+                        Text("Change: ")
+                            .font(Font.headline.weight(.bold))
+                            .padding(.leading)
+                        Text("\(String(format: "%.2f",priceChange))")
+                    }
+                    HStack{
+                        Text("Market Value: ")
+                            .font(Font.headline.weight(.bold))
+                            .padding(.leading)
+                        Text("\(String(format: "%.2f",priceChange/(sectionItems.change * Double(sectionItems.shares))))")
+                    }
+                    .padding(.bottom)
+                    
+                }
                 
-            }
-            .padding(.all)
-            .font(Font.headline.weight(.bold))
             }
             Spacer()
             VStack{
                 Spacer()
                 
                 Button("Trade"){
-                    showingSheet = true
+                    self.modalState.isModal1Presented = true
                 }
                 .padding(.all)
                 .frame(width:200)
@@ -47,12 +76,12 @@ struct PortfolioSectionView: View {
                 .foregroundColor(Color.white)
                 .font(.title2)
                 .buttonStyle(PlainButtonStyle())
-                .sheet(isPresented: $showingSheet){
-                    TradingSheetView(stock: $sectionItems, portfolioSheetBinding: $showingSheet)
+                .sheet(isPresented: $modalState.isModal1Presented){
+                    TradingSheetView(stock: $sectionItems, modalState: self.modalState)
                 }
                 Spacer()
             }.padding(.trailing, 20.0)
-           
+            
         }
     }
     
@@ -60,9 +89,3 @@ struct PortfolioSectionView: View {
         
     }
 }
-
-//struct PortfolioSectionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PortfolioSectionView()
-//    }
-//}

@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct PortfolioHomeView: View {
+    @EnvironmentObject var localStorage: LocalStorage
     var body: some View {
         HStack{
             VStack(alignment: .leading){
                 Text("Net Worth").fontWeight(.medium)
-                Text("$25000.00").fontWeight(.bold)
+                Text("$\(String(format: "%.2f", localStorage.net))").fontWeight(.bold)
             }
             .font(.title2)
             Spacer()
             VStack(alignment: .leading){
                 Text("Cash Balance").fontWeight(.medium)
-                Text("$25000.00").fontWeight(.bold)
+                Text("$\(String(format: "%.2f",localStorage.wallet))").fontWeight(.bold)
             }
             .font(.title2)
         }

@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct PortfolioHomeCardView: View {
-    @State var item: PortfolioHomeCardModel
-    private let amount = 523.47
+    
+    @State var stock: Stock
     var body: some View {
         HStack{
             VStack(alignment: .leading){
-                Text("\(item.name)").font(.title2).fontWeight(.semibold)
-                Text("3 shares").font(.subheadline).foregroundColor(.secondary)
+                Text("\(stock.ticker)").font(.title2).fontWeight(.semibold)
+                Text("\(stock.shares) shares").font(.subheadline).foregroundColor(.secondary)
             }
             Spacer()
             VStack(alignment: .trailing){
-                Text("$\(amount,specifier: "%.2f")").font(.title3).fontWeight(.semibold)
+                Text("$\(stock.change * Double(stock.shares),specifier: "%.2f")").font(.title3).fontWeight(.semibold)
                 HStack{
                     Image(systemName: "arrow.up.right")
-                    Text("$0.12")
-                    Text("(0.02%)")
+                    Text("$0.0") //hard coded
+                    Text("(0.0%)") //hard coded
                     
                 }
                         .foregroundColor(.green)

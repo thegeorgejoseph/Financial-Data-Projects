@@ -10,12 +10,12 @@ import Kingfisher
 
 struct PortfolioCardDetail: View {
     //Ground Truth for all things related to this ticker so this is where this gets initialised for the first time
-    
+    @EnvironmentObject var localStorage: LocalStorage
     @EnvironmentObject var dataObj: MockModel
-    @EnvironmentObject var portfolioItems: CustomPortfolioStorageModel
-    @State private var isFavorite: Bool = false
+//    @EnvironmentObject var portfolioItems: CustomPortfolioStorageModel
+    @State var isFavorite: Bool = false
+    @State var shares: Int = 0
     @State private var showToast: Bool = false
-    
     func getColor(value: Double) -> Color {
         if value > 0 {
             return Color.green
@@ -37,8 +37,7 @@ struct PortfolioCardDetail: View {
             let news: [News] = dataObj.tickerData!.news
             let trendColor: Color = self.getColor(value: quote.dp)
             let arrowSymbol: String = (trendColor == Color.green) ? "arrow.up.right" : "arrow.down.right"
-            var thisStock: Stock = Stock(ticker: profile.ticker, name: profile.name, shares: 0, change: quote.c)
-            let _temp: Any = CustomPortfolioStorageModel().setPortfolioItem(currentStock: thisStock)
+            let thisStock: Stock = Stock(ticker: profile.ticker, name: profile.name, shares: shares, change: quote.c, favorite: isFavorite, d: quote.d, dp:quote.dp)
             VStack{
                 ScrollView{
                     PortfolioHeaderView(profile:profile, quote: quote, trendColor: trendColor, arrowSymbol: arrowSymbol)
@@ -58,9 +57,11 @@ struct PortfolioCardDetail: View {
             }
             .navigationTitle("\(profile.ticker)")
             .toolbar{
-                Button(action: favoriteAction){
-                    Image(systemName: isFavorite ? "plus.circle.fill" : "plus.circle")
-                }
+                Image(systemName: isFavorite ? "plus.circle.fill" : "plus.circle")
+                    .foregroundColor(Color.blue)
+                    .onTapGesture {
+                        self.favoriteAction(stock: thisStock)
+                    }
             }
             .toast(isPresented: self.$showToast) {
                 HStack {
@@ -75,17 +76,20 @@ struct PortfolioCardDetail: View {
         
     }
     
-    func favoriteAction(){
+    func favoriteAction(stock: Stock) -> Void{
+        if isFavorite == false {
+            // it was false before toggling so add logic to add to favorites here
+            localStorage.favoriteArray.append(stock)
+        } else{
+            // it was true before toggling so add logic to remove from favorites here
+            localStorage.favoriteArray = localStorage.favoriteArray.filter{item in
+                item.ticker != stock.ticker
+            }
+        }
         isFavorite.toggle()
         withAnimation {
             self.showToast = true
         }
-        
     }
 }
 
-//struct PortfolioCardDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-////        PortfolioCardDetail()
-//    }
-//}

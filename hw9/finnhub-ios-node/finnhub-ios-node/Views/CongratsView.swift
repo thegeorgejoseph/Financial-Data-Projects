@@ -12,7 +12,7 @@ struct CongratsView: View {
     @Binding var didBuy: Bool
     @Binding var shares: String
     @Binding var stock: Stock
-    @Binding var showingSheet: Bool
+    @ObservedObject var modalState: ModalState
     var body: some View {
         VStack{
             Spacer()
@@ -24,8 +24,8 @@ struct CongratsView: View {
                 .foregroundColor(Color.white)
             Spacer()
             Button("Done"){
-                showingSheet = false
-                dismiss()
+                self.modalState.isModal1Presented = false
+                self.modalState.isModal2Presented = false
             }
             .frame(width: 380, height: 50)
             .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
