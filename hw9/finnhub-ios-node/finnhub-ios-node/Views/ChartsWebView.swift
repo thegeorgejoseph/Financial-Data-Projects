@@ -187,11 +187,3 @@ extension WKWebView {
         }
     }
 }
-
-//struct ChartsWebView: View {
-//    @Binding var stringName: String
-//    var body: some View {
-//        let fileName: String? = nil
-//        WebView(htmlName: fileName!)
-//    }
-//}

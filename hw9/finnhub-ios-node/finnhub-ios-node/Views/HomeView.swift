@@ -13,7 +13,6 @@ struct HomeView: View {
     @ObservedObject var searchBar: SearchBar = SearchBar()
     @Environment(\.openURL) var openURL
     @State var isEditing: Bool = false
-    @State var tempList:[PortfolioHomeCardModel] = [PortfolioHomeCardModel(name:"AAPL"), PortfolioHomeCardModel(name:"RIVN"), PortfolioHomeCardModel(name:"ADSK")]
     @AppStorage("storePortfolio") var storePortfolio: [Stock] = []
     @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
     @AppStorage("storeWallet") var storeWallet: Double = 25000
