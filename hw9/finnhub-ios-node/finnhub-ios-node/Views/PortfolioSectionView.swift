@@ -10,8 +10,8 @@ import SwiftUI
 struct PortfolioSectionView: View {
     //    @EnvironmentObject var localStorage: LocalStorage
     @State var sectionItems: Stock
-    @State var trendColor: Color
-    @StateObject var modalState = ModalState()
+//    @State var trendColor: Color
+    @StateObject var modalState: ModalState = ModalState()
     var body: some View {
         let priceChange = (sectionItems.change - sectionItems.change)
         HStack{
@@ -75,9 +75,9 @@ struct PortfolioSectionView: View {
                 .background(RoundedRectangle(cornerRadius: 50).fill(Color.green))
                 .foregroundColor(Color.white)
                 .font(.title2)
-                .buttonStyle(PlainButtonStyle())
+//                .buttonStyle(PlainButtonStyle())
                 .sheet(isPresented: $modalState.isModal1Presented){
-                    TradingSheetView(stock: $sectionItems, modalState: self.modalState)
+                    TradingSheetView(stock: $sectionItems, modalState: modalState)
                 }
                 Spacer()
             }.padding(.trailing, 20.0)

@@ -24,7 +24,9 @@ struct CongratsView: View {
                 .foregroundColor(Color.white)
             Spacer()
             Button("Done"){
-                self.modalState.isModal1Presented = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.modalState.isModal1Presented = false
+                    }
                 self.modalState.isModal2Presented = false
             }
             .frame(width: 380, height: 50)

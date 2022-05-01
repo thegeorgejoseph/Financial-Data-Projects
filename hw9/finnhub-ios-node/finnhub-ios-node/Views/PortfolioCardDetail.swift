@@ -10,11 +10,11 @@ import Kingfisher
 
 struct PortfolioCardDetail: View {
     //Ground Truth for all things related to this ticker so this is where this gets initialised for the first time
+    @State var ticker: String
     @EnvironmentObject var localStorage: LocalStorage
-    @EnvironmentObject var dataObj: MockModel
-//    @EnvironmentObject var portfolioItems: CustomPortfolioStorageModel
-    @State var isFavorite: Bool = false
-    @State var shares: Int = 0
+//    @EnvironmentObject var dataObj: MockModel
+//    @State var isFavorite: Bool
+//    @State var shares: Int = 0
     @State private var showToast: Bool = false
     func getColor(value: Double) -> Color {
         if value > 0 {
@@ -25,71 +25,131 @@ struct PortfolioCardDetail: View {
             return Color.gray
         }
     }
-    
-    
-    var body: some View {
+    @ObservedObject var dataObj: MockModel = MockModel()
+//    @State var thisStock: Stock
+    init(ticker: String){
+        self.ticker = ticker
+//        self.isFavorite = localStorage.favoriteArray.contains(where: {$0.ticker == ticker})
+        dataObj.apiCall(ticker: ticker)
+    }
+    var body: some View{
         if dataObj.tickerData != nil{
-            let profile: Profile = dataObj.tickerData!.profile!
-            let quote: Quote = dataObj.tickerData!.quote
-            let peers: [String] = dataObj.tickerData!.peers
-            let insights: Insights = dataObj.tickerData!.insights
-            let charts: HistoricalVolume = dataObj.tickerData!.charts
-            let news: [News] = dataObj.tickerData!.news
-            let trendColor: Color = self.getColor(value: quote.dp)
+            var shares: Int = localStorage.portfolioArray.filter{$0.ticker == ticker}.first?.shares ?? 0
+            var isFavorite: Bool = localStorage.favoriteArray.contains(where: {$0.ticker == ticker}) ? true : false
+            let trendColor: Color = self.getColor(value: dataObj.tickerData!.quote.dp)
             let arrowSymbol: String = (trendColor == Color.green) ? "arrow.up.right" : "arrow.down.right"
-            let thisStock: Stock = Stock(ticker: profile.ticker, name: profile.name, shares: shares, change: quote.c, favorite: isFavorite, d: quote.d, dp:quote.dp)
+            let thisStock: Stock = Stock(ticker: dataObj.tickerData!.profile!.ticker, name: dataObj.tickerData!.profile!.name, shares: shares, change: dataObj.tickerData!.quote.c, favorite: isFavorite, d: dataObj.tickerData!.quote.d, dp:dataObj.tickerData!.quote.dp)
             VStack{
                 ScrollView{
-                    PortfolioHeaderView(profile:profile, quote: quote, trendColor: trendColor, arrowSymbol: arrowSymbol)
-                    ChartsTabView(quote: quote, charts: charts)
+                    PortfolioHeaderView(profile:dataObj.tickerData!.profile!, quote: dataObj.tickerData!.quote, trendColor: trendColor, arrowSymbol: arrowSymbol)
+                    ChartsTabView(quote: dataObj.tickerData!.quote, charts: dataObj.tickerData!.charts)
                         .frame(height: 450)
-                    PortfolioSectionView(sectionItems: thisStock,trendColor: trendColor)
-                    StatsAboutView(quote: quote, profile: profile, peers: peers)
-                    InsightsView(profile: profile, insights: insights)
-                    RECWebView(htmlName: "recIndex", recommendation: insights.recommendation)
+                    PortfolioSectionView(sectionItems: thisStock)
+                    StatsAboutView(quote: dataObj.tickerData!.quote, profile: dataObj.tickerData!.profile!, peers: dataObj.tickerData!.peers)
+                    InsightsView(profile: dataObj.tickerData!.profile!, insights: dataObj.tickerData!.insights)
+                    RECWebView(htmlName: "recIndex", recommendation: dataObj.tickerData!.insights.recommendation)
                         .frame(height: 450)
-                    EPSWebView(htmlName: "epsIndex", earnings: insights.earnings)
+                    EPSWebView(htmlName: "epsIndex", earnings: dataObj.tickerData!.insights.earnings)
                         .frame(height: 450)
-                    NewsView(news: news)
+                    NewsView(news: dataObj.tickerData!.news)
                 }
                 
                 
             }
-            .navigationTitle("\(profile.ticker)")
+            .navigationTitle("\(dataObj.tickerData!.profile!.ticker)")
             .toolbar{
                 Image(systemName: isFavorite ? "plus.circle.fill" : "plus.circle")
                     .foregroundColor(Color.blue)
                     .onTapGesture {
-                        self.favoriteAction(stock: thisStock)
+//                        self.favoriteAction(stock: thisStock)
+                        if isFavorite == false {
+                            // it was false before toggling so add logic to add to favorites here
+                            localStorage.favoriteArray.append(thisStock)
+                        } else{
+                            // it was true before toggling so add logic to remove from favorites here
+                            localStorage.favoriteArray = localStorage.favoriteArray.filter{item in
+                                item.ticker != thisStock.ticker
+                            }
+                        }
+                        isFavorite.toggle()
+                        withAnimation {
+                            self.showToast = true
+                        }
                     }
             }
             .toast(isPresented: self.$showToast) {
                 HStack {
-                    isFavorite ? Text("\(profile.ticker) has been added") : Text("\(profile.ticker) has been removed")
+                    isFavorite ? Text("\(dataObj.tickerData!.profile!.ticker) has been added") : Text("\(dataObj.tickerData!.profile!.ticker) has been removed")
                 }
             }
-            
-            
-        } else{
+        } else {
             ProgressView("Fetching Data for Ticker...")
         }
-        
     }
     
-    func favoriteAction(stock: Stock) -> Void{
-        if isFavorite == false {
-            // it was false before toggling so add logic to add to favorites here
-            localStorage.favoriteArray.append(stock)
-        } else{
-            // it was true before toggling so add logic to remove from favorites here
-            localStorage.favoriteArray = localStorage.favoriteArray.filter{item in
-                item.ticker != stock.ticker
-            }
-        }
-        isFavorite.toggle()
-        withAnimation {
-            self.showToast = true
-        }
-    }
+//    var body: some View {
+//        if dataObj.tickerData != nil{
+//            let profile: Profile = dataObj.tickerData!.profile!
+//            let quote: Quote = dataObj.tickerData!.quote
+//            let peers: [String] = dataObj.tickerData!.peers
+//            let insights: Insights = dataObj.tickerData!.insights
+//            let charts: HistoricalVolume = dataObj.tickerData!.charts
+//            let news: [News] = dataObj.tickerData!.news
+//            let trendColor: Color = self.getColor(value: quote.dp)
+//            let arrowSymbol: String = (trendColor == Color.green) ? "arrow.up.right" : "arrow.down.right"
+//            let thisStock: Stock = Stock(ticker: profile.ticker, name: profile.name, shares: shares, change: quote.c, favorite: isFavorite, d: quote.d, dp:quote.dp)
+//            VStack{
+//                ScrollView{
+//                    PortfolioHeaderView(profile:profile, quote: quote, trendColor: trendColor, arrowSymbol: arrowSymbol)
+//                    ChartsTabView(quote: quote, charts: charts)
+//                        .frame(height: 450)
+//                    PortfolioSectionView(sectionItems: thisStock,trendColor: trendColor)
+//                    StatsAboutView(quote: quote, profile: profile, peers: peers)
+//                    InsightsView(profile: profile, insights: insights)
+//                    RECWebView(htmlName: "recIndex", recommendation: insights.recommendation)
+//                        .frame(height: 450)
+//                    EPSWebView(htmlName: "epsIndex", earnings: insights.earnings)
+//                        .frame(height: 450)
+//                    NewsView(news: news)
+//                }
+//
+//
+//            }
+//            .navigationTitle("\(profile.ticker)")
+//            .toolbar{
+//                Image(systemName: isFavorite ? "plus.circle.fill" : "plus.circle")
+//                    .foregroundColor(Color.blue)
+//                    .onTapGesture {
+//                        self.favoriteAction(stock: thisStock)
+//                    }
+//            }
+//            .toast(isPresented: self.$showToast) {
+//                HStack {
+//                    isFavorite ? Text("\(profile.ticker) has been added") : Text("\(profile.ticker) has been removed")
+//                }
+//            }
+//
+//
+//        } else{
+//            ProgressView("Fetching Data for Ticker...")
+//        }
+//
+//    }
+    
+//    func favoriteAction(stock: Stock) -> Void{
+//        if isFavorite == false {
+//            // it was false before toggling so add logic to add to favorites here
+//            localStorage.favoriteArray.append(stock)
+//        } else{
+//            // it was true before toggling so add logic to remove from favorites here
+//            localStorage.favoriteArray = localStorage.favoriteArray.filter{item in
+//                item.ticker != stock.ticker
+//            }
+//        }
+//        isFavorite.toggle()
+//        withAnimation {
+//            self.showToast = true
+//        }
+//    }
 }
 

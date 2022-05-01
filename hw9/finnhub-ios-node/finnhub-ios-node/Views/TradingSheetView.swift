@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TradingSheetView: View {
     @EnvironmentObject var localStorage: LocalStorage
-    @Environment(\.dismiss) var dismiss
+//    @Environment(\.dismiss) var dismiss
     @Binding var stock: Stock
     @State private var input: String = ""
     @State var didBuy: Bool = false
@@ -17,6 +17,8 @@ struct TradingSheetView: View {
     @State var toastString: String = ""
     @ObservedObject var modalState: ModalState
     var body: some View {
+//        print(Self._printChanges())
+//        return Text("What could possibly go wrong?")
         VStack(alignment: .leading, spacing: 10){
             HStack{
                 Spacer()

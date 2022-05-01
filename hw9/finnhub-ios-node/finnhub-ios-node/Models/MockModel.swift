@@ -112,26 +112,46 @@ class MockModel: ObservableObject{
     @Published var tickerData: CompanyDetails? = nil
 //    @Published var profileDetails: HistoricalVolume? = nil
     
-    init(ticker: String){
-//        let jsonURL = "https://finnhub-angular-node.wl.r.appspot.com/company_details?symbol=MSFT"
-        let request = AF.request("https://finnhub-angular-node.wl.r.appspot.com/company_details?symbol=\(ticker)", method: .get)
-        request.responseJSON{(response) in
-//            print(data)
-            if response.data != nil{
-                do{
-                    let json = try JSON(data: response.data!)
-                    let jsonString = "\(json)"
-                    let jsonData = jsonString.data(using: .utf8)
-                    self.tickerData = try JSONDecoder().decode(CompanyDetails.self, from: jsonData!)
-//                    print(self.tickerData)
-                    print("Data obtained from server successfully!")
-                } catch{
-                    print(String(describing: error))
+    func apiCall(ticker: String){
+//                let jsonURL = "https://finnhub-angular-node.wl.r.appspot.com/company_details?symbol=MSFT"
+                let request = AF.request("https://finnhub-angular-node.wl.r.appspot.com/company_details?symbol=\(ticker)", method: .get)
+                request.responseJSON{(response) in
+        //            print(data)
+                    if response.data != nil{
+                        do{
+                            let json = try JSON(data: response.data!)
+                            let jsonString = "\(json)"
+                            let jsonData = jsonString.data(using: .utf8)
+                            self.tickerData = try JSONDecoder().decode(CompanyDetails.self, from: jsonData!)
+        //                    print(self.tickerData)
+                            print("Data obtained from server successfully!")
+                        } catch{
+                            print(String(describing: error))
+                        }
+                    }
+                    
                 }
-            }
-            
-        }
     }
+//    init(ticker: String){
+////        let jsonURL = "https://finnhub-angular-node.wl.r.appspot.com/company_details?symbol=MSFT"
+//        let request = AF.request("https://finnhub-angular-node.wl.r.appspot.com/company_details?symbol=\(ticker)", method: .get)
+//        request.responseJSON{(response) in
+////            print(data)
+//            if response.data != nil{
+//                do{
+//                    let json = try JSON(data: response.data!)
+//                    let jsonString = "\(json)"
+//                    let jsonData = jsonString.data(using: .utf8)
+//                    self.tickerData = try JSONDecoder().decode(CompanyDetails.self, from: jsonData!)
+////                    print(self.tickerData)
+//                    print("Data obtained from server successfully!")
+//                } catch{
+//                    print(String(describing: error))
+//                }
+//            }
+//
+//        }
+//    }
     
 }
 

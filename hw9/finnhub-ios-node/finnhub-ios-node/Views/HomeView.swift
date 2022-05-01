@@ -30,7 +30,7 @@ struct HomeView: View {
                             ForEach(
                                 autoResults,id: \.self
                             ) { ticker in
-                                NavigationLink(destination: NavigationLazyView(PortfolioCardDetail(isFavorite: localStorage.favoriteArray.contains(where: {$0.ticker == ticker[0]}) ? true : false).environmentObject(MockModel(ticker: ticker[0])))){
+                                NavigationLink(destination: NavigationLazyView(PortfolioCardDetail(ticker: ticker[0]))){
                                     VStack(alignment:.leading){
                                         Text(ticker[0])
                                             .font(.title3.weight(.bold))
@@ -63,7 +63,8 @@ struct HomeView: View {
                     Section(header: Text("Portfolio")){
                         PortfolioHomeView()
                         ForEach(localPortList) { stock in
-                            NavigationLink(destination:NavigationLazyView(PortfolioCardDetail(isFavorite: localStorage.favoriteArray.contains(where: {$0.ticker == stock.ticker}) ? true : false).environmentObject(MockModel(ticker: stock.ticker)))){
+                            let temp: String = String(stock.ticker)
+                            NavigationLink(destination:NavigationLazyView(PortfolioCardDetail(ticker: temp))){
                                 PortfolioHomeCardView(stock: localStorage.portfolioArray.filter{$0.ticker == stock.ticker}.first ?? stock)
                                 //                                    PortfolioHomeCardView(stock: stock)
                             }
@@ -75,7 +76,8 @@ struct HomeView: View {
                     
                     Section(header: Text("Favorites")){
                         ForEach(localFavList){stock in
-                            NavigationLink(destination: NavigationLazyView(PortfolioCardDetail(isFavorite: true).environmentObject(MockModel(ticker: stock.ticker)))){
+                            let temp: String = String(stock.ticker)
+                            NavigationLink(destination: NavigationLazyView(PortfolioCardDetail(ticker: temp))){
                                 FavoritesHomeCardView(stock: stock)
                             }
                             
