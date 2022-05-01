@@ -14,11 +14,15 @@ struct HomeView: View {
     @Environment(\.openURL) var openURL
     @State var isEditing: Bool = false
     @State var tempList:[PortfolioHomeCardModel] = [PortfolioHomeCardModel(name:"AAPL"), PortfolioHomeCardModel(name:"RIVN"), PortfolioHomeCardModel(name:"ADSK")]
+    @AppStorage("storePortfolio") var storePortfolio: [Stock] = []
+    @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
+    @AppStorage("storeWallet") var storeWallet: Double = 25000
+    @AppStorage("storeWallet") var storeNet: Double = 25000
     private var currentDate: Date = Date()
     
     var body: some View {
-        let localFavList: [Stock] = localStorage.favoriteArray
-        let localPortList: [Stock] = localStorage.portfolioArray
+        var localFavList: [Stock] = localStorage.favoriteArray
+        var localPortList: [Stock] = localStorage.portfolioArray
         //        if mockObj.tickerData != nil{
         //            var profile: Profile = mockObj.tickerData!.profile!
         NavigationView {
@@ -70,7 +74,15 @@ struct HomeView: View {
                             }
                             
                         }
-                        .onDelete(perform: delete)
+                        .onDelete(perform: { indexSet in
+                            let removeMe = indexSet.map {localPortList[$0]}
+                            for item in removeMe{
+                                localStorage.portfolioArray = localStorage.portfolioArray.filter{
+                                    $0.ticker != item.ticker
+                                }
+                            }
+                            self.delete(at: indexSet, storePortfolio: storePortfolio)
+                        })
                         .onMove(perform: move)
                     }
                     
@@ -103,16 +115,13 @@ struct HomeView: View {
                 EditButton()
             }
         }
-        //        } else {
-        //            ProgressView("Fetching Data...")
-        //        }
         
     }
     
-    func delete(at offsets: IndexSet){
-        //        tempList.remove(atOffsets: offsets)
+    func delete(at offsets: IndexSet, storePortfolio: [Stock]){
+        self.storePortfolio.remove(atOffsets: offsets)
     }
     func move(from source: IndexSet, to destination: Int) {
-        //        tempList.move(fromOffsets: source, toOffset: destination)
+        self.storePortfolio.move(fromOffsets: source, toOffset: destination)
     }
 }
