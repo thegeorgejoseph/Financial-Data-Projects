@@ -12,6 +12,7 @@ struct PortfolioCardDetail: View {
     //Ground Truth for all things related to this ticker so this is where this gets initialised for the first time
     @State var ticker: String
     @EnvironmentObject var localStorage: LocalStorage
+    @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
 //    @EnvironmentObject var dataObj: MockModel
 //    @State var isFavorite: Bool
 //    @State var shares: Int = 0
@@ -71,6 +72,7 @@ struct PortfolioCardDetail: View {
                                 item.ticker != thisStock.ticker
                             }
                         }
+                        storeFavorite = localStorage.favoriteArray
                         isFavorite.toggle()
                         withAnimation {
                             self.showToast = true

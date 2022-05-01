@@ -74,15 +74,7 @@ struct HomeView: View {
                             }
                             
                         }
-                        .onDelete(perform: { indexSet in
-                            let removeMe = indexSet.map {localPortList[$0]}
-                            for item in removeMe{
-                                localStorage.portfolioArray = localStorage.portfolioArray.filter{
-                                    $0.ticker != item.ticker
-                                }
-                            }
-                            self.delete(at: indexSet, storePortfolio: storePortfolio)
-                        })
+//                        .onDelete(perform: delete)
                         .onMove(perform: move)
                     }
                     
@@ -94,7 +86,8 @@ struct HomeView: View {
                             }
                             
                         }
-                        
+                        .onDelete(perform: favDelete)
+                        .onMove(perform: favMove)
                     }
                     
                     Section{
@@ -118,10 +111,20 @@ struct HomeView: View {
         
     }
     
-    func delete(at offsets: IndexSet, storePortfolio: [Stock]){
+    func delete(at offsets: IndexSet){
         self.storePortfolio.remove(atOffsets: offsets)
+        localStorage.portfolioArray = self.storePortfolio
     }
     func move(from source: IndexSet, to destination: Int) {
         self.storePortfolio.move(fromOffsets: source, toOffset: destination)
+        localStorage.portfolioArray = self.storePortfolio
+    }
+    func favDelete(at offsets: IndexSet){
+        self.storeFavorite.remove(atOffsets: offsets)
+        localStorage.favoriteArray = self.storeFavorite
+    }
+    func favMove(from source: IndexSet, to destination: Int) {
+        self.storeFavorite.move(fromOffsets: source, toOffset: destination)
+        localStorage.favoriteArray = self.storeFavorite
     }
 }
