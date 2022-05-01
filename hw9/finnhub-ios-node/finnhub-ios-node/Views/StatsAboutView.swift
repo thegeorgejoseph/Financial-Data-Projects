@@ -71,8 +71,13 @@ struct StatsAboutView: View {
                     ScrollView(.horizontal){
                         HStack{
                             ForEach(peers, id: \.self){peer in
-                                Text("\(peer),")
-                                    .foregroundColor(Color.blue)
+                                let temp = String(peer)
+                                NavigationLink(destination:NavigationLazyView(PortfolioCardDetail(ticker: temp))){
+                                    Text("\(peer),")
+                                        .foregroundColor(Color.blue)
+                                }
+                                
+                                    
                             }
                         }
                     }
