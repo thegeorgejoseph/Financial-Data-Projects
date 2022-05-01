@@ -94,6 +94,10 @@ struct TradingSheetView: View {
     }
     
     func buyAction(){
+        @AppStorage("storePortfolio") var storePortfolio: [Stock] = []
+        @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
+        @AppStorage("storeWallet") var storeWallet: Double = 25000
+        @AppStorage("storeWallet") var storeNet: Double = 25000
         if input == "" || input == "0" {
             toastString = "Cannot buy non-positive shares"
             showToast = true
@@ -117,11 +121,19 @@ struct TradingSheetView: View {
             }
             localStorage.portfolioArray.append(stock)
             didBuy = true
+            storePortfolio = localStorage.portfolioArray
+            storeFavorite = localStorage.favoriteArray
+            storeWallet = localStorage.wallet
+            storeNet = localStorage.net
             self.modalState.isModal2Presented = true
         }
         
     }
     func sellAction(){
+        @AppStorage("storePortfolio") var storePortfolio: [Stock] = []
+        @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
+        @AppStorage("storeWallet") var storeWallet: Double = 25000
+        @AppStorage("storeWallet") var storeNet: Double = 25000
         if input == "" || input == "0" {
             toastString = "Cannot sell non-positive shares"
             showToast = true
@@ -145,7 +157,12 @@ struct TradingSheetView: View {
             }
             localStorage.portfolioArray.append(stock)
             didBuy = false
+            storePortfolio = localStorage.portfolioArray
+            storeFavorite = localStorage.favoriteArray
+            storeWallet = localStorage.wallet
+            storeNet = localStorage.net
             self.modalState.isModal2Presented = true
+            
         }
     }
 }

@@ -48,12 +48,18 @@ class LocalStorage: ObservableObject {
     @Published var favoriteArray: [Stock]
     @Published var wallet: Double
     @Published var net: Double
+    
     init(){
-        portfolioArray = []
-        favoriteArray = []
-        wallet = 25000
-        net = 25000
+        @AppStorage("storePortfolio") var storePortfolio: [Stock] = []
+        @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
+        @AppStorage("storeWallet") var storeWallet: Double = 25000
+        @AppStorage("storeWallet") var storeNet: Double = 25000
+        portfolioArray = storePortfolio
+        favoriteArray = storeFavorite
+        wallet = storeWallet
+        net = storeNet
     }
+    
     
 }
     
