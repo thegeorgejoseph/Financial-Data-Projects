@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Alamofire
+import SwiftyJSON
 
 struct HomeView: View {
     @EnvironmentObject var localStorage: LocalStorage
@@ -18,6 +20,7 @@ struct HomeView: View {
     @AppStorage("storeWallet") var storeWallet: Double = 25000
     @AppStorage("storeWallet") var storeNet: Double = 25000
     private var currentDate: Date = Date()
+//    let portFolioTimer = Timer.publish(every: 15, tolerance: 2 ,on: .main, in: .common).autoconnect()
     
     var body: some View {
         var localFavList: [Stock] = localStorage.favoriteArray
@@ -66,10 +69,13 @@ struct HomeView: View {
                     Section(header: Text("Portfolio")){
                         PortfolioHomeView()
                         ForEach(localPortList) { stock in
-                            let temp: String = String(stock.ticker)
+                            let localStock = stock
+                            let temp: String = String(localStock.ticker)
                             NavigationLink(destination:NavigationLazyView(PortfolioCardDetail(ticker: temp))){
-                                PortfolioHomeCardView(stock: localStorage.portfolioArray.filter{$0.ticker == stock.ticker}.first ?? stock)
-                                //                                    PortfolioHomeCardView(stock: stock)
+                                PortfolioHomeCardView(stock: localStock)
+//                                    .onReceive(portFolioTimer){time in
+//                                        updater.refresh(ticker: temp)
+//                                    }
                             }
                             
                         }

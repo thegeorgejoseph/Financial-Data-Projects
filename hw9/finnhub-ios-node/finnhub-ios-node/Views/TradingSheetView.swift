@@ -152,10 +152,12 @@ struct TradingSheetView: View {
                     item.ticker != stock.ticker
                 }
             }
-            localStorage.portfolioArray = localStorage.portfolioArray.filter{item in
-                item.ticker != stock.ticker
+            else{
+                localStorage.portfolioArray = localStorage.portfolioArray.filter{item in
+                    item.ticker != stock.ticker
+                }
+                localStorage.portfolioArray.append(stock)
             }
-            localStorage.portfolioArray.append(stock)
             didBuy = false
             storePortfolio = localStorage.portfolioArray
             storeFavorite = localStorage.favoriteArray

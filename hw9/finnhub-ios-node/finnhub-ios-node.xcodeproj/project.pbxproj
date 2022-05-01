@@ -44,6 +44,7 @@
 		F28FADCE281C9BE3006B491E /* EPSlogic.js in Resources */ = {isa = PBXBuildFile; fileRef = F28FADCA281C9BE3006B491E /* EPSlogic.js */; };
 		F28FADCF281C9BE3006B491E /* recIndex.html in Resources */ = {isa = PBXBuildFile; fileRef = F28FADCB281C9BE3006B491E /* recIndex.html */; };
 		F28FADD1281DFE7D006B491E /* ModalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28FADD0281DFE7D006B491E /* ModalClass.swift */; };
+		F28FADD3281F046F006B491E /* AutoUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28FADD2281F046F006B491E /* AutoUpdateModel.swift */; };
 		F2A3F20B2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */; };
 		F2A3F20D2808E7AE00E6E050 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3F20C2808E7AE00E6E050 /* ContentView.swift */; };
 		F2A3F20F2808E7AF00E6E050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A3F20E2808E7AF00E6E050 /* Assets.xcassets */; };
@@ -87,6 +88,7 @@
 		F28FADCA281C9BE3006B491E /* EPSlogic.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = EPSlogic.js; sourceTree = "<group>"; };
 		F28FADCB281C9BE3006B491E /* recIndex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = recIndex.html; sourceTree = "<group>"; };
 		F28FADD0281DFE7D006B491E /* ModalClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalClass.swift; sourceTree = "<group>"; };
+		F28FADD2281F046F006B491E /* AutoUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateModel.swift; sourceTree = "<group>"; };
 		F2A3F2072808E7AE00E6E050 /* finnhub-ios-node.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "finnhub-ios-node.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A3F20A2808E7AE00E6E050 /* finnhub_ios_nodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finnhub_ios_nodeApp.swift; sourceTree = "<group>"; };
 		F2A3F20C2808E7AE00E6E050 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				F257253D281B6B750054234D /* SearchBar.swift */,
 				F2572541281B976D0054234D /* Debouncer.swift */,
 				F28FADD0281DFE7D006B491E /* ModalClass.swift */,
+				F28FADD2281F046F006B491E /* AutoUpdateModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				F257253E281B6B750054234D /* SearchBar.swift in Sources */,
 				F2572536281B36790054234D /* TradingSheetView.swift in Sources */,
 				F26D4A1A280A369300B8CB06 /* MockModel.swift in Sources */,
+				F28FADD3281F046F006B491E /* AutoUpdateModel.swift in Sources */,
 				F2572542281B976D0054234D /* Debouncer.swift in Sources */,
 				F22E80EE281A122600D132ED /* StatsAboutView.swift in Sources */,
 				F22DD05C2808F8AF00A768B1 /* HomeView.swift in Sources */,
