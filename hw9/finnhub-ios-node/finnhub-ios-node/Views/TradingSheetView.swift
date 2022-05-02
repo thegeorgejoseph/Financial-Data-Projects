@@ -109,7 +109,6 @@ struct TradingSheetView: View {
         else {
             let buyingPrice = ((Double(input) ?? 0.0) * stock.change)
             localStorage.wallet -= buyingPrice
-            localStorage.net += buyingPrice
             stock.shares += Int(input) ?? 0
 //            if localStorage.portfolioArray.contains(where: {$0.ticker == stock.ticker}){
 //
@@ -145,8 +144,8 @@ struct TradingSheetView: View {
         else{
             let sellingPrice = ((Double(input) ?? 0.0) * stock.change)
             localStorage.wallet += sellingPrice
-            localStorage.net -= sellingPrice
             stock.shares -= Int(input) ?? 0
+//            localStorage.net = localStorage.wallet + (Double(stock.shares) * stock.change)
             if stock.shares == 0 {
                 localStorage.portfolioArray = localStorage.portfolioArray.filter{item in
                     item.ticker != stock.ticker

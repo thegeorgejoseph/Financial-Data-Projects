@@ -10,9 +10,8 @@ import SwiftUI
 struct PortfolioHomeCardView: View {
     
     @State var stock: Stock
-//    @State var updater: Bool 
+//    @State var updater: Bool
     var body: some View {
-        
         HStack{
             VStack(alignment: .leading){
                 Text("\(stock.ticker)").font(.title2).fontWeight(.semibold)

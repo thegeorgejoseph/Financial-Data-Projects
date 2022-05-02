@@ -96,22 +96,28 @@ struct HomeView: View {
                                                     //                    print(array)
                                                     stock = array[0]
                                                     print("Updating portfolio stock: \(temp)")
-                                                    var idxToChange = 0
+                                                    var idxToChange: Int = 10000
                                                     for (idx, item) in storePortfolio.enumerated(){
                                                         if item.ticker == temp{
                                                             idxToChange = idx
                                                         }
                                                     }
-                                                    storePortfolio[idxToChange].d = stock!.d
-                                                    storePortfolio[idxToChange].dp = stock!.dp
-                                                    storePortfolio[idxToChange].totalChange = storePortfolio[idxToChange].change - stock!.c
-                                                    var newNet: Double = storeWallet
-                                                    for (idx, item) in storePortfolio.enumerated(){
-                                                        print(item.totalChange)
-                                                        print(item.change)
-                                                        newNet += ((item.change + item.totalChange) * Double(item.shares))
+                                                    
+                                                    if idxToChange != 10000{
+                                                        storePortfolio[idxToChange].d = stock!.d
+                                                        storePortfolio[idxToChange].dp = stock!.dp
+                                                        storePortfolio[idxToChange].totalChange = storePortfolio[idxToChange].change - stock!.c
+                                                        
+                                                        var newNet: Double = storeWallet
+                                                        for (idx, item) in storePortfolio.enumerated(){
+                                                            print(item.totalChange)
+                                                            print(item.change)
+                                                            newNet += ((item.change + item.totalChange) * Double(item.shares))
+                                                        }
+                                                        storeNet = newNet
                                                     }
-                                                    storeNet = newNet
+     
+                                                    
 //                                                    updater.toggle()
 //                                                    storePortfolio[idxToChange].change = stock!.c
 //                                                    portFolioTimer.upstream.connect().cancel()
@@ -155,15 +161,18 @@ struct HomeView: View {
                                                     //                    print(array)
                                                     stock = array[0]
                                                     print("Updating favorite stock: \(temp)")
-                                                    var idxToChange = 0
+                                                    var idxToChange = 10000
                                                     for (idx, item) in storeFavorite.enumerated(){
                                                         if item.ticker == temp{
                                                             idxToChange = idx
                                                         }
                                                     }
-                                                    storeFavorite[idxToChange].d = stock!.d
-                                                    storeFavorite[idxToChange].dp = stock!.dp
-                                                    storeFavorite[idxToChange].change = stock!.c
+                                                    if idxToChange != 10000{
+                                                        storeFavorite[idxToChange].d = stock!.d
+                                                        storeFavorite[idxToChange].dp = stock!.dp
+                                                        storeFavorite[idxToChange].change = stock!.c
+                                                    }
+                                                    
 //                                                    favoriteTimer.upstream.connect().cancel()
                                                 } catch{
                                                     print(String(describing: error))
@@ -256,3 +265,9 @@ struct HomeView: View {
 //        }
 //    }
 //}
+
+extension Collection where Indices.Iterator.Element == Index {
+    subscript (safe index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
