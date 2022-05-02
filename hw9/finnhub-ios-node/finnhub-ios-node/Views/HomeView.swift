@@ -20,8 +20,8 @@ struct HomeView: View {
     @AppStorage("storeWallet") var storeWallet: Double = 25000
     @AppStorage("storeWallet") var storeNet: Double = 25000
     private var currentDate: Date = Date()
-//    let portFolioTimer = Timer.publish(every: 15, tolerance: 2 ,on: .main, in: .common).autoconnect()
-    
+    let portFolioTimer = Timer.publish(every: 15, tolerance: 2, on: .main, in: .common).autoconnect()
+    let favoriteTimer = Timer.publish(every: 15, tolerance: 2, on: .main, in: .common).autoconnect()
     var body: some View {
         var localFavList: [Stock] = localStorage.favoriteArray
         var localPortList: [Stock] = localStorage.portfolioArray
@@ -69,17 +69,53 @@ struct HomeView: View {
                     Section(header: Text("Portfolio")){
                         PortfolioHomeView()
                         ForEach(localPortList) { stock in
+                            //                            var updater: AutoUpdate = AutoUpdate()
                             let localStock = stock
                             let temp: String = String(localStock.ticker)
                             NavigationLink(destination:NavigationLazyView(PortfolioCardDetail(ticker: temp))){
                                 PortfolioHomeCardView(stock: localStock)
-//                                    .onReceive(portFolioTimer){time in
-//                                        updater.refresh(ticker: temp)
-//                                    }
+                                    .onReceive(portFolioTimer){time in
+                                        //                                        updater.refresh(ticker: temp)
+//                                        print(localStorage.portfolioArray)
+                                        var stock: Quote? = nil
+                                        var resultObj: [Quote]? = nil
+                                        let request = AF.request("http://finnhub-angular-node.wl.r.appspot.com/stock_quote?symbol=\(temp)", method: .get)
+                                        var array: [Quote] = []
+                                        request.responseJSON{(response) in
+                                            if response.data != nil{
+                                                do{
+                                                    let json = try JSON(data: response.data!)
+                                                    let jsonString = "\(json)"
+                                                    let jsonData = jsonString.data(using: .utf8)
+                                                    resultObj = try JSONDecoder().decode([Quote].self, from: jsonData!)
+                                                    //                    print(self.result)
+                                                    for item in resultObj!{
+                                                        array.append(item)
+                                                    }
+                                                    //                    print(array)
+                                                    stock = array[0]
+                                                    print("Updating portfolio stock: \(temp)")
+                                                    var idxToChange = 0
+                                                    for (idx, item) in storePortfolio.enumerated(){
+                                                        if item.ticker == temp{
+                                                            idxToChange = idx
+                                                        }
+                                                    }
+                                                    storePortfolio[idxToChange].d = stock!.d
+                                                    storePortfolio[idxToChange].dp = stock!.dp
+                                                    storePortfolio[idxToChange].change = stock!.c
+//                                                    portFolioTimer.upstream.connect().cancel()
+                                                } catch{
+                                                    print(String(describing: error))
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
                             }
                             
                         }
-//                        .onDelete(perform: delete)
+                        //                        .onDelete(perform: delete)
                         .onMove(perform: move)
                     }
                     
@@ -88,6 +124,44 @@ struct HomeView: View {
                             let temp: String = String(stock.ticker)
                             NavigationLink(destination: NavigationLazyView(PortfolioCardDetail(ticker: temp))){
                                 FavoritesHomeCardView(stock: stock)
+                                    .onReceive(favoriteTimer){time in
+                                        //                                        updater.refresh(ticker: temp)
+//                                        print(localStorage.favoriteArray)
+                                        var stock: Quote? = nil
+                                        var resultObj: [Quote]? = nil
+                                        let request = AF.request("http://finnhub-angular-node.wl.r.appspot.com/stock_quote?symbol=\(temp)", method: .get)
+                                        var array: [Quote] = []
+                                        request.responseJSON{(response) in
+                                            if response.data != nil{
+                                                do{
+                                                    let json = try JSON(data: response.data!)
+                                                    let jsonString = "\(json)"
+                                                    let jsonData = jsonString.data(using: .utf8)
+                                                    resultObj = try JSONDecoder().decode([Quote].self, from: jsonData!)
+                                                    //                    print(self.result)
+                                                    for item in resultObj!{
+                                                        array.append(item)
+                                                    }
+                                                    //                    print(array)
+                                                    stock = array[0]
+                                                    print("Updating favorite stock: \(temp)")
+                                                    var idxToChange = 0
+                                                    for (idx, item) in storeFavorite.enumerated(){
+                                                        if item.ticker == temp{
+                                                            idxToChange = idx
+                                                        }
+                                                    }
+                                                    storeFavorite[idxToChange].d = stock!.d
+                                                    storeFavorite[idxToChange].dp = stock!.dp
+                                                    storeFavorite[idxToChange].change = stock!.c
+//                                                    favoriteTimer.upstream.connect().cancel()
+                                                } catch{
+                                                    print(String(describing: error))
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
                             }
                             
                         }
@@ -133,3 +207,42 @@ struct HomeView: View {
         localStorage.favoriteArray = self.storeFavorite
     }
 }
+
+
+//class AutoUpdate(): ObservableObject {
+//
+//    func refresh(){
+//        for (idx,item) in self.favoriteArray.enumerated(){
+//            //                print(idx, item.ticker)
+//            DispatchQueue.main.async{
+//                var stock: Quote? = nil
+//                var resultObj: [Quote]? = nil
+//                let request = AF.request("http://finnhub-angular-node.wl.r.appspot.com/stock_quote?symbol=\(item.ticker)", method: .get)
+//                var array: [Quote] = []
+//                request.responseJSON{(response) in
+//                    if response.data != nil{
+//                        do{
+//                            let json = try JSON(data: response.data!)
+//                            let jsonString = "\(json)"
+//                            let jsonData = jsonString.data(using: .utf8)
+//                            resultObj = try JSONDecoder().decode([Quote].self, from: jsonData!)
+//                            //                    print(self.result)
+//                            for item in resultObj!{
+//                                array.append(item)
+//                            }
+//                            //                    print(array)
+//                            stock = array[0]
+//                            print("Updating stock: \(item.ticker)")
+//                            self.favoriteArray[idx].d = stock!.d
+//                            self.favoriteArray[idx].dp = stock!.dp
+//                            self.favoriteArray[idx].change = stock!.c
+//                            self.favoriteArray[idx].ticker = "Say Sike"
+//                        } catch{
+//                            print(String(describing: error))
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
