@@ -50,13 +50,13 @@ struct PortfolioSectionView: View {
                         Text("Change: ")
                             .font(Font.headline.weight(.bold))
                             .padding(.leading)
-                        Text("\(String(format: "%.2f",priceChange))")
+                        Text("\(String(format: "%.2f",sectionItems.totalChange))")
                     }
                     HStack{
                         Text("Market Value: ")
                             .font(Font.headline.weight(.bold))
                             .padding(.leading)
-                        Text("\(String(format: "%.2f",priceChange/(sectionItems.change * Double(sectionItems.shares))))")
+                        Text("\(String(format: "%.2f",(sectionItems.change * Double(sectionItems.shares))))")
                     }
                     .padding(.bottom)
                     

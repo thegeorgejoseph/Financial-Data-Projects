@@ -39,7 +39,7 @@ struct PortfolioCardDetail: View {
             var isFavorite: Bool = localStorage.favoriteArray.contains(where: {$0.ticker == ticker}) ? true : false
             let trendColor: Color = self.getColor(value: dataObj.tickerData!.quote.dp)
             let arrowSymbol: String = (trendColor == Color.green) ? "arrow.up.right" : "arrow.down.right"
-            let thisStock: Stock = Stock(ticker: dataObj.tickerData!.profile!.ticker, name: dataObj.tickerData!.profile!.name, shares: shares, change: dataObj.tickerData!.quote.c, favorite: isFavorite, d: dataObj.tickerData!.quote.d, dp:dataObj.tickerData!.quote.dp)
+            let thisStock: Stock = Stock(ticker: dataObj.tickerData!.profile!.ticker, name: dataObj.tickerData!.profile!.name, shares: shares, change: dataObj.tickerData!.quote.c, favorite: isFavorite, d: dataObj.tickerData!.quote.d, dp:dataObj.tickerData!.quote.dp, totalChange: 0.0)
             VStack{
                 ScrollView{
                     PortfolioHeaderView(profile:dataObj.tickerData!.profile!, quote: dataObj.tickerData!.quote, trendColor: trendColor, arrowSymbol: arrowSymbol)

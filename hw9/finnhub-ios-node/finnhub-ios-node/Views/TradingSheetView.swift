@@ -97,7 +97,7 @@ struct TradingSheetView: View {
         @AppStorage("storePortfolio") var storePortfolio: [Stock] = []
         @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
         @AppStorage("storeWallet") var storeWallet: Double = 25000
-        @AppStorage("storeWallet") var storeNet: Double = 25000
+        @AppStorage("storeNet") var storeNet: Double = 25000
         if input == "" || input == "0" {
             toastString = "Cannot buy non-positive shares"
             showToast = true
@@ -107,7 +107,7 @@ struct TradingSheetView: View {
             showToast = true
         }
         else {
-            let buyingPrice = Double(input) ?? 0.0 * stock.change
+            let buyingPrice = ((Double(input) ?? 0.0) * stock.change)
             localStorage.wallet -= buyingPrice
             localStorage.net += buyingPrice
             stock.shares += Int(input) ?? 0
@@ -133,7 +133,7 @@ struct TradingSheetView: View {
         @AppStorage("storePortfolio") var storePortfolio: [Stock] = []
         @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
         @AppStorage("storeWallet") var storeWallet: Double = 25000
-        @AppStorage("storeWallet") var storeNet: Double = 25000
+        @AppStorage("storeNet") var storeNet: Double = 25000
         if input == "" || input == "0" {
             toastString = "Cannot sell non-positive shares"
             showToast = true
@@ -143,7 +143,7 @@ struct TradingSheetView: View {
             showToast = true
         }
         else{
-            let sellingPrice = Double(input) ?? 0.0 * stock.change
+            let sellingPrice = ((Double(input) ?? 0.0) * stock.change)
             localStorage.wallet += sellingPrice
             localStorage.net -= sellingPrice
             stock.shares -= Int(input) ?? 0

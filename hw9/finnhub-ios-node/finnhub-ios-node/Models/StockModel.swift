@@ -23,6 +23,7 @@ struct Stock: Identifiable,Codable{
     var favorite: Bool
     var d: Double
     var dp: Double
+    var totalChange: Double
 }
 
 struct PortfolioArray: Codable{
@@ -56,7 +57,7 @@ class LocalStorage: ObservableObject {
         @AppStorage("storePortfolio") var storePortfolio: [Stock] = []
         @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
         @AppStorage("storeWallet") var storeWallet: Double = 25000
-        @AppStorage("storeWallet") var storeNet: Double = 25000
+        @AppStorage("storeNet") var storeNet: Double = 25000
         portfolioArray = storePortfolio
         favoriteArray = storeFavorite
         wallet = storeWallet

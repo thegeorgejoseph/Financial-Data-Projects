@@ -10,7 +10,9 @@ import SwiftUI
 struct PortfolioHomeCardView: View {
     
     @State var stock: Stock
+//    @State var updater: Bool 
     var body: some View {
+        
         HStack{
             VStack(alignment: .leading){
                 Text("\(stock.ticker)").font(.title2).fontWeight(.semibold)
@@ -18,14 +20,14 @@ struct PortfolioHomeCardView: View {
             }
             Spacer()
             VStack(alignment: .trailing){
-                Text("$\(stock.change * Double(stock.shares),specifier: "%.2f")").font(.title3).fontWeight(.semibold)
+                Text("$\((stock.change + stock.totalChange) * Double(stock.shares),specifier: "%.2f")").font(.title3).fontWeight(.semibold) // market value = latest quote * num shares
                 HStack{
-                    Image(systemName: "arrow.up.right")
-                    Text("$0.0") //hard coded
-                    Text("(0.0%)") //hard coded
+                    Image(systemName: stock.totalChange > 0 ? "arrow.up.right" : (stock.totalChange < 0 ? "arrow.down.right" : "minus"))
+                    Text("\(stock.totalChange * Double(stock.shares),specifier: "%.2f")")
+                    Text("(\(stock.totalChange / stock.change, specifier: "%.2f")%)")
                     
                 }
-                        .foregroundColor(.green)
+                .foregroundColor(stock.totalChange > 0 ? Color.green : (stock.totalChange < 0 ? Color.red : Color.gray))
             }
         }
         

@@ -18,7 +18,7 @@ struct HomeView: View {
     @AppStorage("storePortfolio") var storePortfolio: [Stock] = []
     @AppStorage("storeFavorite") var storeFavorite: [Stock] = []
     @AppStorage("storeWallet") var storeWallet: Double = 25000
-    @AppStorage("storeWallet") var storeNet: Double = 25000
+    @AppStorage("storeNet") var storeNet: Double = 25000
     private var currentDate: Date = Date()
     let portFolioTimer = Timer.publish(every: 15, tolerance: 2, on: .main, in: .common).autoconnect()
     let favoriteTimer = Timer.publish(every: 15, tolerance: 2, on: .main, in: .common).autoconnect()
@@ -68,6 +68,7 @@ struct HomeView: View {
                     
                     Section(header: Text("Portfolio")){
                         PortfolioHomeView()
+//                        var updater: Bool = false
                         ForEach(localPortList) { stock in
                             //                            var updater: AutoUpdate = AutoUpdate()
                             let localStock = stock
@@ -103,7 +104,16 @@ struct HomeView: View {
                                                     }
                                                     storePortfolio[idxToChange].d = stock!.d
                                                     storePortfolio[idxToChange].dp = stock!.dp
-                                                    storePortfolio[idxToChange].change = stock!.c
+                                                    storePortfolio[idxToChange].totalChange = storePortfolio[idxToChange].change - stock!.c
+                                                    var newNet: Double = storeWallet
+                                                    for (idx, item) in storePortfolio.enumerated(){
+                                                        print(item.totalChange)
+                                                        print(item.change)
+                                                        newNet += ((item.change + item.totalChange) * Double(item.shares))
+                                                    }
+                                                    storeNet = newNet
+//                                                    updater.toggle()
+//                                                    storePortfolio[idxToChange].change = stock!.c
 //                                                    portFolioTimer.upstream.connect().cancel()
                                                 } catch{
                                                     print(String(describing: error))

@@ -20,12 +20,12 @@ struct FavoritesHomeCardView: View {
             VStack(alignment: .trailing){
                 Text("$\(stock.change,specifier: "%.2f")").font(.title3).fontWeight(.semibold)
                 HStack{
-                    Image(systemName: "arrow.down.right")
+                    Image(systemName: stock.d > 0 ? "arrow.up.right" : (stock.d < 0 ? "arrow.down.right" : "minus"))
                     Text("\(String(format: "%.2f", stock.d))")
                     Text("(\(String(format: "%.2f", stock.dp))%)")
                     
                 }
-                .foregroundColor(stock.dp < 0 ? Color.red : Color.green)
+                .foregroundColor(stock.dp < 0 ? Color.red : (stock.d > 0 ? Color.green : Color.gray))
             }
         }
     }
