@@ -123,6 +123,12 @@ struct TradingSheetView: View {
             storePortfolio = localStorage.portfolioArray
             storeFavorite = localStorage.favoriteArray
             storeWallet = localStorage.wallet
+            
+            var currentWorth: Double = 0.00
+            for item in localStorage.portfolioArray{
+                currentWorth += (Double(item.shares) * item.change)
+            }
+            localStorage.net = localStorage.wallet + currentWorth
             storeNet = localStorage.net
             self.modalState.isModal2Presented = true
         }
@@ -161,6 +167,11 @@ struct TradingSheetView: View {
             storePortfolio = localStorage.portfolioArray
             storeFavorite = localStorage.favoriteArray
             storeWallet = localStorage.wallet
+            var currentWorth: Double = 0.00
+            for item in localStorage.portfolioArray{
+                currentWorth += (Double(item.shares) * item.change)
+            }
+            localStorage.net = localStorage.wallet + currentWorth
             storeNet = localStorage.net
             self.modalState.isModal2Presented = true
             
