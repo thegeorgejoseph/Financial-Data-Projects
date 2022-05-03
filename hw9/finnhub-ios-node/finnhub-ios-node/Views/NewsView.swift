@@ -27,7 +27,9 @@ struct NewsView: View {
             KFImage.url(URL(string:largeNews.image))
                 .resizable()
                 .frame(maxWidth: .infinity)
-                .aspectRatio(contentMode: .fit)
+                .frame(height: 200)
+                .aspectRatio(contentMode: .fill)
+                .clipped()
                 .cornerRadius(20)
                 .padding(.all)
             VStack(alignment: .leading, spacing: 5){
@@ -69,7 +71,8 @@ struct NewsView: View {
                     KFImage.url(URL(string:localNews[news].image))
                         .resizable()
                         .frame(width: 100, height: 60)
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
                         .cornerRadius(5)
                         .padding(.trailing)
                 }
