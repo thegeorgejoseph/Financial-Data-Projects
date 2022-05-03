@@ -42,15 +42,16 @@ struct TradingSheetView: View {
                     .font(Font.system(size: 80, design: .default))
                     .keyboardType(.decimalPad)
                 Spacer()
-                Text("\( (input == "" || input == "1") ? "Share" : "Shares")")
+                Text("\( (input == "" || input == "1" || input == "0") ? "Share" : "Shares")")
                     .font(Font.system(size: 25, design: .default))
+                    .padding(.trailing)
             }
             HStack{
                 Spacer()
                 
                 Text("x $\(String(format: "%.2f",stock.change))/share = $\(input == "" ? "0.0" : String(format:"%.2f", Double(input)! * stock.change ) )")
                     .font(.body)
-                
+                    .padding(.trailing)
                 
             }
             Spacer()

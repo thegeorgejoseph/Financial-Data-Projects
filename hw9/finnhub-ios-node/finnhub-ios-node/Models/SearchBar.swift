@@ -12,7 +12,7 @@ class SearchBar: NSObject, ObservableObject {
 
     @Published var text: String = ""
     @Published var results: [[String]]? = nil
-    let debouncer = Debouncer(delay: 0)
+    let debouncer = Debouncer(delay: 0.5)
     private var autoObj: AutocompleteHandler =  AutocompleteHandler()
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
 
@@ -28,12 +28,14 @@ extension SearchBar: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
         // Publish search bar text changes.
-        if let searchBarText = searchController.searchBar.text {
+        if var searchBarText = searchController.searchBar.text {
             self.text = searchBarText
             debouncer.run(action: {
                 self.autoObj.getData(section: searchBarText)
                 self.results = self.autoObj.result
+//                print(self.results)
             })
+            
         }
     }
 }
@@ -61,33 +63,33 @@ extension View {
 }
 
 final class ViewControllerResolver: UIViewControllerRepresentable {
-    
+
     let onResolve: (UIViewController) -> Void
-        
+
     init(onResolve: @escaping (UIViewController) -> Void) {
         self.onResolve = onResolve
     }
-    
+
     func makeUIViewController(context: Context) -> ParentResolverViewController {
         ParentResolverViewController(onResolve: onResolve)
     }
-    
+
     func updateUIViewController(_ uiViewController: ParentResolverViewController, context: Context) { }
 }
 
 class ParentResolverViewController: UIViewController {
-    
+
     let onResolve: (UIViewController) -> Void
-        
+
     init(onResolve: @escaping (UIViewController) -> Void) {
         self.onResolve = onResolve
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("Use init(onResolve:) to instantiate ParentResolverViewController.")
     }
-    
+
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         if let parent = parent {

@@ -32,7 +32,7 @@ extension Optional: RawRepresentable where Wrapped: Codable {
     public init?(rawValue: String) {
         guard let data = rawValue.data(using: .utf8),
               let value = try? JSONDecoder().decode(Self.self, from: data)
-        else {
+        else {  
             return nil
         }
         self = value

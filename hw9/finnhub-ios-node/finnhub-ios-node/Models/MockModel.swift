@@ -176,6 +176,7 @@ class AutocompleteHandler: ObservableObject {
                     }
 //                    print(array)
                     self.result = array
+                    
                     print("Autocomplete Data Received into Middleware!")
                 } catch{
                     print(String(describing: error))

@@ -9,7 +9,7 @@ function temporaryFunc(recommendation) {
     //    testElement.innerHTML = `Something : `;
     try {
         //      testElement.innerElement = temp.title;
-        Highcharts.stockChart("REC-chart", {
+        Highcharts.chart("REC-chart", {
         title: {
         text: `Recommendation Trends`,
         },

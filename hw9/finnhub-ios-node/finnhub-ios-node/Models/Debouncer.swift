@@ -22,3 +22,4 @@ public class Debouncer {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: workItem!)
     }
 }
+

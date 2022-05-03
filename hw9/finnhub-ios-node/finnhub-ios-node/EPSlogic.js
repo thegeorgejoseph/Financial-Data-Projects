@@ -9,7 +9,7 @@ function temporaryFunc(earnings) {
   //    testElement.innerHTML = `Something : `;
   try {
     //      testElement.innerElement = temp.title;
-    Highcharts.stockChart("EPS-chart", {
+    Highcharts.chart("EPS-chart", {
       title: {
         text: `Historical EPS Surprises`,
       },
@@ -19,6 +19,9 @@ function temporaryFunc(earnings) {
       xAxis: {
         type: "linear",
         categories: temp.categories,
+      labels:{
+          rotation: -45
+      }
       },
       yAxis: [
         {
